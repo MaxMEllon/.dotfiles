@@ -1,0 +1,12 @@
+[color]
+  ui = auto
+[alias]
+  st=status
+  sh=show
+  cm=commit
+  br=branch
+  lg=log --graph --all --color --pretty='%x09%h %cn%x09%s %Cred%d'
+  alias=!git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
+  ls=ls-files
+[core]
+  editor = vim
