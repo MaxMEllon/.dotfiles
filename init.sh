@@ -8,9 +8,9 @@ do
 done
 
 cd
-for file in .dotfiles/.gitconfig .dotfiles/.minttyrc .dotfiles/.tmux.d/.tmux.conf .dotfiles/.zsh.d/.zshrc .vim/.vimrc .dotfiles/.inputrc .dotfiles/.bashrc
+for file in .gitconfig .minttyrc .tmux.d/.tmux.conf .zsh.d/.zshrc .inputrc .bashrc .pryrc
 do
-  ln -s $file
+  ln -s .dotfiles/$file
 done
 
 cd
