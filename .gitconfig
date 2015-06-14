@@ -10,3 +10,8 @@
   ls=ls-files
 [core]
   editor = vim
+[user]
+	name = MaxMEllon
+	email = mozi_kke@excite.co.jp
+[github]
+	user = maxmellon
