@@ -1,9 +1,6 @@
 #!/bin/sh
+git submodule update
+cd .zsh.d
+git pull origin master
+git submodule update
 
-for path in ~/.dotfiles/.zsh.d/ ~/.vim
-do
-  cd $path
-  git pull origin master
-done
-
-vim +":NeoBundleInstall" +:q
