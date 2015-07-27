@@ -3,8 +3,5 @@ os:
 
 sudo: required
 
-before_script:
-    - cd ~/.dotfiles
-
 script:
-    - make install
+    - make init
