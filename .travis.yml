@@ -9,7 +9,7 @@ env:
 sudo: required
 
 install:
-    - git clone git@github.com:MaxMEllon/.dotfiles.git
+    - mv MaxMElloni/.dotfiles ~/
 
 before_script:
     - cd $(DOTPATH)
