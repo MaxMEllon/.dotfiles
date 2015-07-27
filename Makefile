@@ -16,5 +16,8 @@ deploy:
 	@echo 'dotfiles to directory'
 	-bash deploy.sh
 
+vim:
+	-sh ~/.vim/install.sh
+
 install: init deploy
 	@exec $$SHELL

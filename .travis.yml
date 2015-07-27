@@ -8,9 +8,6 @@ env:
 
 sudo: required
 
-install:
-    - mv MaxMElloni/.dotfiles ~/
-
 before_script:
     - cd $(DOTPATH)
 

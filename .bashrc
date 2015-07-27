@@ -1,5 +1,5 @@
 mesg n
 
-source ~/.dotfiles/.bash_aliases
-source ~/.dotfiles/.bash_prompt
-source ~/.dotfiles/.bash_export
+source ~/.dotfiles/.aliases.bash
+source ~/.dotfiles/.prompt.bash
+source ~/.dotfiles/.exports.bash

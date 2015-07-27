@@ -1,8 +1,7 @@
 #!/bin/sh
 
 git submodule update --init
-sh ~/.dotfiles/.zsh.d/init.sh
-sh ~/.vim/install.sh
+sh .zsh.d/init.sh
 
 if [ $? -nq 0 ]; then
   echo "error" >&2
