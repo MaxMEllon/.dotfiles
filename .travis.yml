@@ -8,8 +8,5 @@ env:
 
 sudo: required
 
-before_script:
-    - cd $(DOTPATH)
-
 script:
     - make init
