@@ -1,7 +1,18 @@
+langage: c
 os:
     - linux
 
+env:
+    global:
+        - DOTPATH=~/.dotfiles
+
 sudo: required
+
+install:
+    - git clone git@github.com:MaxMEllon/.dotfiles.git
+
+before_script:
+    - cd $(DOTPATH)
 
 script:
     - make init
