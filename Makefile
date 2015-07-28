@@ -24,5 +24,5 @@ vim:
 	-git submodule update
 	-cd -
 
-install: init deploy vim
+install: init update deploy vim
 	@exec $$SHELL
