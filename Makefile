@@ -17,9 +17,10 @@ deploy:
 	-bash etc/bin/deploy.sh
 
 vim:
-	-git clone https://github.com/MaxMEllon/.vim.git ~/
-	-sh ~/.vim/install.sh
-	-cd ~/.vim
+	-git clone https://github.com/MaxMEllon/.vim.git ~/.vim
+	-pwd
+	-sh ../.vim/install.sh
+	-cd ../.vim
 	-git submodule foreach 'git pull origin master; git checkout master'
 	-git submodule update
 	-cd -
