@@ -7,17 +7,22 @@ help:
 	@echo "make install "
 
 init:
-	-bash init.sh
+	-bash etc/bin/init.sh
 
 update:
-	-bash update.sh
+	-bash etc/bin/update.sh
 
 deploy:
 	@echo 'dotfiles to directory'
-	-bash deploy.sh
+	-bash etc/bin/deploy.sh
 
 vim:
+	-git clone https://github.com/MaxMEllon/.vim.git ~/
 	-sh ~/.vim/install.sh
+	-cd ~/.vim
+	-git submodule foreach 'git pull origin master; git checkout master'
+	-git submodule update
+	-cd -
 
-install: init deploy
+install: init deploy vim
 	@exec $$SHELL
