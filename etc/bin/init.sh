@@ -8,5 +8,5 @@ if [ $? != 0 ]; then
   exit 1
 fi
 
-echo "$0:$IP success"
+echo "$0: success"
 
