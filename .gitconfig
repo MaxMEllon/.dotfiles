@@ -8,10 +8,14 @@
   lg=log --graph --all --color --pretty='%x09%h %cn%x09%s %Cred%d'
   alias=!git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
   ls=ls-files
+  # See: https://github.com/iguto/dotfiles/blob/master/.gitconfig#L12-L14
+  lock = "update-index --skip-worktree"
+  locked = "!f( { git ls-files -v | grep ^S | sed -e 's|S |'; }; f;"
+  unlock = "update-index --no-skip-worktree"|)
 [core]
   editor = vim
 [user]
-	name = MaxMEllon
-	email = mozi_kke@excite.co.jp
+  name = MaxMEllon
+  email = mozi_kke@excite.co.jp
 [github]
-	user = maxmellon
+  user = maxmellon
