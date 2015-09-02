@@ -16,6 +16,7 @@
   default = current
 [core]
   editor = vim
+  excludesfile = ~/.gitignore_global
 [user]
   name = MaxMEllon
   email = mozi_kke@excite.co.jp

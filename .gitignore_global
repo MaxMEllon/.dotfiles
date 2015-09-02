@@ -1,0 +1,10 @@
+.phpcomplete_extended
+.idea
+#*#
+*#
+.#*
+*.swp
+*.swo
+*.out
+.DS_Store
+*~
