@@ -6,7 +6,14 @@ alias whence='type -a'                        # where, of a sort
 alias grep='grep --color'                     # show differences in colour
 alias egrep='egrep --color=auto'              # show differences in colour
 alias fgrep='fgrep --color=auto'              # show differences in colour
-alias ls='ls --color=tty'                     # classify files in colour
+case "${OSTYPE}" in
+darwin*)
+  alias ls="ls -G"
+  ;;
+linux*)
+  alias ls='ls --color=tty'
+  ;;
+esac
 alias ll='ls -l'                              # long list
 alias lla='ls -l -a'
 alias la='ls -A'                              # all but . and ..
