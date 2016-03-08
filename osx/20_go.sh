@@ -6,6 +6,8 @@ set -eu
 
 source $1/lib/conveni.sh
 
+export GOPATH=${HOME}/local/go
+
 _go_get() {
   local cmd=`echo $1 | sed -e s@.*/.*/@@g`
   if ! has "$cmd"; then

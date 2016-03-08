@@ -24,18 +24,6 @@ skip() {
   printf "\e[33m skip\t: $1  \e[0m\n"
 }
 
-result() {
-  [ $? -eq 0 ] && success $1 || error $1
-}
-
-success() {
-  printf "\e[32m success\t: $1  \e[0m\n"
-}
-
-error () {
-  printf "\e[31m error\t: $1 \e[0m\n"
-}
-
 logo='
     _______   ______   .___________. _______  __   __       _______     _______.
    |       \ /  __  \  |           ||   ____||  | |  |     |   ____|   /       |
