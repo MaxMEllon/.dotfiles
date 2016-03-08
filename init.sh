@@ -10,6 +10,8 @@ set -eu
 
 source $DOTPATH/lib/conveni.sh
 
+logo
+
 log "git submodule update --init"
 
 dists=('osx' 'etc' 'bash' 'zsh' 'vim' 'tmux' 'git')

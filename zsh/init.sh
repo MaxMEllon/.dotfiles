@@ -4,6 +4,8 @@ set -eu
 
 : $1
 
+source ../lib/conveni.sh
+
 if ! has "zsh"; then
   error_message 'PLEASE INSTALL ZSH > 5.0.2'
   exit 1

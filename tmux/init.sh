@@ -4,6 +4,8 @@ set -eu
 
 : $1
 
+source ../lib/conveni.sh
+
 if ! has "tmux"
   error_message 'PLEASE INSTALL BASH'
   exit 1

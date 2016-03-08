@@ -2,6 +2,8 @@
 
 set -eu
 
+source ../lib/conveni.sh
+
 if ! has "ruby"; then
   error_message 'PLEASE INSTALL ruby'
   exit 1
