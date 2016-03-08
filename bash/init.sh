@@ -6,6 +6,5 @@ set -eu
 
 source $1/lib/conveni.sh
 
-rm -rf ~/.bashrc
-ln -s $1/bash/.bashrc ~/
+ln -fs $1/bash/.bashrc ~/ &> /dev/null 2>&1
 exit $?

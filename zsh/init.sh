@@ -20,7 +20,6 @@ fi
 
 touch ~/.zshenv
 
-rm -rf ~/.zshrc
-ln -s $1/zsh/.zshrc ~/
+ln -fs $1/zsh/.zshrc ~/
 
 exit $?

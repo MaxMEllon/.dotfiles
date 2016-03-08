@@ -6,6 +6,5 @@ set -eu
 
 source $1/lib/conveni.sh
 
-rm -rf ~/.gitconfig
-ln -s $1/git/.gitconfig ~/
+ln -fs $1/git/.gitconfig ~/
 exit $?

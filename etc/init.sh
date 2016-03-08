@@ -6,8 +6,6 @@ set -eu
 
 source $1/lib/conveni.sh
 
-rm -rf ~/.*rc
-ln -s $1/etc/.*rc ~/ > /dev/null
-rm -rf ~/.ctags
-ln -s $1/etc/.ctags ~/ > /dev/null
+ln -fs $1/etc/.*rc ~/ &> /dev/null 2>&1
+ln -fs $1/etc/.ctags ~/ &> /dev/null 2>&1
 exit $?
