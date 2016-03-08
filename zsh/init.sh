@@ -12,8 +12,8 @@ if ! has "zsh"; then
 fi
 
 if ! [ -d ~/.zplug ]; then
+  run "git clone https://github.com/b4b4r07/zplug ~/.zplug"
   git clone https://github.com/b4b4r07/zplug ~/.zplug &> /dev/null 2>&1
-  result
 else
   skip "git clone https://github.com/b4b4r07/zplug ~/.zplug"
 fi
