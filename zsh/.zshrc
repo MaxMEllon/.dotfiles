@@ -8,7 +8,7 @@ local logo='
 
 '
 
-print $logo
+printf $logo
 
 source ~/.zplug/zplug
 

@@ -14,13 +14,14 @@ logo
 
 log "git submodule update --init"
 
-dists=('osx' 'etc' 'bash' 'zsh' 'vim' 'tmux' 'git')
+dists=('bash' 'osx' 'etc' 'zsh' 'vim' 'tmux' 'git')
 for e in ${dists[@]}; do
-  TARGET=$DOTPATH/$e/*.sh
-  if [ -f $TARGET ]; then
-    log $TARGET $DOTPATH
-    result
-  else
-    continue
-  fi
+  for script in $DOTPATH/$e/*.sh; do
+    if [ -f $script ]; then
+      log $script $DOTPATH
+      result
+    else
+      continue
+    fi
+  done
 done

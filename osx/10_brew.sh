@@ -33,4 +33,7 @@ printf "\n"
 printf "    " && _brew_install git
 printf "    " && _brew_install zsh
 printf "    " && _brew_install tmux
+printf "    " && _brew_install peco
+printf "    " && _brew_install fzf
+printf "    " && _brew_install go
 
