@@ -220,21 +220,6 @@ setopt extended_history
 LISTMAX=1000
 WORDCHARS="$WORDCHARS|:"
 # }}}
-# functions {{{
-color256() {
-  local red=$1; shift
-  local green=$2; shift
-  local blue=$3; shift
-  echo -n $[$red * 36 + $green * 6 + $blue + 16]
-}
-
-fg256() {
-  echo -n $'\e[38;5;'$(color256 "$@")"m"
-}
-
-bg256() {
-  echo -n $'\e[48;5;'$(color256 "$@")"m"
-}
 
 _set_tmux_window() {
   if [ "$TMUX" ]; then

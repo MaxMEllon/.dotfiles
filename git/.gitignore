@@ -1,6 +1,8 @@
-/_swap/*
-/_undo/*
-/.netrwhist
-/bundle/*
-!/bundle/neobundle.vim
-!.keep
+*~
+.DS_Store
+node_modules/
+bower_components/
+tags
+ctags
+.tags
+
