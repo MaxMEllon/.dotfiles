@@ -10,7 +10,7 @@ _go_get() {
   local cmd=`echo $1 | sed -e s@.*/.*/@@g`
   if ! has "$cmd"; then
     run "go get $1"
-    log "go get $1"
+    eval "go get $1"
   else
     skip "go get $1"
   fi

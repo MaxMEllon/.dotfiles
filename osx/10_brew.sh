@@ -35,7 +35,7 @@ _brew_install() {
 _brew_install git &
 _brew_install zsh &
 _brew_install tmux &
-_brew_install peco &
+brew tap peco/peco && _brew_install peco &
 _brew_install fzf &
 _brew_install go &
 _brew_install rbenv &

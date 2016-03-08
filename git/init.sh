@@ -7,7 +7,7 @@ set -eu
 source $1/lib/conveni.sh
 
 if ! has "git"; then
-  error_message 'PLEASE INSTALL BASH'
+  error_message 'PLEASE INSTALL GIT'
   exit 1
 fi
 

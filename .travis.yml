@@ -2,8 +2,8 @@ language: c
 os:
   - osx
 
-env:
-  global:
+before_script:
+  - pwd
 
 script:
-  - bash init.sh
+  - bash ~/build/MaxMEllon/.dotfiles/init.sh ~/build/MaxMEllon/.dotfiles
