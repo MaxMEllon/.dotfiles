@@ -36,8 +36,8 @@ zplug load --verbose
 
 # k
 if [ -d $sources/supercrabtree/k ]; then
-  alias ll='k --no-vcs'
-  alias lla='k -a --no-vcs'
+  alias ll='k'
+  alias lla='k -a'
 fi
 
 # auto-fu.zsh
