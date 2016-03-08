@@ -9,6 +9,7 @@ export GOPATH=${HOME}/local/go
 export PATH=~/local/go/bin/:${PATH}
 export PATH=/usr/local/heroku/bin:${PATH}
 export PATH=/opt/centos/devtoolset-1.1/root/usr/bin:${PATH}
+export PATH=$HOME/.nodebrew/current/bin:$PATH
 export DOTFONTPATH=${HOME}/share/fonts
 if [ `which rbenv` ]; then
   eval "$(rbenv init -)"

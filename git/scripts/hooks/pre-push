@@ -1,0 +1,24 @@
+#!/bin/bash
+
+while read local_ref local_sha1 remote_ref remote_sha1
+do
+  if [[ "${remote_ref##refs/heads/}" = "master" ]]; then
+    echo -n "Do you want to push to ${remote_ref} ${remote_sha1}? (y/n) : "
+    exec < /dev/tty
+    read answer
+    case $answer in
+    y)
+      echo "push to origin/master"
+      break;
+      ;;
+    n)
+      echo "stopping push"
+      exit 1
+      ;;
+    *)
+      echo "stopping push"
+      exit 1
+      ;;
+    esac
+  fi
+done

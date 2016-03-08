@@ -1,3 +1,0 @@
-[submodule ".zsh.d"]
-	path = .zsh.d
-	url = https://github.com/MaxMEllon/.zsh.d.git
