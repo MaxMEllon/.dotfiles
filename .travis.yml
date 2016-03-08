@@ -1,0 +1,9 @@
+language: c
+os:
+  - osx
+
+env:
+  global:
+
+script:
+  - bash init.sh

@@ -13,6 +13,8 @@ fi
 
 if ! has "brew"; then
   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+else
+  skip "install : brew"
 fi
 
 if ! has "brew"; then
@@ -21,19 +23,25 @@ if ! has "brew"; then
 fi
 
 _brew_install() {
+  local cmd="brew install $1"
   if ! has "$1"; then
-    log "brew install $1"
-    result
+    run  "$cmd"
+    eval "$cmd"
   else
-    skip "brew install $1"
+    skip "$cmd"
   fi
 }
 
-printf "\n"
-printf "    " && _brew_install git
-printf "    " && _brew_install zsh
-printf "    " && _brew_install tmux
-printf "    " && _brew_install peco
-printf "    " && _brew_install fzf
-printf "    " && _brew_install go
+_brew_install git &
+_brew_install zsh &
+_brew_install tmux &
+_brew_install peco &
+_brew_install fzf &
+_brew_install go &
+_brew_install rbenv &
+_brew_install ruby-build &
+
+wait
+
+exit
 

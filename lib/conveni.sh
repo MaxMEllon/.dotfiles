@@ -16,30 +16,24 @@ error_message () {
   printf "\e[31m $1 \e[0m\n"
 }
 
-log () {
-  printf " run : $@ \n"
-  eval $@
+run () {
+  printf "\e[32m run\t: $1  \e[0m\n"
 }
 
 skip() {
-  printf " skip : $@ "
-  skiped
+  printf "\e[33m skip\t: $1  \e[0m\n"
 }
 
 result() {
-  [ $? -eq 0 ] && success || error
+  [ $? -eq 0 ] && success $1 || error $1
 }
 
 success() {
-  printf "\e[32m ✔  \e[0m\n"
+  printf "\e[32m success\t: $1  \e[0m\n"
 }
 
 error () {
-  printf "\e[31m ✗  \e[0m\n"
-}
-
-skiped () {
-  printf "\e[33m ➜  \e[0m\n"
+  printf "\e[31m error\t: $1 \e[0m\n"
 }
 
 logo='

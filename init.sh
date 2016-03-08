@@ -12,16 +12,35 @@ source $DOTPATH/lib/conveni.sh
 
 logo
 
-log "git submodule update --init"
+run "git submodule update --init"
+eval "git submodule update --init" &> /dev/null 2>&1
 
-dists=('bash' 'osx' 'etc' 'zsh' 'vim' 'tmux' 'git')
+# 並列実行できないもの
+dists=('bash' 'osx')
 for e in ${dists[@]}; do
   for script in $DOTPATH/$e/*.sh; do
     if [ -f $script ]; then
-      log $script $DOTPATH
-      result
+      run $script
+      bash $script $DOTPATH
     else
       continue
     fi
   done
 done
+
+# 並列実行できるもの
+dists=( 'etc' 'zsh' 'vim' 'tmux' 'git')
+for e in ${dists[@]}; do
+  for script in $DOTPATH/$e/*.sh; do
+    if [ -f $script ]; then
+      run $script
+      bash $script $DOTPATH &
+    else
+      continue
+    fi
+  done
+done
+
+wait
+
+exit

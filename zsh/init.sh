@@ -12,15 +12,15 @@ if ! has "zsh"; then
 fi
 
 if ! [ -d ~/.zplug ]; then
-  log "git clone https://github.com/b4b4r07/zplug ~/.zplug"
+  git clone https://github.com/b4b4r07/zplug ~/.zplug &> /dev/null 2>&1
   result
 else
-  printf "\n"
-  printf "    " && skip "git clone https://github.com/b4b4r07/zplug ~/.zplug"
+  skip "git clone https://github.com/b4b4r07/zplug ~/.zplug"
 fi
 
 touch ~/.zshenv
 
 rm -rf ~/.zshrc
 ln -s $1/zsh/.zshrc ~/
+
 exit $?
