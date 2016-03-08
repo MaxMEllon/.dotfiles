@@ -2,6 +2,8 @@
 
 set -eu
 
+: $1
+
 error_message () {
   printf "\e[31m $1 \e[0m\n"
 }
@@ -13,4 +15,4 @@ if [ $? -ne 0 ]; then
 fi
 
 rm -rf ~/.tmux.conf
-ln -s .tmux.conf ~/.tmux.conf > /dev/null
+ln -s $1/tmux/.tmux.conf ~/.tmux.conf > /dev/null

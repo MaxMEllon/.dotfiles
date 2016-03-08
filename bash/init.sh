@@ -2,6 +2,8 @@
 
 set -eu
 
+: $1
+
 error_message () {
   printf "\e[31m $1 \e[0m\n"
 }
@@ -13,4 +15,5 @@ if [ $? -ne 0 ]; then
 fi
 
 rm -rf ~/.bashrc
-ln -s .bashrc ~/.bashrc > /dev/null
+ln -s $1/bash/.bashrc ~/
+exit $?

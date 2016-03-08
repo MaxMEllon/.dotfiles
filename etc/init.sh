@@ -14,6 +14,8 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
-rm -rf ~/.gitconfig
-ln -s $1/git/.gitconfig ~/
+rm -rf ~/.*rc
+ln -s $1/etc/.*rc ~/ > /dev/null
+rm -rf ~/.ctags
+ln -s $1/etc/.ctags ~/
 exit $?

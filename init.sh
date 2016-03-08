@@ -1,10 +1,12 @@
 #/bin/bash
 
+DOTPATH=~/.dotfiles
+
+if [ -n "$1" ]; then
+  DOTPATH=$1
+fi
+
 set -eu
-
-DOTPATH=~/work/ghq/github.com/MaxMEllon/.dotfiles
-
-: git submodule update --init
 
 log () {
   printf " runnning -----> $1\n"
@@ -18,11 +20,15 @@ error () {
   printf "\e[31m fail -----X $1 \e[0m\n"
 }
 
-dists=('osx' 'bash' 'zsh' 'etc' 'vim' 'tmux')
+log 'git submodule update --init'
+git submodule update --init
+[ $? -eq 0 ] && success 'git submodule update --init' || error 'git submodule update --init'
+
+dists=('osx' 'etc' 'bash' 'zsh' 'vim' 'tmux' 'git')
 for e in ${dists[@]}; do
   TARGET=$DOTPATH/$e/*.sh
   if [ -f $TARGET ]; then
-    log $TARGET && bash $TARGET
+    log $TARGET && bash $TARGET $DOTPATH
     [ $? -eq 0 ] && success $TARGET || error $TARGET
   else
     continue
