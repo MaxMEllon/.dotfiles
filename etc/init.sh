@@ -4,7 +4,7 @@ set -eu
 
 : $1
 
-source ../lib/conveni.sh
+source $1/lib/conveni.sh
 
 rm -rf ~/.*rc
 ln -s $1/etc/.*rc ~/ > /dev/null

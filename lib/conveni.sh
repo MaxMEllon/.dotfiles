@@ -17,17 +17,29 @@ error_message () {
 }
 
 log () {
-  printf " runnning -----> $1\n"
-  eval $1
-  [ $? -eq 0 ] && success "$1" || error "$1"
+  printf " run : $@ \n"
+  eval $@
+}
+
+skip() {
+  printf " skip : $@ "
+  skiped
+}
+
+result() {
+  [ $? -eq 0 ] && success || error
 }
 
 success() {
-  printf "\e[32m success : $1 \e[0m\n"
+  printf "\e[32m ✔  \e[0m\n"
 }
 
 error () {
-  printf "\e[31m fail -----X $1 \e[0m\n"
+  printf "\e[31m ✗  \e[0m\n"
+}
+
+skiped () {
+  printf "\e[33m ➜  \e[0m\n"
 }
 
 logo='

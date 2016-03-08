@@ -18,7 +18,8 @@ dists=('osx' 'etc' 'bash' 'zsh' 'vim' 'tmux' 'git')
 for e in ${dists[@]}; do
   TARGET=$DOTPATH/$e/*.sh
   if [ -f $TARGET ]; then
-    log $TARGET
+    log $TARGET $DOTPATH
+    result
   else
     continue
   fi
