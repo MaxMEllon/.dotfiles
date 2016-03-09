@@ -50,6 +50,7 @@ _brew_install tig &
 _brew_install ghq &
 _brew_install ricty &
 _brew_install rsense &
+_brew_install ag &
 
 wait
 
