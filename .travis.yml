@@ -2,6 +2,10 @@ language: c
 os:
   - osx
 
+env:
+  global:
+    - DOTPATH=~/build/MaxMEllon/.dotfiles
+
 addons:
   apt:
     packages:
