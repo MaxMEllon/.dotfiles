@@ -2,8 +2,16 @@ language: c
 os:
   - osx
 
+addons:
+  apt:
+    packages:
+      - zsh
+
 before_script:
-  - pwd
+  - zsh --version
+  - curl -L https://raw.githubusercontent.com/b4b4r07/zspec/master/bin/zspec -o zspec
+  - chmod +x zspec
 
 script:
   - bash ~/build/MaxMEllon/.dotfiles/init.sh ~/build/MaxMEllon/.dotfiles
+  - ./zspec ~/build/MaxMEllon/.dotfiles/test/*.zsh

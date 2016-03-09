@@ -15,6 +15,7 @@ source ~/.zplug/zplug
 local sources=$HOME/.zplug/repos
 
 # zplug 'hchbaw/auto-fu.zsh', at:next
+zplug 'b4b4r07/zspec', as:command, of:bin/zspec
 zplug 'mollifier/cd-gitroot'
 zplug 'mrowa44/emojify', as:command
 zplug 'supercrabtree/k'
@@ -24,13 +25,6 @@ zplug 'zsh-users/zsh-completions'
 zplug 'zsh-users/zsh-syntax-highlighting', nice:10
 
 export PATH=~/.zplug/bin:${PATH}
-
-if ! zplug check --verbose; then
-  printf "Install? [y/N]: "
-  if read -q; then
-    echo; zplug install
-  fi
-fi
 
 zplug load --verbose
 
