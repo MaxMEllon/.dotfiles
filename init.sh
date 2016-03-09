@@ -4,6 +4,7 @@ DOTPATH=~/.dotfiles
 
 if [ -n "$1" ]; then
   DOTPATH=$1
+  export $DOTPATH
 fi
 
 set -eu
