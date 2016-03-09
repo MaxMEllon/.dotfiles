@@ -10,3 +10,4 @@ export DOTFONTPATH=${HOME}/share/fonts
 if [ `which rbenv` ]; then
   eval "$(rbenv init -)"
 fi
+test -s "$HOME/.kiex/scripts/kiex" && source "$HOME/.kiex/scripts/kiex"
