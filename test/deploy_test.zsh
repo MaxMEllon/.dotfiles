@@ -1,7 +1,25 @@
 : before
 {
+  if [ -z ${DOTPATH+x} ]; then
+    export DOTPATH="$HOME/.dotfiles"
+  fi
+  source $DOTPATH/lib/conveni.sh
   local expect
 }
+
+describe 'lib modules test'
+  it 'has'
+    has 'git'
+    expect=$?
+    assert.equals $expect 0
+  end
+
+  it 'has not'
+    has 'hogepoge'
+    expect=$?
+    assert.equals $expect 1
+  end
+end
 
 describe 'deployed dotfiles'
   it 'bashrc into home directory'

@@ -140,23 +140,23 @@ case $(uname) in
   *BSD|Darwin)
     if [ -x "$(which gnuls)" ]; then
       alias ls="gnuls"
-      alias la="ls -lhAF --color=auto"
+      alias la="ls -hAF --color=auto"
     else
-      alias la="ls -lhAFG"
+      alias la="ls -hAFG"
     fi
     alias ps="ps -fU$(whoami)"
     ;;
   SunOS)
     if [ -x "`which gls`" ]; then
       alias ls="gls"
-      alias la="ls -lhAF --color=auto"
+      alias la="ls -hAF --color=auto"
     else
-      alias la="ls -lhAF"
+      alias la="ls -hAF"
     fi
     alias ps="ps -fl -u$(/usr/xpg4/bin/id -un)"
     ;;
   *)
-    alias la="ls -lhAF --color=auto"
+    alias la="ls -hAF --color=auto"
     alias ps="ps -fU$(whoami) --forest"
     ;;
 esac
