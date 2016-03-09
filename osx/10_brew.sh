@@ -35,14 +35,21 @@ _brew_install() {
   fi
 }
 
+_brew_install wget &
 _brew_install git &
 _brew_install zsh &
 _brew_install tmux &
-_brew_tap "peco/peco" && _brew_install peco &
-_brew_install fzf &
 _brew_install go &
+_brew_install python &
+_brew_install python3 &
 _brew_install rbenv &
 _brew_install ruby-build &
+_brew_tap "peco/peco" && _brew_install peco &
+_brew_install fzf &
+_brew_install tig &
+_brew_install ghq &
+_brew_install ricty &
+_brew_install rsense &
 
 wait
 
