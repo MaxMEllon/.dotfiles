@@ -23,6 +23,8 @@ touch ~/.zshenv
 ln -fs $1/zsh/.zshrc ~/
 
 zsh
+source ~/.zshrc
+
 if ! zplug check --verbose; then
   zplug install
 fi
