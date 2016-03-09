@@ -27,12 +27,6 @@ describe 'deployed dotfiles'
     expect=$?
     assert.equals $expect 0
   end
-
-  it 'has emojify command'
-    which emojify &> /dev/null
-    expect=$?
-    assert.equals $expect 0
-  end
 end
 
 : after

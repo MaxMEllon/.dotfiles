@@ -425,6 +425,7 @@ zle clear-screen
 zle -N peco-src
 bindkey '^]' peco-src
 # }}}
+
 # constants {{{
 gn=${fg[green]}
 yw=${fg[yellow]}
