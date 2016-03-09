@@ -1,11 +1,23 @@
-#!/bin/sh
+#!/bin/bash
 
 # See: https://github.com/b4b4r07/dotfiles/blob/master/etc/install
 # See: http://qiita.com/b4b4r07/items/24872cdcbec964ce2178
 
+true=0
+false=1
+
 is_exists() {
   which $1 > /dev/null 2>&1
   return $?
+}
+
+is_osx() {
+  local ostype=`uname`
+  if [ $ostype == 'Darwin' ]; then
+    return $true
+  else
+    return $false
+  fi
 }
 
 has() {

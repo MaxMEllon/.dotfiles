@@ -12,7 +12,7 @@ if ! has "ruby"; then
 fi
 
 if ! has "brew"; then
-  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" > /dev/null
+  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 else
   skip "install : brew"
 fi
@@ -26,7 +26,7 @@ _brew_install() {
   local cmd="brew install $1"
   if ! has "$1"; then
     run  "$cmd"
-    eval "$cmd" > /dev/null
+    eval "$cmd" &> /dev/null
   else
     skip "$cmd"
   fi

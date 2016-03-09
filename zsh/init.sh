@@ -22,11 +22,12 @@ touch ~/.zshenv
 
 ln -fs $1/zsh/.zshrc ~/
 
-zsh
+zsh<<EOF
 source ~/.zshrc
 
 if ! zplug check --verbose; then
   zplug install
 fi
+EOF
 
 exit $?
