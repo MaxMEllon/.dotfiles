@@ -34,7 +34,7 @@ for type in ${dist[@]}; do
 done
 
 # 並列実行できるもの
-dists=('etc' 'zsh' 'vim' 'tmux' 'git')
+dists=('etc' 'zsh' 'tmux' 'git')
 for e in ${dists[@]}; do
   for script in $DOTPATH/$e/*.sh; do
     if [ -f $script ]; then
