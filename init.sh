@@ -13,20 +13,24 @@ source $DOTPATH/lib/conveni.sh
 logo
 
 run "git submodule update --init"
-eval "git submodule update --init" &> /dev/null 2>&1
+git submodule update --init &> /dev/null || error "git submodule update --init"
 
 # 並列実行できないもの
 
 run "$DOTPATH/bash/init.sh"
-bash "$DOTPATH/bash/init.sh" $DOTPATH
+bash "$DOTPATH/bash/init.sh" $DOTPATH || error "${script}"
 
-for script in $DOTPATH/osx/*.sh; do
-  if [ -f $script ] && is_osx; then
-    run $script
-    bash $script $DOTPATH
-  else
-    continue
-  fi
+dist=('osx' 'linux')
+for type in ${dist[@]}; do
+  for script in $DOTPATH/$type/*.sh; do
+    if [ `os_type` == $type ]; then
+      run $script
+      bash $script $DOTPATH || error "${script}"
+    else
+      skip $script
+      continue
+    fi
+  done
 done
 
 # 並列実行できるもの

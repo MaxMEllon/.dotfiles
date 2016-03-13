@@ -7,7 +7,7 @@ set -eu
 source $1/lib/conveni.sh
 
 if ! has "ruby"; then
-  error_message 'PLEASE INSTALL ruby'
+  error 'ruby: PLEASE INSTALL ruby'
   exit 1
 fi
 
@@ -18,7 +18,7 @@ else
 fi
 
 if ! has "brew"; then
-  error_message 'brew: failed to install'
+  error 'brew: failed to install'
   exit 1
 fi
 
@@ -29,7 +29,7 @@ _brew_install() {
   local cmd="brew install $1"
   if ! has "$1"; then
     run  "$cmd"
-    eval "$cmd" &> /dev/null
+    `$cmd` &> /dev/null || error "${cmd}"
   else
     skip "$cmd"
   fi

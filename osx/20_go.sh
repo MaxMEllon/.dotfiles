@@ -12,7 +12,7 @@ _go_get() {
   local cmd=`echo $1 | sed -e s@.*/.*/@@g`
   if ! has "$cmd"; then
     run "go get $1"
-    eval "go get $1" &> /dev/null
+    `go get $1` &> /dev/null || error "go get $1"
   else
     skip "go get $1"
   fi
@@ -21,6 +21,7 @@ _go_get() {
 _go_get "github.com/kroton/kome" &
 _go_get "github.com/mattn/jvgrep" &
 _go_get "github.com/Tomohiro/gyazo-cli" &
+_go_get "github.com/mattn/files" &
 
 wait
 

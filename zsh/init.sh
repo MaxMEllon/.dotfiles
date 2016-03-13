@@ -30,4 +30,4 @@ if ! zplug check --verbose; then
 fi
 EOF
 
-exit $?
+exit 0
