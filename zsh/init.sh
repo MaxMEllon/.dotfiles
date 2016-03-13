@@ -14,7 +14,7 @@ fi
 url="https://github.com/b4b4r07/zplug"
 if ! [ -d ~/.zplug ]; then
   run "git clone ${url} ~/.zplug"
-  `git clone ${url} ~/.zplug` &> /dev/null && ok "\tgit clone" || error "\tgit clone"
+  `git clone ${url} ~/.zplug` &> /dev/null && ok "\tgit clone $url" || error "\tgit clone $url"
 else
   skip "${url} ~/.zplug"
 fi
@@ -25,8 +25,9 @@ ln -fs $1/zsh/.zshrc ~/
 
 zsh <<EOF
 source ~/.zshrc
-zplug install
-exit $?
+if ! zplug check --verbose; then
+  zplug install
+fi
 EOF
 
 exit $?
