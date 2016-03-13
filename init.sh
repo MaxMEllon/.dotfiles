@@ -12,20 +12,18 @@ source $DOTPATH/lib/conveni.sh
 
 logo
 
-run "git submodule update --init"
-git submodule update --init &> /dev/null || error "git submodule update --init"
-
 # 並列実行できないもの
 
-run "$DOTPATH/bash/init.sh"
-bash "$DOTPATH/bash/init.sh" $DOTPATH || error "${script}"
+script="$DOTPATH/bash/init.sh"
+run "$script"
+bash "$script" $DOTPATH  && ok "$script" || error "$script"
 
 dist=('osx' 'linux')
 for type in ${dist[@]}; do
   for script in $DOTPATH/$type/*.sh; do
     if [ `os_type` == $type ]; then
       run $script
-      bash $script $DOTPATH || error "${script}"
+      bash $script $DOTPATH && ok "$script" || error "$script"
     else
       skip $script
       continue
@@ -39,7 +37,7 @@ for e in ${dists[@]}; do
   for script in $DOTPATH/$e/*.sh; do
     if [ -f $script ]; then
       run $script
-      bash $script $DOTPATH &
+      bash $script $DOTPATH && ok "$script" || error "$script" &
     else
       continue
     fi

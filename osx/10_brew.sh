@@ -23,15 +23,16 @@ if ! has "brew"; then
 fi
 
 _brew_tap() {
-  eval "brew tap $@" &> /dev/null
+  local cmd="brew tap $@"
+  `$cmd` &> /dev/null && ok "\t$cmd" || error "\t$cmd"
 }
 _brew_install() {
   local cmd="brew install $1"
   if ! has "$1"; then
-    run  "$cmd"
-    `$cmd` &> /dev/null || error "${cmd}"
+    run  "\t$cmd"
+    `$cmd` &> /dev/null && ok "\t$cmd" || error "\t$cmd"
   else
-    skip "$cmd"
+    skip "\t$cmd"
   fi
 }
 

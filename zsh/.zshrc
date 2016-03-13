@@ -26,6 +26,10 @@ zplug 'zsh-users/zsh-syntax-highlighting', nice:10
 
 export PATH=~/.zplug/bin:${PATH}
 
+if ! zplug check --verbose; then
+  zplug install
+fi
+
 zplug load --verbose
 
 # k

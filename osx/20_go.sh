@@ -10,11 +10,12 @@ export GOPATH=${HOME}/local/go
 
 _go_get() {
   local cmd=`echo $1 | sed -e s@.*/.*/@@g`
+  local runcmd="go get $1"
   if ! has "$cmd"; then
-    run "go get $1"
-    `go get $1` &> /dev/null || error "go get $1"
+    run "$runcmd"
+    `$runcmd` &> /dev/null && ok "\t$runcmd" || error "\t$runcmd"
   else
-    skip "go get $1"
+    skip "\t$runcmd"
   fi
 }
 

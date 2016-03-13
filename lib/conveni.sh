@@ -17,7 +17,7 @@ lower() {
 
 os_type() {
   if [ "$(uname)" == 'Darwin' ]; then
-    lower 'Mac'
+    lower 'Osx'
   elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
     lower 'Linux'
   elif [ "$(expr substr $(uname -s) 1 10)" == 'MINGW32_NT' ]; then
@@ -49,11 +49,15 @@ error() {
 }
 
 run () {
-  printf "\e[32m run\t: $1  \e[0m\n"
+  printf "\e[34m run\t: $1  \e[0m\n"
 }
 
 skip() {
   printf "\e[33m skip\t: $1  \e[0m\n"
+}
+
+ok() {
+  printf "\e[32m ok\t: $1  \e[0m\n"
 }
 
 logo='
