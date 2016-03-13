@@ -23,6 +23,7 @@ touch ~/.zshenv
 
 ln -fs $1/zsh/.zshrc ~/
 
-cmd="zsh $1/zsh/install.zsh"
-run "\t$cmd"
-$($cmd) && ok "\t$cmd" || error "\t$cmd"
+zsh <<EOF
+source ~/.zshrc
+zplug install
+EOF

@@ -19,10 +19,10 @@ _go_get() {
   fi
 }
 
-_go_get "github.com/kroton/kome" &
-_go_get "github.com/mattn/jvgrep" &
-_go_get "github.com/Tomohiro/gyazo-cli" &
-_go_get "github.com/mattn/files" &
+_go_get "github.com/kroton/kome"
+_go_get "github.com/mattn/jvgrep"
+_go_get "github.com/Tomohiro/gyazo-cli"
+_go_get "github.com/mattn/files"
 
 wait
 
