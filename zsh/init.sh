@@ -26,6 +26,7 @@ ln -fs $1/zsh/.zshrc ~/
 zsh <<EOF
 source ~/.zshrc
 zplug install
+exit $?
 EOF
 
 exit $?

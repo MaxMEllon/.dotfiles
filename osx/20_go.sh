@@ -12,7 +12,7 @@ _go_get() {
   local cmd=`echo $1 | sed -e s@.*/.*/@@g`
   local runcmd="go get $1"
   if ! has "$cmd"; then
-    run "$runcmd"
+    run "\t$runcmd"
     `$runcmd` &> /dev/null && ok "\t$runcmd" || error "\t$runcmd"
   else
     skip "\t$runcmd"
