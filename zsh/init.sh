@@ -27,3 +27,5 @@ zsh <<EOF
 source ~/.zshrc
 zplug install
 EOF
+
+exit $?

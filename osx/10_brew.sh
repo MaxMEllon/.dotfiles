@@ -48,8 +48,7 @@ _brew_install ruby-build
 _brew_tap "peco/peco" && _brew_install peco
 _brew_install fzf
 _brew_install tig
-_brew_install ghq
-_brew_install ricty
+_bre_tap "motemen/ghq" && _brew_install ghq
 _brew_install rsense
 _brew_install ag
 
