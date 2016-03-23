@@ -51,9 +51,24 @@ else
   ruby=''
 fi
 
+# node-version ----------------------------------------------------------------
+which node > /dev/null
+if [ $? -eq 0 ]; then
+  node='node #(node -v)'
+else
+  node=''
+fi
+
+# ip --------------------------------------------------------------------------
+which ifconfig > /dev/null
+ip=`ifconfig | grep inet[^6] | grep -v 127.0.0.1 |  awk '{print $2;}'`
+if [ $? -ne 0 ]; then
+  ip=''
+fi
+
 which tmux > /dev/null
 if [ $? -eq 0 ]; then
-  tmux set-option -g status-right "$basecolor $s5 $wifi $s4 $battery $s3 $tmux $s2 $zsh $s1 $ruby "
+  tmux set-option -g status-right "$basecolor $s3 $ip $s4 $battery $s2 $node "
 fi
 
 # vim:ft=sh

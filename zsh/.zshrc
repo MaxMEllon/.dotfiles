@@ -202,11 +202,18 @@ alias cdu='cd-gitroot'
 # vim
 : alias mvim='mvim -g'
 
+
 # rails
 alias be='bundle exec'
 alias railss='rails s -b 0.0.0.0'
 
 alias :q='exit'
+
+alias -g G='| grep'
+alias -g L='| less'
+alias -g C='| color'
+
+alias -g pcd='cd !:*'
 
 # ag
 alias ag="ag --pager=\"less -R\""
@@ -411,7 +418,7 @@ bindkey '^r' peco-select-history
 
 # See: http://qiita.com/fmy/items/b92254d14049996f6ec3
 function agvim () {
-vim $(ag $@ | peco --query "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
+  \vim $(ag $@ | peco --query "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
 }
 
 function peco-src () {
