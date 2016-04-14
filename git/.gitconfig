@@ -17,7 +17,7 @@
 [push]
   default = current
 [core]
-  editor = vim
+  editor = /usr/local/bin/nvim
   excludesfile = ~/.dotfiles/git/.gitignore
   ignorecase = false
 [user]

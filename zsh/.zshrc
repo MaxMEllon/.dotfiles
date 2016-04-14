@@ -18,13 +18,14 @@ local sources=$HOME/.zplug/repos
 zplug 'b4b4r07/zspec', as:command, of:bin/zspec
 zplug 'mollifier/cd-gitroot'
 zplug 'mrowa44/emojify', as:command
-zplug 'supercrabtree/k'
 zplug 'rupa/z', of:z.sh
+zplug 'supercrabtree/k'
 zplug 'zsh-users/zsh-autosuggestions'
 zplug 'zsh-users/zsh-completions'
 zplug 'zsh-users/zsh-syntax-highlighting', nice:10
 
 export PATH=~/.zplug/bin:${PATH}
+export TERM='xterm-256color'
 
 zplug load --verbose
 
@@ -93,15 +94,15 @@ zstyle ':vcs_info:*' actionformats \
   '(%{%F{white}%K{green}%}%s%{%f%k%})-[%{%F{white}%K{blue}%}%b%{%f%k%}|%{%F{white}%K{red}%}%a%{%f%k%}]'
 
 prompt_bar_left_user='$c_user'
-prompt_bar_left_host='$c_host%m:'
+prompt_bar_left_host='$c_host%m:$c_user'
 prompt_bar_left_branch='`current_branch`'
 prompt_bar_left_status="%{%B%(?.%K{blue}%F{white}.%K{red}%F{white})%} %? %{%f%b%}"
 prompt_bar_left_date='<%{%B%}%D{%H:%M}%{%b%}>'
 # prompt_bar_left_path="%{%B%F{red}%}%d%{%f%k%b%}"
-prompt_bar_left_path="%{%B%F{yellow}%}%~ %{%f%k%b%}"
+prompt_bar_left_path="%{%B%F{yellow}%} %5~ %{%f%k%b%}"
 prompt_bar_left_deco='%{%B%F{magenta}%}'
 prompt_bar_left="${prompt_bar_left_status}${prompt_bar_left_branch} ${prompt_bar_left_host}${prompt_bar_left_path}${prompt_bar_left_deco}"
-prompt_left='%{%B%F{magenta}%} $role->%{%f%b%}'
+prompt_left='%{%B%F{magenta}%}$role->%{%f%b%}'
 
 count_prompt_characters()
 {
@@ -119,7 +120,7 @@ update_prompt()
   bar_right=${prompt_bar_right:s/%d/%(C,%${max_path_length}<...<%d%<<,)/}
   local separator="${(l:${bar_rest_length}::_:)}%{%k%f%b%}"
   bar_right="%${bar_rest_length}<<${separator}${bar_right}%<<"
-  PROMPT="${bar_left}${bar_right}"$'\n'"${prompt_bar_left_user}${prompt_left}"
+  PROMPT="${bar_left}${bar_right}"$'\n'"${prompt_left}"
   RPROMPT="%{%K{blue}%}%{%F{white}%} %D{%Y/%m/%d %H:%M} %{%k%f%b%}"
   case "$TERM_PROGRAM" in
     Apple_Terminal)
@@ -474,3 +475,5 @@ WORDCHARS='*?_-.[~=&;!#$%^({<>})]'
 if [ `which rbenv` ]; then
   eval "$(rbenv init - zsh)"
 fi
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

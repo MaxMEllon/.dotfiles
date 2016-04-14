@@ -2,6 +2,7 @@ export PATH=${HOME}/local/bin:${PATH}
 export PATH=/usr/local/bin:${PATH}
 export PATH=${HOME}/.rbenv/bin:${PATH}
 export PATH=${HOME}/local/go/bin:${PATH}
+export PATH=./node_modules/.bin:${PATH}
 export PAGER=less
 export GISTY_DIR=${HOME}/gisty
 export GOPATH=${HOME}/local/go
