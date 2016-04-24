@@ -1,33 +1,34 @@
 [color]
-  ui = auto
+	ui = auto
 [alias]
-  st=status
-  sh=show
-  cm=commit
-  br=branch
-  db="!f() { git branch -D `git branch | peco`; }; f;"
-  lg=log --graph --all --color --pretty='%x09%h %cn%x09%s %Cred%d'
-  alias=!git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
-  ls=ls-files
-  rb=fetch --prune
-  # See: https://github.com/iguto/dotfiles/blob/master/.gitconfig#L12-L14
-  lock = "update-index --skip-worktree"
-  locked = "!f() { git ls-files -v | grep ^S | sed -e 's|S ||'; }; f;"
-  unlock = "update-index --no-skip-worktree"
+	st=status
+	sh=show
+	cm=commit
+	br=branch
+	db="!f() { git branch -D `git branch | peco`; }; f;"
+	lg=log --graph --all --color --pretty='%x09%h %cn%x09%s %Cred%d'
+	alias=!git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
+	ls=ls-files
+	rb=fetch --prune
+	# See: https://github.com/iguto/dotfiles/blob/master/.gitconfig#L12-L14
+	lock = "update-index --skip-worktree"
+	locked = "!f() { git ls-files -v | grep ^S | sed -e 's|S ||'; }; f;"
+	unlock = "update-index --no-skip-worktree"
 [push]
-  default = current
+	default = current
 [core]
-  editor = /usr/local/bin/nvim
-  excludesfile = ~/.dotfiles/git/.gitignore
-  ignorecase = false
+	editor = /usr/local/bin/vim
+	excludesfile = ~/.dotfiles/git/.gitignore
+	ignorecase = false
 [user]
-  name = MaxMEllon
-  email = maxmellon1994@gmail.com
+	name = MaxMEllon
+	email = maxmellon1994@gmail.com
+	signingkey = FFCAB766
 [github]
-  user = maxmellon
+	user = maxmellon
 [ghq]
-  root = ~/work/ghq
+	root = ~/work/ghq
 [init]
-  templatedir = ~/.dotfiles/git/scripts
+	templatedir = ~/.dotfiles/git/scripts
 [commit]
-  template = ~/.dotfiles/git/gitmessage.txt
+	template = ~/.dotfiles/git/gitmessage.txt
