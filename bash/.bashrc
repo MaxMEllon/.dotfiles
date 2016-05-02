@@ -7,3 +7,6 @@ source $DOTPATH/bash/aliases.bash
 source $DOTPATH/bash/prompt.bash
 source $DOTPATH/bash/env.bash
 
+if [ `which rbenv` ]; then
+  eval "$(rbenv init - zsh)"
+fi

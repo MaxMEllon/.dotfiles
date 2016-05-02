@@ -202,6 +202,7 @@ alias cdu='cd-gitroot'
 
 # vim
 : alias mvim='mvim -g'
+alias cvim='/usr/local/bin/vim'
 
 
 # rails
@@ -384,9 +385,9 @@ alias lscd='peco-lscd'
 # See:https://github.com/ryoppy/cool-peco/blob/master/functions/cool-peco-filename-search
 function peco-file-name-search()
 {
-  which fzf > /dev/null
+  which peco > /dev/null
   if [ $? -ne 0 ]; then
-    echo "Please install fzf"
+    echo "Please install peco"
     return 1
   fi
   local res=$(z | sort -rn | cut -c 12- | peco)
@@ -471,9 +472,5 @@ c_ip=$colors[$((`echo "$IP" | sum | cut -f1 -d' '`%${#colors}))+1]($IP)
 role='%(!.#.$)'
 WORDCHARS='*?_-.[~=&;!#$%^({<>})]'
 # }}}
-
-if [ `which rbenv` ]; then
-  eval "$(rbenv init - zsh)"
-fi
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
