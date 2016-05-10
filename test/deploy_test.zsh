@@ -29,7 +29,7 @@ describe 'deployed dotfiles'
   end
 
   it 'zshrc into home directory'
-    [ -f ~/.zshrc ]
+    [ -f ~/.zshrc.zwc ]
     expect=$?
     assert.equals $expect 0
   end
