@@ -1,0 +1,6 @@
+#!/bin/bash
+ioreg -n AppleSmartBattery | \
+    awk '/MaxCapacity/{ MAX=$5 }
+         /CurrentCapacity/{ CURRENT=$5 }
+         /InstantTimeToEmpty/{ REMAIN=$5 }
+    END { printf("%5.2f%%\n", CURRENT/MAX*100) }'

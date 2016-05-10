@@ -1,0 +1,27 @@
+#!/usr/bin/env ruby
+
+require 'open3'
+
+if ARGV.size-1 <= 0
+  puts '
+  Usage:
+
+    $ change [files] [extension]
+
+    ex.
+      $ change *.txt md
+  '
+  exit 1
+end
+
+replace = ARGV[ARGV.size-1]
+
+(0..ARGV.size-2).each do |index|
+  name = ARGV[index].gsub /(?:\.([^.]+$))/, ''
+  name << '.' << replace
+  puts "mv #{ARGV[index]} #{name}"
+  Open3.capture3("mv #{ARGV[index]} #{name}")
+end
+
+# set ft=ruby
+

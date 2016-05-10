@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/local/bin/zsh
 
 set -eu
 
@@ -19,15 +19,14 @@ else
   skip "${url} ~/.zplug"
 fi
 
-touch ~/.zshenv
 
-ln -fs $1/zsh/.zshrc ~/
+zcompile $1/zsh/.zshrc
+mv -f $1/zsh/.zshrc.zwc ~/
 
-zsh <<EOF
-source ~/.zshrc
-if ! zplug check --verbose; then
-  zplug install
-fi
-EOF
+ln -fs $1/zsh/.zshenv ~/
+
+# if ! zplug check --verbose; then
+#   zplug install
+# fi
 
 exit $?

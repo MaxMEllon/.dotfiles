@@ -24,9 +24,6 @@ zplug 'zsh-users/zsh-autosuggestions'
 zplug 'zsh-users/zsh-completions'
 zplug 'zsh-users/zsh-syntax-highlighting', nice:10
 
-export PATH=~/.zplug/bin:${PATH}
-export TERM='xterm-256color'
-
 zplug load --verbose
 
 # k
@@ -46,8 +43,6 @@ autoload -U compinit
 compinit
 
 source ~/.bashrc
-export LANG=ja_JP.UTF-8
-export KCODE=u
 
 # comp {{{
 zstyle ':completion:*' menu select
@@ -62,6 +57,7 @@ zstyle ':completion:*:processes' command 'ps x -o pid, s, args'
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*:default' menu select=1
 # }}}
+
 # config {{{
 bindkey -e                  # ライン操作はEmacsスタイルで行う
 setopt print_eight_bit      # 日本語ファイル名を表示可能にする
@@ -86,6 +82,7 @@ setopt auto_param_keys      # カッコの対応などを自動的に補完
 setopt noautoremoveslash    # 最後のスラッシュを自動的に削除しない
 setopt notify               # バックグラウンドジョブの状態変化を即時報告
 # }}}
+
 # prompt {{{
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' formats \
@@ -130,12 +127,12 @@ update_prompt()
 }
 precmd_functions=($precmd_functions update_prompt)
 # }}}
+
 # ls {{{
-export LS_COLORS='di=01;34;40:ln=01;36:so=01;32:ex=01;31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
-export CLICOLOR=true
 autoload -Uz VCS_INFO_get_data_git; VCS_INFO_get_data_git 2> /dev/null
 autoload -U colors; colors
 # }}}
+
 # alias {{{
 case $(uname) in
   *BSD|Darwin)
@@ -222,6 +219,7 @@ alias ag="ag --pager=\"less -R\""
 
 alias gyazo="gyazo-cli"
 # }}}
+
 # history {{{
 HISTFILE=~/.zsh_history
 HISTSIZE=1000000
@@ -236,6 +234,8 @@ LISTMAX=1000
 WORDCHARS="$WORDCHARS|:"
 # }}}
 
+# function - _set_tmux_window ------------------------------------------ {{{
+# @detail TMUXのwindowを環境変数に出力します
 _set_tmux_window() {
   if [ "$TMUX" ]; then
     # tmux display
@@ -245,36 +245,53 @@ _set_tmux_window() {
     export TMUX_WINDOW=$(tmux display -p '#I-#P')
   fi
 }
+# }}}
 
-# prompt-git-current-branch
-function current_branch {
-if [[ "$PWD" = ${DOTFILES}'/\.git(/.*)?$' ]]; then
-  echo "%{%B${fg[black]}%}no git%{${reset_color}%}%b"
-  return
-fi
-name=$(basename "`git symbolic-ref HEAD 2> /dev/null`")
-if [[ -z $name ]]; then
-  echo "%{%B${fg[black]}%} branch %{${reset_color}%}%b"
-  return
-fi
-st=`git status 2> /dev/null`
-if [[ -n `echo "$st" | grep "^nothing to"` ]]; then
-  color=${bg[blue]}${fg[green]}
-elif [[ -n `echo "$st" | grep "^nothing added"` ]]; then
-  color=${bg[red]}${fg[blue]}
-elif [[ -n `echo "$st" | grep "^# Untracked"` ]]; then
-  color=${bg[red]}${fg_bold[white]}
-else
-  color=${bg[red]}${fg_bold[white]}
-fi
-# %{...%} は囲まれた文字列がエスケープシーケンスであることを明示する
-# これをしないと右プロンプトの位置がずれる
-echo "%{$color%}%{%B%} $name %{%b%}%{$reset_color%}"
+# function - prompt-git-current-branch --------------------------------- {{{
+# @detail 現在のプロジェクトのbranchを取得します
+current_branch() {
+  if [[ "$PWD" = ${DOTFILES}'/\.git(/.*)?$' ]]; then
+    echo "%{%B${fg[black]}%}no git%{${reset_color}%}%b"
+    return
+  fi
+  name=$(basename "`git symbolic-ref HEAD 2> /dev/null`")
+  if [[ -z $name ]]; then
+    echo "%{%B${fg[black]}%} branch %{${reset_color}%}%b"
+    return
+  fi
+  st=`git status 2> /dev/null`
+  if [[ -n `echo "$st" | grep "^nothing to"` ]]; then
+    color=${bg[blue]}${fg[green]}
+  elif [[ -n `echo "$st" | grep "^nothing added"` ]]; then
+    color=${bg[red]}${fg[blue]}
+  elif [[ -n `echo "$st" | grep "^# Untracked"` ]]; then
+    color=${bg[red]}${fg_bold[white]}
+  else
+    color=${bg[red]}${fg_bold[white]}
+  fi
+  # %{...%} は囲まれた文字列がエスケープシーケンスであることを明示する
+  # これをしないと右プロンプトの位置がずれる
+  echo "%{$color%}%{%B%} $name %{%b%}%{$reset_color%}"
+}
+# }}}
+
+# ----------------------------------------------------------------------
+# event - chpwd
+# @detail cd 後に実行するイベントです
+chpwd() { ls_abbrev }
+
+# 時刻更新
+TRAPALRM () { zle reset-prompt }
+TMOUT=60
+
+# See: http://qiita.com/fmy/items/b92254d14049996f6ec3
+agvim () {
+  \vim $(ag $@ | peco --query "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
 }
 
-# cd後自動でls
-function chpwd() { ls_abbrev }
-
+# ls_abbrev --------------------------------------------------------------- {{{
+# event - ls_abbrev
+# @detail 現在のosに搭載されている ls を実行します
 ls_abbrev() {
   local cmd_ls='ls'
   local -a opt_ls
@@ -303,12 +320,12 @@ ls_abbrev() {
     echo "$ls_result"
   fi
 }
+# }}}
 
-# 時刻更新
-function TRAPALRM () { zle reset-prompt }
-TMOUT=60
-
-function git_status() {
+# quick git status -------------------------------------------------------- {{{
+# event - ls_abbrev
+# @detail 現在のosに搭載されている ls を実行します
+git_status() {
   which git > /dev/null
   if [ $? -ne 0 ]; then
     echo "Plese install peco and git"
@@ -323,8 +340,12 @@ function git_status() {
 }
 zle -N git_status
 bindkey '^j^s' git_status
+# }}}
 
-function peco-git-recent-branches()
+# peco branch list -------------------------------------------------------- {{{
+# event - ls_abbrev
+# @detail 現在のosに搭載されている ls を実行します
+peco-git-recent-branches()
 {
   which git peco > /dev/null
   if [ $? -ne 0 ]; then
@@ -344,8 +365,11 @@ function peco-git-recent-branches()
 
 zle -N peco-git-recent-branches
 bindkey '^j^b' peco-git-recent-branches
+# }}}
 
-function peco-tmux-session()
+# peco tmux session list --------------------------------------------------- {{{
+# event - ls_abbrev
+peco-tmux-session()
 {
   which tmux peco > /dev/null
   if [ $? -ne 0 ]; then
@@ -365,9 +389,12 @@ function peco-tmux-session()
 }
 zle -N peco-tmux-session
 bindkey '^s' peco-tmux-session
+# }}}
 
+# peco ls cd -------------------------------------------------------------- {{{
+# function - peco-lscd
 # See: http://qiita.com/xtetsuji/items/05f6f4c1b17854cdd75b
-function peco-lscd()
+peco-lscd()
 {
   which peco > /dev/null
   if [ $? -ne 0 ]; then
@@ -381,9 +408,11 @@ function peco-lscd()
 }
 zle -N peco-lscd
 alias lscd='peco-lscd'
+# }}}
 
+# peco-file-name search -------------------------------------------------- {{{
 # See:https://github.com/ryoppy/cool-peco/blob/master/functions/cool-peco-filename-search
-function peco-file-name-search()
+peco-file-name-search()
 {
   which peco > /dev/null
   if [ $? -ne 0 ]; then
@@ -400,8 +429,10 @@ function peco-file-name-search()
 }
 zle -N peco-file-name-search
 bindkey '^f' peco-file-name-search
+# }}}
 
-function peco-select-history
+# peco-select-history ---------------------------------------------------- {{{
+peco-select-history()
 {
   local tac
   if which tac > /dev/null; then
@@ -417,13 +448,10 @@ function peco-select-history
 }
 zle -N peco-select-history
 bindkey '^r' peco-select-history
+# }}}
 
-# See: http://qiita.com/fmy/items/b92254d14049996f6ec3
-function agvim () {
-  \vim $(ag $@ | peco --query "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
-}
-
-function peco-src () {
+# peco-src ---------------------------------------------------------------- {{{
+peco-src () {
 local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
 if [ -n "$selected_dir" ]; then
   BUFFER="cd ${selected_dir}"
@@ -474,3 +502,4 @@ WORDCHARS='*?_-.[~=&;!#$%^({<>})]'
 # }}}
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+eval "$(direnv hook zsh)"
