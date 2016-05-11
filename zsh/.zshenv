@@ -1,14 +1,16 @@
-export PATH=${HOME}/local/bin:${PATH}
-export PATH=/usr/local/bin:${PATH}
-export PATH=${HOME}/.rbenv/bin:${PATH}
-export PATH=${HOME}/local/go/bin:${PATH}
-export PATH=/usr/local/heroku/bin:${PATH}
+if [[ -z $TMUX ]];then
+  export PATH=${HOME}/local/bin:${PATH}
+  export PATH=/usr/local/bin:${PATH}
+  export PATH=${HOME}/.rbenv/bin:${PATH}
+  export PATH=${HOME}/local/go/bin:${PATH}
+  export PATH=/usr/local/heroku/bin:${PATH}
+  export PATH=~/.zplug/bin:${PATH}
+fi
 export PAGER=less
 export GISTY_DIR=${HOME}/gisty
 export GOPATH=${HOME}/local/go
 export DOTFONTPATH=${HOME}/share/fonts
 export NODE_PATH=$npm_dir
-export PATH=~/.zplug/bin:${PATH}
 export TERM='xterm-256color'
 export LANG=ja_JP.UTF-8
 export KCODE=u
