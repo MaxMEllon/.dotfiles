@@ -16,7 +16,7 @@ local sources=$HOME/.zplug/repos
 
 # zplug 'hchbaw/auto-fu.zsh', at:next
 zplug 'b4b4r07/zspec', as:command, use:bin/zspec
-zplug 'mollifier/cd-gitroot'
+zplug 'mollifier/cd-gitroot', as:command, use:cd-gitroot
 zplug 'mrowa44/emojify', as:command
 zplug 'rupa/z', use:z.sh
 zplug 'supercrabtree/k'
