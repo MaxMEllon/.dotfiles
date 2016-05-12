@@ -9,4 +9,3 @@ alias fgrep='fgrep --color=auto'              # show differences in colour
 alias h='history 15'
 alias tmux='tmux -2'
 alias vim='vim -p'
-alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@" -g'

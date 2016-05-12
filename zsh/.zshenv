@@ -10,6 +10,7 @@ else
   export PATH=/usr/local/heroku/bin:${PATH}
   export PATH=~/.zplug/bin:${PATH}
   export PAGER=less
+  export EDITOR=/usr/local/bin/vim
   export GISTY_DIR=${HOME}/gisty
   export GOPATH=${HOME}/local/go
   export DOTFONTPATH=${HOME}/share/fonts

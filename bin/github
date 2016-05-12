@@ -1,0 +1,8 @@
+#!/bin/bash
+
+which opener &> /dev/null
+if [ $? -ne 0 ]; then
+  npm install -g opener
+fi
+
+opener https://github.com/MaxMEllon

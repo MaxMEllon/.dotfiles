@@ -291,6 +291,78 @@ agvim () {
   \vim $(ag $@ | peco --query "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
 }
 
+# select_vim -------------------------------------------------------------- {{{
+# gui と cui の vim を選択します
+# 引数なしで実行するとトグルになります
+
+export MY_VIM_TYPE='gui'  # デフォルト値
+
+select_vim_type() {
+  if [ $# -ne 1 ]; then
+    print "
+    Error: Wrong number of arguments. Expected 1, got $?
+
+      Usage:
+        $ select_vim_type gui
+        $ select_vim_type cui
+
+      Alias:
+        $ svim gui
+        $ svim cui
+    "
+    return 1
+  fi
+
+  if [[ $1 == 'gui' ]]; then
+    alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@" -g'
+    export MY_VIM_TYPE='gui'
+    vim_type
+    return
+  fi
+  if [[ $1 == 'cui' ]]; then
+    alias vim='/usr/local/bin/vim'
+    export MY_VIM_TYPE='cui'
+    vim_type
+    return
+  fi
+}
+
+toggle_vim_type () {
+  if [ $# -ne 0 ]; then
+    print "
+    Error: Wrong number of arguments. Expected 0, got $?
+
+      Usage:
+        $ toggle_vim_type
+
+      Alias:
+        $ tvim
+    "
+    return 1
+  fi
+  if [[ $MY_VIM_TYPE == 'cui' ]]; then
+    alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@" -g'
+    export MY_VIM_TYPE='gui'
+    vim_type
+    return
+  fi
+  if [[ $MY_VIM_TYPE == 'gui' ]]; then
+    alias vim='/usr/local/bin/vim'
+    export MY_VIM_TYPE='cui'
+    vim_type
+    return
+  fi
+}
+
+vim_type () {
+  print "CURRENT_VIM_TYPE : ${MY_VIM_TYPE}\n"
+}
+
+alias tvim='toggle_vim_type'
+alias svim='select_vim_type'
+alias vt='vim_type'
+# }}}
+
 # ls_abbrev --------------------------------------------------------------- {{{
 # event - ls_abbrev
 # @detail 現在のosに搭載されている ls を実行します

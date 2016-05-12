@@ -1,0 +1,3 @@
+#!/bin/bash
+
+vim ~/.vim/.vimrc && cd ~/.vim

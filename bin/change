@@ -4,12 +4,17 @@ require 'open3'
 
 if ARGV.size-1 <= 0
   puts '
+  About:
+    Batch convert the extension of some file.
+    (ファイルの拡張子を一括変換します)
+
   Usage:
 
     $ change [files] [extension]
 
-    ex.
-      $ change *.txt md
+  Ex:
+
+    $ change *.txt md
   '
   exit 1
 end
