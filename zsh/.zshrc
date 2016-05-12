@@ -325,6 +325,12 @@ select_vim_type() {
     vim_type
     return
   fi
+  if [[ $1 == 'neo' ]]; then
+    alias vim='/usr/local/bin/nvim'
+    export MY_VIM_TYPE='neo'
+    vim_type
+    return
+  fi
 }
 
 toggle_vim_type () {
@@ -340,16 +346,22 @@ toggle_vim_type () {
     "
     return 1
   fi
-  if [[ $MY_VIM_TYPE == 'cui' ]]; then
+  if [[ $MY_VIM_TYPE == 'gui' ]]; then
     alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@" -g'
-    export MY_VIM_TYPE='gui'
     vim_type
+    export MY_VIM_TYPE='cui'
     return
   fi
-  if [[ $MY_VIM_TYPE == 'gui' ]]; then
+  if [[ $MY_VIM_TYPE == 'cui' ]]; then
     alias vim='/usr/local/bin/vim'
-    export MY_VIM_TYPE='cui'
     vim_type
+    export MY_VIM_TYPE='neo'
+    return
+  fi
+  if [[ $MY_VIM_TYPE == 'neo' ]]; then
+    alias vim='/usr/local/bin/nvim'
+    vim_type
+    export MY_VIM_TYPE='gui'
     return
   fi
 }
