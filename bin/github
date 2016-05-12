@@ -5,4 +5,25 @@ if [ $? -ne 0 ]; then
   npm install -g opener
 fi
 
-opener https://github.com/MaxMEllon
+case $# in
+  0 )
+    opener https://github.com/MaxMEllon
+    ;;
+  1 )
+    opener https://github.com/MaxMEllon/$1
+    ;;
+  * )
+    printf "
+    Error: Wrong number of arguments. Expected 0, got $#
+
+      Usage:
+        $ github
+        $ github [reponame]
+
+      Ex:
+        $ github .vim
+
+    \n"
+    ;;
+esac
+
