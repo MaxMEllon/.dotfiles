@@ -300,7 +300,7 @@ export MY_VIM_TYPE='gui'  # デフォルト値
 select_vim_type() {
   if [ $# -ne 1 ]; then
     print "
-    Error: Wrong number of arguments. Expected 1, got $?
+    Error: Wrong number of arguments. Expected 1, got $#
 
       Usage:
         $ select_vim_type gui
@@ -330,7 +330,7 @@ select_vim_type() {
 toggle_vim_type () {
   if [ $# -ne 0 ]; then
     print "
-    Error: Wrong number of arguments. Expected 0, got $?
+    Error: Wrong number of arguments. Expected 0, got $#
 
       Usage:
         $ toggle_vim_type
