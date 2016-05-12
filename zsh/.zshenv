@@ -21,6 +21,6 @@ else
   export CLICOLOR=true
   [ -s ${HOME}/.nvm/nvm.sh ] && . ${HOME}/.nvm/nvm.sh
   npm_dir=${NVM_PATH}_modules
+  export DOTENV_LOADED=1
 fi
 
-export DOTENV_LOADED=1
