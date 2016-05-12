@@ -15,10 +15,10 @@ source ~/.zplug/zplug
 local sources=$HOME/.zplug/repos
 
 # zplug 'hchbaw/auto-fu.zsh', at:next
-zplug 'b4b4r07/zspec', as:command, of:bin/zspec
+zplug 'b4b4r07/zspec', as:command, use:bin/zspec
 zplug 'mollifier/cd-gitroot'
 zplug 'mrowa44/emojify', as:command
-zplug 'rupa/z', of:z.sh
+zplug 'rupa/z', use:z.sh
 zplug 'supercrabtree/k'
 zplug 'zsh-users/zsh-autosuggestions'
 zplug 'zsh-users/zsh-completions'
@@ -505,3 +505,7 @@ WORDCHARS='*?_-.[~=&;!#$%^({<>})]'
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 eval "$(direnv hook zsh)"
+
+# if (which zprof > /dev/null) ;then
+#   zprof | less
+# fi
