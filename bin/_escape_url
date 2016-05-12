@@ -1,0 +1,20 @@
+#!/usr/bin/env ruby
+
+require 'webrick/httputils'
+
+if ARGV.size == 2
+  puts '
+  About:
+    文字列をURL用にエスケープします
+
+  Usage:
+
+    $ _escape_url 翻訳
+
+  '
+  exit 1
+end
+
+puts WEBrick::HTTPUtils.escape_form(ARGV[0])
+
+# set ft=ruby
