@@ -8,5 +8,5 @@ source $DOTPATH/bash/prompt.bash
 source $DOTPATH/bash/env.bash
 
 if [ `which rbenv` ]; then
-  eval "$(rbenv init - zsh)"
+  eval "$(rbenv init - --no-rehash)"
 fi

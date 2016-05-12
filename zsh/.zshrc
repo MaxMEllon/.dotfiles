@@ -211,6 +211,8 @@ alias :q='exit'
 alias -g G='| grep'
 alias -g L='| less'
 alias -g C='| color'
+alias -g V='| vim -R -'
+alias -g H=' --help'
 
 alias -g pcd='cd !:*'
 
