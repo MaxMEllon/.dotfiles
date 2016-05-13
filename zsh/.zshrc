@@ -220,6 +220,9 @@ alias -g pcd='cd !:*'
 alias ag="ag --pager=\"less -R\""
 
 alias gyazo="gyazo-cli"
+
+alias honyaku='google 翻訳'
+
 # }}}
 
 # history {{{
