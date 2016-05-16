@@ -335,6 +335,11 @@ select_vim_type() {
     return
   fi
 }
+_select_vim_complete () {
+  compadd gui cui neo
+}
+compdef _select_vim_complete select_vim_type
+compdef _select_vim_complete svim
 
 toggle_vim_type () {
   if [ $# -ne 0 ]; then
@@ -377,6 +382,23 @@ alias tvim='toggle_vim_type'
 alias svim='select_vim_type'
 alias vt='vim_type'
 # }}}
+
+# select_tmux_window -------------------------------------------------------{{{
+select_tmux_window() {
+  which tmux peco > /dev/null
+  if [ $? -ne 0 ]; then
+    echo "Please install peco and tmux"
+    return 1
+  fi
+  local res
+  res=$(\tmux list-windows | peco | cut -c 1)
+  if [[ $res != '' ]]; then
+    tmux move-window -s $res
+  fi
+}
+zle -N select_tmux_window
+bindkey '^w' select_tmux_window
+#   }}}
 
 # ls_abbrev --------------------------------------------------------------- {{{
 # event - ls_abbrev
@@ -591,6 +613,10 @@ WORDCHARS='*?_-.[~=&;!#$%^({<>})]'
 # }}}
 
 eval "$(direnv hook zsh)"
+
+if [[ -s ~/.nvm/nvm.sh ]];
+  then source ~/.nvm/nvm.sh
+fi
 
 # if (which zprof > /dev/null) ;then
 #   zprof | less
