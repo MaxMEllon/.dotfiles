@@ -7,4 +7,5 @@ ctags
 .tags
 .tern-project
 workbench.xmi
+.direnv
 
