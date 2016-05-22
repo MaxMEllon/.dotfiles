@@ -7,10 +7,13 @@ fi
 
 case $# in
   0 )
-    opener https://github.com/MaxMEllon
+    opener https://github.com
     ;;
   1 )
-    opener https://github.com/MaxMEllon/$1
+    opener https://github.com/$1
+    ;;
+  2 )
+    opener https://github.com/$1/$2
     ;;
   * )
     printf "

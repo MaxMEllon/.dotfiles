@@ -1,0 +1,25 @@
+#!/bin/bash
+
+set -e
+
+: $1
+
+if [ $# -ne 1 ]; then
+  printf "
+    Error: Wrong number of arguments. Expected 1, got $#
+
+      Usage:
+        $ autokill [serach process name]
+
+      Ex:
+        $ google rails
+
+  \n"
+  exit 1
+fi
+
+pid=`ps | grep $1 | grep -v grep | grep -v autokill | cut -c-5`
+
+for e in ${pid[@]}; do
+  kill -9 $e
+done

@@ -8,4 +8,5 @@ ctags
 .tern-project
 workbench.xmi
 .direnv
+.envrc
 
