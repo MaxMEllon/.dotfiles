@@ -618,6 +618,8 @@ if [[ -s ~/.nvm/nvm.sh ]];
   then source ~/.nvm/nvm.sh
 fi
 
+source ~/.npm_completion
+
 # if (which zprof > /dev/null) ;then
 #   zprof | less
 # fi
