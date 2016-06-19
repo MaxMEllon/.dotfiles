@@ -1,9 +1,11 @@
-# require 'hirb'
-#
-# # hirb
-# Hirb.enable :output => {"ActiveRecord::Base" => {:class => :auto_table, :ancestor => true, :options => {:vertical => true}}}
-# extend Hirb::Console
-# old_print = Pry.config.print
-# Pry.config.print = proc do |output, value|
-#   Hirb::View.view_or_page_output(value) || old_print.call(output, value)
-# end
+begin
+  require 'hirb'
+rescue LoadError
+end
+
+if defined? Hirb
+  extend Hirb::Console
+  def vtable(record, options = {}, *args)
+    table record, { vertical: true }.merge(options), *args
+  end
+end
