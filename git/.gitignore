@@ -9,4 +9,6 @@ ctags
 workbench.xmi
 .direnv
 .envrc
+.env
+public/assets/
 
