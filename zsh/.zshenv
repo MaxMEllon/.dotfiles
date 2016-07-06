@@ -1,5 +1,7 @@
 # zmodload zsh/zprof && zprof
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 if ! [ -z $DOTENV_LOADED ]; then
   print 'skip load\n'
 else
