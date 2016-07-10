@@ -16,7 +16,7 @@ local sources=$HOME/.zplug/repos
 
 # zplug 'hchbaw/auto-fu.zsh', at:next
 zplug 'b4b4r07/zspec', as:command, use:bin/zspec
-zplug 'mollifier/cd-gitroot', as:command, use:cd-gitroot
+# zplug 'mollifier/cd-gitroot', as:command, use:cd-gitroot
 zplug 'mrowa44/emojify', as:command
 zplug 'rupa/z', use:z.sh
 zplug 'supercrabtree/k'
@@ -172,6 +172,18 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 
+cd-gitroot()
+{
+  result=`git rev-parse --is-inside-work-tree`
+  if [ $result == 'true' ]; then
+    cd `git rev-parse --show-toplevel`
+  else
+    return
+  fi
+}
+
+alias cdu='cd-gitroot'
+
 # tmux
 alias aliastx='alias | grep tmux'
 alias tmls='\tmux list-sessions'
@@ -192,7 +204,7 @@ alias uml="java -jar ${HOME}/local/bin/plantuml.jar -tpng"
 alias j='z'
 
 # cd-gitroot
-alias cdu='cd-gitroot'
+# alias cdu='cd-gitroot'
 
 # gisty
 # alias gisty='gisty post'
