@@ -1,0 +1,22 @@
+#!/bin/zsh
+
+TARGETUSER="test"
+PASSWORD="test"
+
+GID=`dscl . list groups gid|grep \^staff | tail  -1  | awk '{print $2}'`
+
+dscl . -create /Users/$TARGETUSER
+dscl . -create /Users/$TARGETUSER UserShell /bin/bash
+dscl . -create /Users/$TARGETUSER RealName $TARGETUSER
+
+maxid=$(dscl . -list /Users UniqueID | awk '{print $2}' | sort -ug | tail -1)
+newid=$((maxid+1))
+
+dscl . -create /Users/$TARGETUSER UniqueID         $newid
+dscl . -create /Users/$TARGETUSER PrimaryGroupID   $GID
+dscl . -create /Users/$TARGETUSER NFSHomeDirectory /Users/$TARGETUSER
+
+cp -a /System/Library/User\ Template/English.lproj /Users/$TARGETUSER
+chown -R $TARGETUSER\:staff /Users/$TARGETUSER
+chmod 701 /Users/$TARGETUSER
+dscl . -passwd /Users/$TARGETUSER $PASSWORD
