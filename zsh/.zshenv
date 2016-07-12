@@ -1,10 +1,10 @@
 # zmodload zsh/zprof && zprof
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 if ! [ -z $DOTENV_LOADED ]; then
-  print 'skip load\n'
+  # print 'skip load\n'
 else
+  [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
   export PATH=${HOME}/local/bin:${PATH}
   export PATH=/usr/local/bin:${PATH}
   export PATH=${HOME}/.rbenv/bin:${PATH}
@@ -22,6 +22,8 @@ else
   export KCODE=u
   export LS_COLORS='di=01;34;40:ln=01;36:so=01;32:ex=01;31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
   export CLICOLOR=true
+  export PYENV_ROOT=~/.pyenv
+  export PATH="$PYENV_ROOT"/bin:"$PATH"
   [ -s ${HOME}/.nvm/nvm.sh ] && . ${HOME}/.nvm/nvm.sh
   npm_dir=${NVM_PATH}_modules
   export DOTENV_LOADED=1
