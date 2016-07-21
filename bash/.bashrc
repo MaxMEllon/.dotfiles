@@ -1,4 +1,3 @@
-
 if [ -z ${DOTPATH+x} ]; then
   export DOTPATH="$HOME/.dotfiles"
 fi
@@ -11,6 +10,6 @@ if [ `which rbenv` ]; then
   eval "$(rbenv init - --no-rehash)"
 fi
 if [ `which pyenv` ]; then
-  eval "$(pyenv init - --no-rehash)"
+  eval "$(pyenv init -)"
 fi
-export NODE_PATH=:/Users/maxmellon/.nvm/versions/node/v5.8.0/lib/node_modules
+

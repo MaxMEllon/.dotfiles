@@ -629,13 +629,13 @@ export FZF_DEFAULT_COMMAND='
        find . -path "*/\.*" -prune -o -type f -print -o -type l -print |
          sed s/^..//) 2> /dev/null'
 
-eval "$(direnv hook zsh)"
+# eval "$(direnv hook zsh)"
 
 if [[ -s ~/.nvm/nvm.sh ]];
   then source ~/.nvm/nvm.sh
 fi
 
-source ~/.npm_completion
+# source ~/.npm_completion
 
 # if (which zprof > /dev/null) ;then
 #   zprof | less

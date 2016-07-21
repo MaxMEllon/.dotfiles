@@ -14,6 +14,7 @@
 	lock = "update-index --skip-worktree"
 	locked = "!f() { git ls-files -v | grep ^S | sed -e 's|S ||'; }; f;"
 	unlock = "update-index --no-skip-worktree"
+	ck = "!f() { git checkout `git branch | peco`; }; f;"
 [push]
 	default = current
 [core]
