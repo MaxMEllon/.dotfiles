@@ -68,7 +68,7 @@ fi
 
 which tmux > /dev/null
 if [ $? -eq 0 ]; then
-  tmux set-option -g status-right "$basecolor $s5 $wifi $s4 $ruby $s2 $node "
+  tmux set-option -g status-right "$basecolor $hp $s5 $wifi $s4 $ruby $s2 $node "
 fi
 
 # vim:ft=sh
