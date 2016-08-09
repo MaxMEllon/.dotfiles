@@ -103,7 +103,7 @@ fi
 # |  258F   |  ▏    | LEFT ONE EIGHTH BLOCK      |            |
 # |  2590   |  ▐    | RIGHT HALF BLOCK           |            |
 #
-signals=(▂ ▅ ▇)
+signals=( ▂▅▇)
 
 # Get the wifi information and then set it to an info array
 info=( $(eval "$airport_path" --getinfo | grep -E "^ *(agrCtlRSSI|state|lastTxRate|SSID):" | awk '{print $2}') )

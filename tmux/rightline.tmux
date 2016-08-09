@@ -14,7 +14,7 @@ s5="#[fg=colour202]${sepchar}#[fg=colour255]#[bg=colour202]"
 # wifi ------------------------------------------------------------------------
 which wifi > /dev/null
 if [ $? -eq 0 ]; then
-  wifi='#(wifi)'
+  wifi=`wifi | awk -F ' ' '{print $2 $3}'`
 else
   wifi=''
 fi
@@ -46,7 +46,7 @@ fi
 # ruby-version ----------------------------------------------------------------
 which ruby > /dev/null
 if [ $? -eq 0 ]; then
-  ruby='#(ruby -v | less | cut -c-10 )'
+  ruby=`ruby -v | awk -F ' ' '{print $2}'`
 else
   ruby=''
 fi
@@ -54,7 +54,7 @@ fi
 # node-version ----------------------------------------------------------------
 which node > /dev/null
 if [ $? -eq 0 ]; then
-  node='node #(node -v)'
+  node='#(node -v)'
 else
   node=''
 fi
@@ -66,9 +66,16 @@ if [ $? -ne 0 ]; then
   ip=''
 fi
 
+# weather ---------------------------------------------------------------------
+which weather_emojify > /dev/null
+weather=`weather_emojify`
+if [ $? -ne 0 ]; then
+  weather=''
+fi
+
 which tmux > /dev/null
 if [ $? -eq 0 ]; then
-  tmux set-option -g status-right "$basecolor $hp $s5 $wifi $s4 $ruby $s2 $node "
+  tmux set-option -g status-right "$basecolor $ip $s1 $battery $s2 $weather $s3 $wifi $s4 $node $s5 $ruby "
 fi
 
 # vim:ft=sh

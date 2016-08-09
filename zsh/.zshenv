@@ -12,6 +12,7 @@ else
   export PATH=/usr/local/heroku/bin:${PATH}
   export PATH=~/.zplug/bin:${PATH}
   export PAGER=less
+  export MANPAGER="vim -c MANPAGER -"
   export EDITOR=/usr/local/bin/vim
   export GISTY_DIR=${HOME}/gisty
   export GOPATH=${HOME}/local/go

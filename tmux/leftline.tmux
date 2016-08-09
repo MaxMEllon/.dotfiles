@@ -1,6 +1,5 @@
 #!/bin/sh
 
-
 sepchar='⮀'
 
 # header="#[fg=colour8,bold]#[bg=colour117]"
@@ -14,6 +13,6 @@ sessionName='[#S]'
 hostName='#H'
 windowName='#W'
 
-tmux set-option -g status-left "$header $sessionName $s2 prefix <C-t> $s3 $windowName $footer "
+tmux set-option -g status-left "$header $sessionName $s2 <C-t> $s3 $windowName $footer "
 
 # vim:ft=sh

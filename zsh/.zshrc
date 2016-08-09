@@ -213,14 +213,15 @@ alias j='z'
 : alias mvim='mvim -g'
 alias cvim='/usr/local/bin/vim'
 
-
 # rails
 alias be='bundle exec'
 alias railss='rails s -b 0.0.0.0'
+alias br='bin/rails'
 
 alias :q='exit'
 
-alias -g G='| grep'
+alias -g JSON='| python -m json.tool > __TMP_JSON_FILE__.json'
+alias -g G='| grep -v grep | grep'
 alias -g L='| less'
 alias -g C='| color'
 alias -g V='| vim -R -'

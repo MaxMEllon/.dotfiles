@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+sudo kextunload /System/Library/Extensions/AppleUSBTopCase.kext/Contents/PlugIns/AppleUSBTCKeyboard.kext
+
+case $? in
+  3) exit 0;;
+  *) exit $?;;
+esac

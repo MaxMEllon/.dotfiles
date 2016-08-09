@@ -8,7 +8,7 @@
 	db="!f() { git branch -D `git branch | peco`; }; f;"
 	lg=log --graph --all --color --pretty='%x09%h %cn%x09%s %Cred%d'
 	alias=!git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
-	ls=ls-files
+	ls="!f() { git ls-files | peco; }; f;"
 	rb=fetch --prune
 	# See: https://github.com/iguto/dotfiles/blob/master/.gitconfig#L12-L14
 	lock = "update-index --skip-worktree"
