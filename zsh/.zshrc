@@ -214,9 +214,12 @@ alias j='z'
 alias cvim='/usr/local/bin/vim'
 
 # rails
+alias b='bundle'
 alias be='bundle exec'
-alias railss='rails s -b 0.0.0.0'
 alias br='bin/rails'
+alias railss='rails s -b 0.0.0.0'
+alias -g E='exec'
+alias -g I='install'
 
 alias :q='exit'
 
@@ -306,6 +309,16 @@ TMOUT=60
 agvim () {
   \vim $(ag $@ | peco --query "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
 }
+
+# docker-inspect -------------------------------------------------------{{{
+docker-inspect() {
+  local res
+  res=$(docker inspect `docker images | awk 'NR>1 {print}' | peco | awk '{print $3}'`)
+  echo $res
+}
+zle -N docker-inspect
+bindkey '^w' docker-inspect
+#   }}}
 
 # select_vim -------------------------------------------------------------- {{{
 # gui と cui の vim を選択します
