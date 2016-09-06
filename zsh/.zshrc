@@ -212,6 +212,9 @@ alias j='z'
 # vim
 : alias mvim='mvim -g'
 alias cvim='/usr/local/bin/vim'
+: alias v='nvim'
+NEO_VIM_QT='/Users/maxmellon/work/ghq/github.com/equalsraf/neovim-qt/build/bin/nvim-qt'
+# alias v=$NEO_VIM_QT
 
 # rails
 alias b='bundle'
@@ -231,6 +234,8 @@ alias -g V='| vim -R -'
 alias -g H=' --help'
 
 alias -g pcd='cd !:*'
+
+alias -g GL='`git ls-files | peco`'
 
 # ag
 alias ag="ag --pager=\"less -R\""
@@ -316,15 +321,15 @@ docker-inspect() {
   res=$(docker inspect `docker images | awk 'NR>1 {print}' | peco | awk '{print $3}'`)
   echo $res
 }
-zle -N docker-inspect
-bindkey '^w' docker-inspect
+# zle -N docker-inspect
+# bindkey '^w' docker-inspect
 #   }}}
 
 # select_vim -------------------------------------------------------------- {{{
 # gui と cui の vim を選択します
 # 引数なしで実行するとトグルになります
 
-export MY_VIM_TYPE='gui'  # デフォルト値
+export MY_VIM_TYPE='neo'  # デフォルト値
 
 select_vim_type() {
   if [ $# -ne 1 ]; then
@@ -344,25 +349,39 @@ select_vim_type() {
 
   if [[ $1 == 'gui' ]]; then
     alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@" -g'
+    alias v='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@" -g'
     export MY_VIM_TYPE='gui'
     vim_type
     return
   fi
   if [[ $1 == 'cui' ]]; then
     alias vim='/usr/local/bin/vim'
+    alias v='/usr/local/bin/vim'
     export MY_VIM_TYPE='cui'
     vim_type
     return
   fi
   if [[ $1 == 'neo' ]]; then
     alias vim='/usr/local/bin/nvim'
+    alias v='/usr/local/bin/nvim'
+    export MY_VIM_TYPE='neo'
+    vim_type
+    return
+  fi
+  if [[ $1 == 'neogui' ]]; then
+    alias vim="$NEO_VIM_QT"
+    alias v="$NEO_VIM_QT"
     export MY_VIM_TYPE='neo'
     vim_type
     return
   fi
 }
+
+alias vim="$NEO_VIM_QT"
+alias v="$NEO_VIM_QT"
+
 _select_vim_complete () {
-  compadd gui cui neo
+  compadd gui cui neo neogui
 }
 compdef _select_vim_complete select_vim_type
 compdef _select_vim_complete svim
@@ -423,7 +442,7 @@ select_tmux_window() {
   fi
 }
 zle -N select_tmux_window
-bindkey '^w' select_tmux_window
+# bindkey '^w' select_tmux_window
 #   }}}
 
 # ls_abbrev --------------------------------------------------------------- {{{
@@ -525,7 +544,7 @@ peco-tmux-session()
   fi
 }
 zle -N peco-tmux-session
-bindkey '^s' peco-tmux-session
+# bindkey '^s' peco-tmux-session
 # }}}
 
 # peco ls cd -------------------------------------------------------------- {{{

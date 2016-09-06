@@ -26,6 +26,8 @@ else
   export PYENV_ROOT=~/.pyenv
   export PATH="$PYENV_ROOT"/bin:"$PATH"
   [ -s ${HOME}/.nvm/nvm.sh ] && . ${HOME}/.nvm/nvm.sh
+  export PATH=${HOME}/.erlenv/bin:${PATH}
+  export PATH=${HOME}/.exenv/bin:${PATH}
   export npm_dir=${NVM_PATH}_modules
   export DOTENV_LOADED=1
 fi
