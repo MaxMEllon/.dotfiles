@@ -10,7 +10,7 @@ logo='
 
 printf $logo
 
-source ~/.zplug/zplug
+source ~/.zplug/init.zsh
 
 local sources=$HOME/.zplug/repos
 
@@ -18,7 +18,7 @@ local sources=$HOME/.zplug/repos
 zplug 'b4b4r07/zspec', as:command, use:bin/zspec
 # zplug 'mollifier/cd-gitroot', as:command, use:cd-gitroot
 zplug 'mrowa44/emojify', as:command
-zplug 'rupa/z', use:z.sh
+zplug 'rupa/z', use:z.sh, nice:10
 zplug 'supercrabtree/k'
 zplug 'zsh-users/zsh-autosuggestions'
 zplug 'zsh-users/zsh-completions'
@@ -235,7 +235,7 @@ alias -g H=' --help'
 
 alias -g pcd='cd !:*'
 
-alias -g GL='`git ls-files | peco`'
+alias -g GL='`git ls-files | FZF`'
 
 # ag
 alias ag="ag --pager=\"less -R\""
@@ -312,13 +312,13 @@ TMOUT=60
 
 # See: http://qiita.com/fmy/items/b92254d14049996f6ec3
 agvim () {
-  \vim $(ag $@ | peco --query "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
+  \vim $(ag $@ | FZF --query "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
 }
 
 # docker-inspect -------------------------------------------------------{{{
 docker-inspect() {
   local res
-  res=$(docker inspect `docker images | awk 'NR>1 {print}' | peco | awk '{print $3}'`)
+  res=$(docker inspect `docker images | awk 'NR>1 {print}' | FZF | awk '{print $3}'`)
   echo $res
 }
 # zle -N docker-inspect
@@ -575,7 +575,7 @@ peco-file-name-search()
     echo "Please install peco"
     return 1
   fi
-  local res=$(z | sort -rn | cut -c 12- | peco)
+  local res=$(z | sort -rn | cut -c 12- | fzf)
   if [ -n "$res" ]; then
     BUFFER+="cd $res"
     zle accept-line
@@ -657,6 +657,7 @@ role='%(!.#.$)'
 WORDCHARS='*?_-.[~=&;!#$%^({<>})]'
 # }}}
 
+export FZF_DEFAULT_OPTS='--reverse'
 export FZF_DEFAULT_COMMAND='
   (git ls-tree -r --name-only HEAD ||
        find . -path "*/\.*" -prune -o -type f -print -o -type l -print |
