@@ -24,6 +24,7 @@ zcompile $1/zsh/.zshrc
 mv -f $1/zsh/.zshrc.zwc ~/
 
 ln -fs $1/zsh/.zshenv ~/
+ln -fs $1/zsh/.zprofile ~/
 
 # if ! zplug check --verbose; then
 #   zplug install
