@@ -15,6 +15,7 @@ source ~/.zplug/init.zsh
 local sources=$HOME/.zplug/repos
 
 # zplug 'hchbaw/auto-fu.zsh', at:next
+zplug 'b4b4r07/zplug'
 zplug 'b4b4r07/zspec', as:command, use:bin/zspec
 # zplug 'mollifier/cd-gitroot', as:command, use:cd-gitroot
 zplug 'mrowa44/emojify', as:command

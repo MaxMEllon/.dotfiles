@@ -9,6 +9,7 @@ source $DOTPATH/bash/env.bash
 if [ `which rbenv` ]; then
   eval "$(rbenv init - --no-rehash)"
 fi
+
 if [ `which pyenv` ]; then
   eval "$(pyenv init - --no-rehash)"
 fi
