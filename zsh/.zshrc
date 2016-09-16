@@ -553,12 +553,12 @@ zle -N peco-tmux-session
 # See: http://qiita.com/xtetsuji/items/05f6f4c1b17854cdd75b
 peco-lscd()
 {
-  which peco > /dev/null
+  which fzf > /dev/null
   if [ $? -ne 0 ]; then
     echo "Please install peco"
     return 1
   fi
-  local dir="$( find . -maxdepth 1 -type d | sed -e 's;\./;;' | peco )"
+  local dir="$( find . -maxdepth 1 -type d | sed -e 's;\./;;' | fzf )"
   if [ ! -z "$dir" ] ; then
     cd "$dir"
   fi
@@ -571,7 +571,7 @@ alias lscd='peco-lscd'
 # See:https://github.com/ryoppy/cool-peco/blob/master/functions/cool-peco-filename-search
 peco-file-name-search()
 {
-  which peco > /dev/null
+  which fzf > /dev/null
   if [ $? -ne 0 ]; then
     echo "Please install peco"
     return 1
