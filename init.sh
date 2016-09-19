@@ -1,6 +1,6 @@
 #/bin/bash
 
-DOTPATH=~/.dotfiles
+# export DOTPATH=~/.dotfiles
 
 if [ -n "$1" ]; then
   DOTPATH=$1

@@ -16,11 +16,11 @@ lower() {
 }
 
 os_type() {
-  if [ "$(uname)" == 'Darwin' ]; then
+  if [[ "$(uname)" == 'Darwin' ]]; then
     lower 'Osx'
-  elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
+  elif [[ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]]; then
     lower 'Linux'
-  elif [ "$(expr substr $(uname -s) 1 10)" == 'MINGW32_NT' ]; then
+  elif [[ "$(expr substr $(uname -s) 1 10)" == 'MINGW32_NT' ]]; then
     lower 'Cygwin'
   else
     echo "Your platform ($(uname -a)) is not supported."
@@ -29,15 +29,15 @@ os_type() {
 }
 
 is_osx() {
-  [ `os_type` == "mac" ] && return $true || return $false
+  [[ `os_type` == "mac" ]] && return $true || return $false
 }
 
 is_linux() {
-  [ `os_type` == "linux" ] && return $true || return $false
+  [[ `os_type` == "linux" ]] && return $true || return $false
 }
 
 is_cygwin() {
-  [ `os_type` == "cygwin" ] && return $true || return $false
+  [[ `os_type` == "cygwin" ]] && return $true || return $false
 }
 
 has() {

@@ -1,34 +1,25 @@
 # zmodload zsh/zprof && zprof
 
-
 if ! [ -z $DOTENV_LOADED ]; then
   # print 'skip load\n'
 else
-  [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+  source ~/.dotfiles/lib/conveni.sh
   export PATH=${HOME}/local/bin:${PATH}
   export PATH=/usr/local/bin:${PATH}
-  export PATH=${HOME}/.rbenv/bin:${PATH}
   export PATH=${HOME}/local/go/bin:${PATH}
-  export PATH=/usr/local/heroku/bin:${PATH}
   export PATH=~/.zplug/bin:${PATH}
-  export PAGER=less
-  export MANPAGER="vim -c MANPAGER -"
-  export EDITOR=/usr/local/bin/vim
-  export GISTY_DIR=${HOME}/gisty
-  export GOPATH=${HOME}/local/go
-  export DOTFONTPATH=${HOME}/share/fonts
-  export NODE_PATH=$npm_dir
-  export TERM='xterm-256color'
-  export LANG=ja_JP.UTF-8
-  export KCODE=u
-  export LS_COLORS='di=01;34;40:ln=01;36:so=01;32:ex=01;31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
-  export CLICOLOR=true
-  export PYENV_ROOT=~/.pyenv
-  export PATH="$PYENV_ROOT"/bin:"$PATH"
-  [ -s ${HOME}/.nvm/nvm.sh ] && . ${HOME}/.nvm/nvm.sh
-  export PATH=${HOME}/.erlenv/bin:${PATH}
-  export PATH=${HOME}/.exenv/bin:${PATH}
   export npm_dir=${NVM_PATH}_modules
+  source ~/.dotfiles/bash/env.bash
+  [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+  if [[ os_type == 'osx' ]]; then
+    [ -s ${HOME}/.exenv/bin/exenv ] && export PATH=${HOME}/.exenv/bin:${PATH}
+    [ -s ${HOME}/.erlenv/bin/erlenv ] && export PATH=${HOME}/.erlenv/bin:${PATH}
+    [ -s ${HOME}/.rbenv/bin/rbenv ] && export PATH=${HOME}/.rbenv/bin:${PATH}
+    [ -s ${HOME}/.nvm/nvm.sh ] && . ${HOME}/.nvm/nvm.sh
+    has rbenv && eval "$(rbenv init - --no-rehash)"
+    has exenv && eval "$(rbenv init - --no-rehash)"
+    has erlenv && eval "$(rbenv init - --no-rehash)"
+  fi
   export DOTENV_LOADED=1
 fi
 
