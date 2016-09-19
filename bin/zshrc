@@ -1,3 +1,7 @@
 #!/bin/bash
 
-vim -p ~/.dotfiles/zsh/.zshrc ~/.dotfiles/zsh/.zshenv && zsh ~/.dotfiles/zsh/init.sh ~/.dotfiles && exec zsh
+vim -p ~/.dotfiles/zsh/.zshrc ~/.dotfiles/zsh/.zshenv && \
+  ln -fs ~/.dotfiles/zsh/.zshrc ~/ && \
+  ln -fs ~/.dotfiles/zsh/.zshenv ~/ && \
+  ln -fs ~/.dotfiles/zsh/.zprofile ~/ && \
+  exec zsh

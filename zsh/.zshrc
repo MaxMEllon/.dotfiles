@@ -14,36 +14,66 @@ source ~/.zplug/init.zsh
 
 local sources=$HOME/.zplug/repos
 
-# zplug 'hchbaw/auto-fu.zsh', at:next
+zplug 'hchbaw/auto-fu.zsh', at:next
 zplug 'b4b4r07/zplug'
 zplug 'b4b4r07/zspec', as:command, use:bin/zspec
-# zplug 'mollifier/cd-gitroot', as:command, use:cd-gitroot
 zplug 'mrowa44/emojify', as:command
-zplug 'rupa/z', use:z.sh, nice:10
+zplug 'rupa/z', use:z.sh
 zplug 'supercrabtree/k'
+zplug 'junegunn/fzf-bin', \
+    as:command, \
+    from:gh-r, \
+    rename-to:fzf, \
+    use:"*darwin*amd64*"
+zplug 'b4b4r07/enhancd', use:init.sh
 zplug 'zsh-users/zsh-autosuggestions'
 zplug 'zsh-users/zsh-completions'
-zplug 'zsh-users/zsh-syntax-highlighting', nice:10
+zplug 'zsh-users/zsh-syntax-highlighting', nice:19
 
-zplug load --verbose
+if [[ -f ~/.zplug/init.zsh ]]; then
+  if ! zplug check; then
+    zplug install
+  fi
 
-# k
-if [ -d $sources/supercrabtree/k ]; then
-  alias ll='k --no-vcs'
-  alias lla='k -a --no-vcs'
-fi
+  zplug load
 
-# auto-fu.zsh
-if [ -d $sources/hchbaw/auto-fu.zsh ]; then
-  function zle-line-init() { auto-fu-init }
-  zle -N zle-line-init
-  zstyle ':auto-fu:var' postdisplay $''
+  if zplug check zsh-users/zsh-syntax-highlighting; then
+    export ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
+    # 存在するパスのハイライト
+    export ZSH_HIGHLIGHT_STYLES[path]='fg=cyan'
+    # マッチしない括弧
+    export ZSH_HIGHLIGHT_STYLES[bracket-error]='fg=red,bold'
+    # 括弧の階層
+    export ZSH_HIGHLIGHT_STYLES[bracket-level-1]='fg=blue,bold'
+    export ZSH_HIGHLIGHT_STYLES[bracket-level-2]='fg=green,bold'
+    export ZSH_HIGHLIGHT_STYLES[bracket-level-3]='fg=magenta,bold'
+    export ZSH_HIGHLIGHT_STYLES[bracket-level-4]='fg=yellow,bold'
+    export ZSH_HIGHLIGHT_STYLES[bracket-level-5]='fg=cyan,bold'
+    # カーソルがある場所の括弧にマッチする括弧
+    export ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]='standout'
+  fi
+
+  if zplug check b4b4r07/enhancd; then
+    export ENHANCD_FILTER="fzf-tmux:fzf"
+  fi
+
+  if zplug check supercrabtree/k; then
+    alias ll='k --no-vcs'
+    alias lla='k -a --no-vcs'
+  fi
+
+  if zplug check hchbaw/auto-fu.zsh; then
+    function zle-line-init() { auto-fu-init }
+    zle -N zle-line-init
+    zstyle ':auto-fu:var' postdisplay $''
+  fi
 fi
 
 autoload -U compinit
 compinit
 
 source ~/.bashrc
+source ~/.dotfiles/zsh/completes/npm_completion
 
 # comp {{{
 zstyle ':completion:*' menu select
@@ -316,6 +346,20 @@ agvim () {
   \vim $(ag $@ | FZF --query "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
 }
 
+function bindkey-advice-before {
+  local key="$1"
+  local advice="$2"
+  local widget="$3"
+  [[ -z "$widget" ]] && {
+    local -a bind
+    bind=(`bindkey -M main "$key"`)
+    widget=$bind[2]
+  }
+  local fun="$advice"
+  zle -N "$fun"
+  bindkey -M afu "$key" "$fun"
+}
+
 # docker-inspect -------------------------------------------------------{{{
 docker-inspect() {
   local res
@@ -573,7 +617,7 @@ peco-file-name-search()
 {
   which fzf > /dev/null
   if [ $? -ne 0 ]; then
-    echo "Please install peco"
+    echo "Please install fzf"
     return 1
   fi
   local res=$(z | sort -rn | cut -c 12- | fzf)
@@ -585,7 +629,7 @@ peco-file-name-search()
   fi
 }
 zle -N peco-file-name-search
-bindkey '^f' peco-file-name-search
+bindkey-advice-before "^f" peco-file-name-search
 # }}}
 
 # peco-select-history ---------------------------------------------------- {{{
@@ -604,7 +648,7 @@ peco-select-history()
   zle clear-screen
 }
 zle -N peco-select-history
-bindkey '^r' peco-select-history
+bindkey-advice-before '^r' peco-select-history
 # }}}
 
 # peco-src ---------------------------------------------------------------- {{{
