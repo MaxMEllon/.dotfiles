@@ -1,10 +1,10 @@
 # zmodload zsh/zprof && zprof
 source ~/.dotfiles/lib/conveni.sh
 
-exist_export()
+exist_expath()
 {
   : $1
-  [ -s $1 ] && export PATH=$1:$PATH
+  [ -d $1 ] && expath $1
 }
 
 
@@ -15,9 +15,10 @@ if [[ -z $TMUX ]]; then
   expath ${HOME}/local/bin
   expath ${HOME}/local/go/bin
   expath ${HOME}/.zplug/bin:${PATH}
-  exist_export ${HOME}/.exenv/bin/exenv
-  exist_export ${HOME}/.rbenv/bin/rbenv
-  exist_export ${HOME}/.erlenv/bin/erlenv
+  exist_expath ${HOME}/.exenv/bin
+  exist_expath ${HOME}/.rbenv/bin
+  exist_expath ${HOME}/.erlenv/bin
+  exist_expath ${HOME}/.nodenv/bin
 fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

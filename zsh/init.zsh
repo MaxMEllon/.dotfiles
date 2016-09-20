@@ -23,7 +23,6 @@ my-load zsh/alias.zsh
 my-load zsh/prompt.zsh
 my-load zsh/history.zsh
 
-files=`ls $DOTPATH/zsh/functions`
 for file in $DOTPATH/zsh/functions/*.zsh; do
   source $file
 done

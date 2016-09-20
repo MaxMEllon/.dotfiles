@@ -1,7 +1,14 @@
 source ~/.zplug/init.zsh
 
 zplug 'hchbaw/auto-fu.zsh', \
-    at:next
+    at:next, \
+    use:auto-fu, \
+    hook-build:'
+      {
+        A=$ZPLUG_HOME/repos/hchbaw/auto-fu.zsh
+        zsh -c "source $A/auto-fu.zsh; auto-fu-zcompile $A/auto-fu.zsh $A"
+      } &>/dev/null
+    '
 
 zplug 'zplug/zplug'
 
@@ -63,8 +70,13 @@ if zplug check supercrabtree/k; then
 fi
 
 if zplug check hchbaw/auto-fu.zsh; then
-  function zle-line-init() { auto-fu-init }
-  zle -N zle-line-init
-  zstyle ':auto-fu:var' postdisplay $''
+  if has auto-fu-install; then
+    auto-fu-install
+  fi
+  if has auto-fu-init; then
+    function zle-line-init() { auto-fu-init }
+    zle -N zle-line-init
+    zstyle ':auto-fu:var' postdisplay $''
+  fi
 fi
 
