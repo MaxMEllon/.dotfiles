@@ -23,7 +23,6 @@ if [[ -z $TMUX ]]; then
 
   expath /usr/local/bin
   expath ${HOME}/local/bin
-  expath ${HOME}/local/bin
   expath ${HOME}/local/go/bin
   expath ${HOME}/.zplug/bin:${PATH}
 
