@@ -11,6 +11,7 @@ export LANG=ja_JP.UTF-8
 export KCODE=u
 export LS_COLORS='di=01;34;40:ln=01;36:so=01;32:ex=01;31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
 export CLICOLOR=true
+export npm_dir=${NVM_PATH}_modules
 
 export FZF_DEFAULT_OPTS='--reverse'
 export FZF_DEFAULT_COMMAND='

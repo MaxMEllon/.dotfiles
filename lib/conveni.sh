@@ -11,6 +11,11 @@ is_exists() {
   return $?
 }
 
+expath() {
+  : $1
+  export PATH=$1:$PATH
+}
+
 lower() {
   printf "$1\n" | tr '[A-Z]' '[a-z]'
 }

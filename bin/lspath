@@ -1,0 +1,4 @@
+#!/bin/bash
+
+LF=$'\\\x0A' && echo $PATH | sed 's/:/'"$LF"'/g' | sort
+

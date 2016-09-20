@@ -61,7 +61,7 @@ fi
 
 # ip --------------------------------------------------------------------------
 which ifconfig > /dev/null
-ip=`ifconfig | grep inet[^6] | grep -v 127.0.0.1 |  awk '{print $2;}'`
+ip=`ifconfig | grep inet[^6] | grep -v 127.0.0.1 |  awk 'NR==1 {print $2;}'`
 if [ $? -ne 0 ]; then
   ip=''
 fi
