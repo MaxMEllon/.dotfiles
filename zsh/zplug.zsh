@@ -3,7 +3,7 @@ source ~/.zplug/init.zsh
 zplug 'hchbaw/auto-fu.zsh', \
     at:next
 
-zplug 'b4b4r07/zplug'
+zplug 'zplug/zplug'
 
 zplug 'b4b4r07/zspec', \
     as:command, \
@@ -25,12 +25,12 @@ zplug 'junegunn/fzf-bin', \
     rename-to:fzf, \
     use:"*darwin*amd64*"
 
-# zplug 'b4b4r07/enhancd', \
-#     use:init.sh
+zplug 'b4b4r07/enhancd', \
+    use:init.sh
 
 zplug 'zsh-users/zsh-autosuggestions'
 
-# zplug 'zsh-users/zsh-completions'
+zplug 'zsh-users/zsh-completions'
 
 zplug 'zsh-users/zsh-syntax-highlighting', \
     nice:19
@@ -67,5 +67,4 @@ if zplug check hchbaw/auto-fu.zsh; then
   zle -N zle-line-init
   zstyle ':auto-fu:var' postdisplay $''
 fi
-
 

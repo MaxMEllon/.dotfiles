@@ -13,6 +13,8 @@ bindkey-advice-before()
   bindkey -M afu "$key" "$fun"
 }
 
+# bindkey-advice-before "^g" afu+cancel
 bindkey-advice-before "^f" z-quick-move
 bindkey-advice-before "^]" ghq-quick-move
+bindkey-advice-before "^r" history-quick-search
 

@@ -1,9 +1,3 @@
-if [[ `os_type` == 'osx' ]]; then
-  export MY_VIM_TYPE='neogui'
-else
-  export MY_VIM_TYPE='cui'
-fi
-
 NEO_VIM_QT='/Users/maxmellon/work/ghq/github.com/equalsraf/neovim-qt/build/bin/nvim-qt'
 
 select_vim_type() {
@@ -98,3 +92,13 @@ vim_type () {
 alias tvim='toggle_vim_type'
 alias svim='select_vim_type'
 alias vt='vim_type'
+
+if [[ `os_type` == 'osx' ]]; then
+  export MY_VIM_TYPE='neogui'
+  alias vim="$NEO_VIM_QT"
+  alias v="$NEO_VIM_QT"
+else
+  export MY_VIM_TYPE='cui'
+  alias vim='/usr/local/bin/vim'
+  alias v='/usr/local/bin/vim'
+fi 
