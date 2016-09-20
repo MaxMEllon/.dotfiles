@@ -1,6 +1,8 @@
 # zmodload zsh/zprof && zprof
 source ~/.dotfiles/lib/conveni.sh
 
+typeset -U path cdpath fpath manpath
+
 exist_expath()
 {
   : $1

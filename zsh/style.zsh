@@ -9,3 +9,8 @@ zstyle ':completion:*:sudo:*' command-path \
 zstyle ':completion:*:processes' command 'ps x -o pid, s, args'
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*:default' menu select=1
+
+autoload -Uz select-word-style
+select-word-style default
+zstyle ':zle:*' word-chars ' _-=/;@'
+zstyle ':zle:*' word-style unspecified
