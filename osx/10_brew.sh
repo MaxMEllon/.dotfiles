@@ -45,7 +45,7 @@ _brew_install python
 _brew_install python3
 _brew_install rbenv
 _brew_install ruby-build
-_brew_tap "peco/peco" && _brew_install peco
+# _brew_tap "peco/peco" && _brew_install peco
 _brew_install fzf
 _brew_install tig
 _brew_tap "motemen/ghq" && _brew_install ghq

@@ -19,7 +19,7 @@ exist_expath()
 
 
 if [[ -z $TMUX ]]; then
-  source ~/.dotfiles/bash/env.bash
+  my-load bash/env.bash
 
   expath /usr/local/bin
   expath ${HOME}/local/bin
