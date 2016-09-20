@@ -2,7 +2,7 @@ has z && has fzf || return 0
 
 z-quick-move()
 {
-  local res=$(z | sort -rn | cut -c 12- | fzf)
+  local res=$(z | sort -rn | cut -c 12- | fzf-tmux)
   if [ -n "$res" ]; then
     BUFFER="cd $res"
     zle accept-line

@@ -17,6 +17,8 @@ zplug 'b4b4r07/zspec', \
     use:bin, \
     lazy:true
 
+zplug 'b4b4r07/emoji-cli'
+
 zplug 'mrowa44/emojify', \
     as:command, \
     lazy:true
