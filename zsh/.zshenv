@@ -1,7 +1,7 @@
 # zmodload zsh/zprof && zprof
 source ~/.dotfiles/lib/conveni.sh
 
-typeset -U path cdpath fpath manpath
+typeset -U path cdpath fpath manpath PATH
 
 exist_expath()
 {
@@ -12,11 +12,13 @@ exist_expath()
 
 if [[ -z $TMUX ]]; then
   source ~/.dotfiles/bash/env.bash
+
   expath /usr/local/bin
   expath ${HOME}/local/bin
   expath ${HOME}/local/bin
   expath ${HOME}/local/go/bin
   expath ${HOME}/.zplug/bin:${PATH}
+
   exist_expath ${HOME}/.exenv/bin
   exist_expath ${HOME}/.rbenv/bin
   exist_expath ${HOME}/.erlenv/bin

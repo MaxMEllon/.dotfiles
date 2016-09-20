@@ -22,6 +22,7 @@ my-load lib/conveni.sh
 my-load zsh/alias.zsh
 my-load zsh/prompt.zsh
 my-load zsh/history.zsh
+my-load zsh/misc.zsh
 
 for file in $DOTPATH/zsh/functions/*.zsh; do
   source $file
