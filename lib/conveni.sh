@@ -11,6 +11,10 @@ is_exists() {
   return $?
 }
 
+hasenv() {
+  [[ -z $1 ]] && return $false || return $true
+}
+
 expath() {
   : $1
   export PATH=$1:$PATH

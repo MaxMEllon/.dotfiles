@@ -1,7 +1,15 @@
-# zmodload zsh/zprof && zprof
-source ~/.dotfiles/lib/conveni.sh
+if [ -z ${DOTPATH+x} ]; then
+  export DOTPATH="$HOME/.dotfiles"
+fi
 
-typeset -U path cdpath fpath manpath PATH
+my-load()
+{
+  source $DOTPATH/$1
+}
+
+my-load lib/conveni.sh
+
+hasenv $DOT_ZSHRC_DEBUG && modload zsh/zprof && zprof
 
 exist_expath()
 {

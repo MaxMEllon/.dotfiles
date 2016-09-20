@@ -12,5 +12,6 @@ zstyle ':completion:*:default' menu select=1
 
 autoload -Uz select-word-style
 select-word-style default
-zstyle ':zle:*' word-chars ' _-=/;@'
+zstyle ':zle:*' word-chars ' /=;@:{}[]()<>,|.'
 zstyle ':zle:*' word-style unspecified
+export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'

@@ -29,16 +29,16 @@ describe 'deployed dotfiles'
   end
 
   it 'zshrc into home directory'
-    [ -f ~/.zshrc.zwc ]
+    [ -f ~/.zshrc ]
     expect=$?
     assert.equals $expect 0
   end
 
-  it 'vim directory into home directory'
-    [ -d ~/.vim ]
-    expect=$?
-    assert.equals $expect 0
-  end
+  # it 'vim directory into home directory'
+  #   [ -d ~/.vim ]
+  #   expect=$?
+  #   assert.equals $expect 0
+  # end
 
   it 'gitconfig into home directory'
     [ -f ~/.gitconfig ]

@@ -50,14 +50,34 @@ fi
 
 if zplug check zsh-users/zsh-syntax-highlighting; then
   export ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
-  export ZSH_HIGHLIGHT_STYLES[path]='fg=cyan'
-  export ZSH_HIGHLIGHT_STYLES[bracket-error]='fg=red,bold'
-  export ZSH_HIGHLIGHT_STYLES[bracket-level-1]='fg=blue,bold'
-  export ZSH_HIGHLIGHT_STYLES[bracket-level-2]='fg=green,bold'
-  export ZSH_HIGHLIGHT_STYLES[bracket-level-3]='fg=magenta,bold'
-  export ZSH_HIGHLIGHT_STYLES[bracket-level-4]='fg=yellow,bold'
-  export ZSH_HIGHLIGHT_STYLES[bracket-level-5]='fg=cyan,bold'
-  export ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]='standout'
+  export ZSH_HIGHLIGHT_STYLES[default]=none
+  export ZSH_HIGHLIGHT_STYLES[unknown-token]=fg=196,bold
+  export ZSH_HIGHLIGHT_STYLES[reserved-word]=fg=045,bold
+  export ZSH_HIGHLIGHT_STYLES[alias]=fg=159,bold
+  export ZSH_HIGHLIGHT_STYLES[builtin]=fg=082,bold
+  export ZSH_HIGHLIGHT_STYLES[function]=fg=013,bold
+  export ZSH_HIGHLIGHT_STYLES[command]=fg=082,bold
+  export ZSH_HIGHLIGHT_STYLES[precommand]=fg=082,underline
+  export ZSH_HIGHLIGHT_STYLES[commandseparator]=none
+  export ZSH_HIGHLIGHT_STYLES[hashed-command]=fg=039
+  export ZSH_HIGHLIGHT_STYLES[path]=fg=014,underline
+  export ZSH_HIGHLIGHT_STYLES[globbing]=fg=033
+  export ZSH_HIGHLIGHT_STYLES[history-expansion]=fg=white,underline
+  export ZSH_HIGHLIGHT_STYLES[single-hyphen-option]=fg=125,bold
+  export ZSH_HIGHLIGHT_STYLES[double-hyphen-option]=fg=125,bold
+  export ZSH_HIGHLIGHT_STYLES[back-quoted-argument]=none
+  export ZSH_HIGHLIGHT_STYLES[single-quoted-argument]=fg=136
+  export ZSH_HIGHLIGHT_STYLES[double-quoted-argument]=fg=136
+  export ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]=fg=136
+  export ZSH_HIGHLIGHT_STYLES[back-double-quoted-argument]=fg=136
+  export ZSH_HIGHLIGHT_STYLES[assign]=fg=037
+  export ZSH_HIGHLIGHT_STYLES[bracket-error]=fg=red,bold
+  export ZSH_HIGHLIGHT_STYLES[bracket-level-1]=fg=blue,bold
+  export ZSH_HIGHLIGHT_STYLES[bracket-level-2]=fg=green,bold
+  export ZSH_HIGHLIGHT_STYLES[bracket-level-3]=fg=magenta,bold
+  export ZSH_HIGHLIGHT_STYLES[bracket-level-4]=fg=yellow,bold
+  export ZSH_HIGHLIGHT_STYLES[bracket-level-5]=fg=cyan,bold
+  export ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]=standout
 fi
 
 if zplug check b4b4r07/enhancd; then

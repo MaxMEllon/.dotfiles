@@ -20,9 +20,7 @@ else
 fi
 
 
-zcompile $1/zsh/.zshrc
-mv -f $1/zsh/.zshrc.zwc ~/
-
+ln -fs $1/zsh/.zshrc
 ln -fs $1/zsh/.zshenv ~/
 ln -fs $1/zsh/.zprofile ~/
 
