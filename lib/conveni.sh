@@ -11,10 +11,12 @@ is_exists() {
   return $?
 }
 
-exist_expath()
-{
-  : $1
+exist_expath() {
   [ -d $1 ] && expath $1
+}
+
+hasfile() {
+  [[ -s $1 ]] && return $true || return $false
 }
 
 hasenv() {

@@ -105,7 +105,7 @@ update_prompt()
   local separator="${(l:${bar_rest_length}::_:)}%{%k%f%b%}"
   bar_right="%${bar_rest_length}<<${separator}${bar_right}%<<"
   PROMPT="${bar_left}${bar_right}"$'\n'"${prompt_left}"
-  RPROMPT="$c_user:$c_ip"
+  RPROMPT="$c_user:$c_ip%{$reset_color%}"
   case "$TERM_PROGRAM" in
     Apple_Terminal)
       RPROMPT="${RPROMPT}-"
@@ -122,7 +122,7 @@ current_branch()
   fi
   name=$(basename "`git symbolic-ref HEAD 2> /dev/null`")
   if [[ -z $name ]]; then
-    echo "%{%B${fg[black]}%} branch %{${reset_color}%}%b"
+    echo "%{%B${fg[gray]}%} branch %{${reset_color}%}%b"
     return
   fi
   st=`git status 2> /dev/null`

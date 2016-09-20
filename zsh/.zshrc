@@ -1,9 +1,9 @@
 myplug zsh/init.zsh
 
-has rbenv && eval "$(rbenv init - --no-rehash)"
-has exenv && eval "$(exenv init - --no-rehash)"
-has nodenv && eval "$(nodenv init -)"
-has erlenv && eval "$(erlenv init -)"
+hasfile ~/.rbenv/bin/rbenv   && eval "$(~/.rbenv/bin/rbenv init - --no-rehash)"
+hasfile ~/.exenv/bin/exenv   && eval "$(~/.exenv/bin/exenv init - --no-rehash)"
+hasfile ~/.nodenv/bin/nodenv && eval "$(~/.nodenv/bin/nodenv init -)"
+hasfile ~/.erlenv/bin/erlenv && eval "$(~/.erlenv/bin/erlenv init -)"
 
 if hasenv $DOT_ZSHRC_DEBUG; then
   if (which zprof > /dev/null) ;then

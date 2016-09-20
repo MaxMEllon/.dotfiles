@@ -19,10 +19,10 @@ if [[ -z $TMUX ]]; then
   expath ${HOME}/local/go/bin
   expath ${HOME}/.zplug/bin:${PATH}
 
-  exist_expath ${HOME}/.exenv/bin
-  exist_expath ${HOME}/.rbenv/bin
-  exist_expath ${HOME}/.erlenv/bin
-  exist_expath ${HOME}/.nodenv/bin
+  # exist_expath ${HOME}/.exenv/bin
+  # exist_expath ${HOME}/.rbenv/bin
+  # exist_expath ${HOME}/.erlenv/bin
+  # exist_expath ${HOME}/.nodenv/bin
 fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
