@@ -1,4 +1,4 @@
-my-load zsh/init.zsh
+myplug zsh/init.zsh
 
 has rbenv && eval "$(rbenv init - --no-rehash)"
 has exenv && eval "$(exenv init - --no-rehash)"

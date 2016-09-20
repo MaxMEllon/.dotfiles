@@ -1,6 +1,6 @@
 autoload -U colors; colors
 
-my-load bash/aliases.bash
+myplug bash/aliases.bash
 
 alias -g E='exec'
 alias -g I='install'

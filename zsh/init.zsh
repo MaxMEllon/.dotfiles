@@ -15,19 +15,19 @@ compinit
 
 bindkey -e
 
-my-load zsh/zplug.zsh
-my-load zsh/opt.zsh
-my-load zsh/style.zsh
-my-load lib/conveni.sh
-my-load zsh/alias.zsh
-my-load zsh/prompt.zsh
-my-load zsh/history.zsh
-my-load zsh/misc.zsh
+myplug zsh/zplug.zsh
+myplug zsh/opt.zsh
+myplug zsh/style.zsh
+myplug lib/conveni.sh
+myplug zsh/alias.zsh
+myplug zsh/prompt.zsh
+myplug zsh/history.zsh
+myplug zsh/misc.zsh
 
 for file in $DOTPATH/zsh/functions/*.zsh; do
   source $file
 done
 
-my-load zsh/bind.zsh
+myplug zsh/bind.zsh
 
 ulimit -n 2048
