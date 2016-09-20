@@ -11,12 +11,18 @@ is_exists() {
   return $?
 }
 
+exist_expath()
+{
+  : $1
+  [ -d $1 ] && expath $1
+}
+
 hasenv() {
   [[ -z $1 ]] && return $false || return $true
 }
 
 expath() {
-  : $1
+  : ${1:?}
   export PATH=$1:$PATH
 }
 
@@ -38,7 +44,7 @@ os_type() {
 }
 
 is_osx() {
-  [[ `os_type` == "mac" ]] && return $true || return $false
+  [[ `os_type` == "osx" ]] && return $true || return $false
 }
 
 is_linux() {

@@ -13,8 +13,6 @@ printf $logo
 autoload -U compinit
 compinit
 
-bindkey -e
-
 myplug zsh/zplug.zsh
 myplug zsh/opt.zsh
 myplug zsh/style.zsh
@@ -30,4 +28,3 @@ done
 
 myplug zsh/bind.zsh
 
-ulimit -n 2048

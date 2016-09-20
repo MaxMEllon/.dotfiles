@@ -1,10 +1,7 @@
 #/bin/bash
 
-# export DOTPATH=~/.dotfiles
 
-if [ -n "$1" ]; then
-  DOTPATH=$1
-fi
+: export ${DOTPATH:=~/.dotfiles}
 
 set -eu
 

@@ -22,6 +22,8 @@ binding()
   fi
 }
 
+bindkey -e
+
 binding "^g" afu+cancel
 binding "^f" z-quick-move
 binding "^]" ghq-quick-move

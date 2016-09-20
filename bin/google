@@ -1,19 +1,30 @@
 #!/bin/bash
 
 if [ $# -ne 1 ]; then
-  printf "
-    Error: Wrong number of arguments. Expected 0, got $#
-
-      Usage:
-        $ google [search word]
-
-      Ex:
-        $ google hoge
-
-  \n"
+  perldoc $0
   exit 1
 fi
 
 word=`_escape_url $1`
 
 opener "https://www.google.co.jp/?ion=1&espv=2#q=$word"
+
+: <<POD
+
+=pod
+
+=head1 NAME
+
+google - open browser google page and search
+
+=head1 USEAGE
+
+$ google [search word]
+
+=head1 EXAMPLE
+
+$ google foo
+
+=cut
+
+POD

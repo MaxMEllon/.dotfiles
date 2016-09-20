@@ -71,7 +71,8 @@ colors=(
 has ip && export IP=`ip | awk -F ' ' 'NR==1 {print $2}'`
 
 c_ip=$colors[$((`echo "$IP" | sum | cut -f1 -d' '`%${#colors}))+1]$IP
-c_user=$colors[$((`expr $(echo $USER | sum | awk -F ' ' '{print $1}') + $(echo $IP | sum | awk -F ' ' '{print $1}')`%${#colors}))+1]$USER
+c_user=$colors[$((`expr $(echo $USER | sum | awk -F ' ' '{print $1}') + \
+  $(echo $IP | sum | awk -F ' ' '{print $1}')`%${#colors}))+1]$USER
 c_host=$colors[$((`echo "$HOST" | sum | cut -f1 -d' '`%${#colors}))+1]$HOST
 role='%(!.#.$)'
 
@@ -82,8 +83,9 @@ prompt_bar_left_status="%{%B%(?.%K{blue}%F{white}.%K{red}%F{white})%} %? %{%f%b%
 prompt_bar_left_date='<%{%B%}%D{%H:%M}%{%b%}>'
 # prompt_bar_left_path="%{%B%F{red}%}%d%{%f%k%b%}"
 prompt_bar_left_path="%{%B%F{yellow}%} %3~ %{%f%k%b%}"
-prompt_bar_left_deco='%{%B%F{magenta}%}'
-prompt_bar_left="${prompt_bar_left_status}${prompt_bar_left_branch} ${prompt_bar_left_host}${prompt_bar_left_path}${prompt_bar_left_deco}"
+prompt_bar_left_deco='$colors[103]'
+prompt_bar_left="${prompt_bar_left_status}${prompt_bar_left_branch} \
+${prompt_bar_left_host}${prompt_bar_left_path}${prompt_bar_left_deco}"
 prompt_left='%{%B%F{magenta}%}$role->%{%f%b%}'
 
 count_prompt_characters()

@@ -11,13 +11,6 @@ myplug lib/conveni.sh
 
 hasenv $DOT_ZSHRC_DEBUG && modload zsh/zprof && zprof
 
-exist_expath()
-{
-  : $1
-  [ -d $1 ] && expath $1
-}
-
-
 if [[ -z $TMUX ]]; then
   myplug bash/env.bash
 

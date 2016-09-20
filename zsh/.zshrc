@@ -11,7 +11,7 @@ if hasenv $DOT_ZSHRC_DEBUG; then
   fi
 fi
 
-if [ -z $TMUX ]; then
+if [ -z $TMUX ] && has tmux; then
   tmux -2
 fi
 

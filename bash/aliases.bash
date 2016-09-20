@@ -6,7 +6,6 @@ case $(uname) in
     else
       alias la="ls -hAFG"
     fi
-    alias ps="ps -fU$(whoami)"
     ;;
   SunOS)
     if [ -x "`which gls`" ]; then
@@ -15,11 +14,9 @@ case $(uname) in
     else
       alias la="ls -hAF"
     fi
-    alias ps="ps -fl -u$(/usr/xpg4/bin/id -un)"
     ;;
   *)
     alias la="ls -hAF --color=auto"
-    alias ps="ps -fU$(whoami) --forest"
     ;;
 esac
 
