@@ -83,7 +83,7 @@ prompt_bar_left_status="%{%B%(?.%K{blue}%F{white}.%K{red}%F{white})%} %? %{%f%b%
 prompt_bar_left_date='<%{%B%}%D{%H:%M}%{%b%}>'
 # prompt_bar_left_path="%{%B%F{red}%}%d%{%f%k%b%}"
 prompt_bar_left_path="%{%B%F{yellow}%} %3~ %{%f%k%b%}"
-prompt_bar_left_deco='$colors[103]'
+prompt_bar_left_deco='$colors[49]'
 prompt_bar_left="${prompt_bar_left_status}${prompt_bar_left_branch} \
 ${prompt_bar_left_host}${prompt_bar_left_path}${prompt_bar_left_deco}"
 prompt_left='%{%B%F{magenta}%}$role->%{%f%b%}'
