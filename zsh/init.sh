@@ -20,7 +20,7 @@ else
 fi
 
 
-ln -fs $1/zsh/.zshrc
+ln -fs $1/zsh/.zshrc ~/
 ln -fs $1/zsh/.zshenv ~/
 ln -fs $1/zsh/.zprofile ~/
 

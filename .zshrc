@@ -1,1 +1,0 @@
-/Users/maxmellon/.dotfiles/zsh/.zshrc
