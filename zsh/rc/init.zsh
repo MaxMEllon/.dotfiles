@@ -13,18 +13,19 @@ printf $logo
 autoload -U compinit
 compinit
 
-myplug zsh/zplug.zsh
-myplug zsh/opt.zsh
-myplug zsh/style.zsh
 myplug lib/conveni.sh
-myplug zsh/alias.zsh
-myplug zsh/prompt.zsh
-myplug zsh/history.zsh
-myplug zsh/misc.zsh
+
+myplug zsh/rc/zplug.zsh
+myplug zsh/rc/opt.zsh
+myplug zsh/rc/style.zsh
+myplug zsh/rc/alias.zsh
+myplug zsh/rc/prompt.zsh
+myplug zsh/rc/history.zsh
+myplug zsh/rc/misc.zsh
 
 for file in $DOTPATH/zsh/functions/*.zsh; do
   source $file
 done
 
-myplug zsh/bind.zsh
+myplug zsh/rc/bind.zsh
 

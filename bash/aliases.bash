@@ -20,8 +20,15 @@ case $(uname) in
     ;;
 esac
 
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+
+alias grep='grep --color'                     # show differences in colour
+alias egrep='egrep --color=auto'              # show differences in colour
+alias fgrep='fgrep --color=auto'              # show differences in colour
+
 # grep
-alias grep='grep --color=auto'
 alias lg='ls -a | grep'
 
 # git
@@ -35,6 +42,7 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 
 # tmux
+alias tmux='tmux -2'
 alias aliastx='alias | grep tmux'
 alias tmls='\tmux list-sessions'
 alias tmlc='\tmux list-clients'

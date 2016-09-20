@@ -1,4 +1,4 @@
-myplug zsh/init.zsh
+myplug zsh/rc/init.zsh
 
 hasfile ~/.rbenv/bin/rbenv   && eval "$(~/.rbenv/bin/rbenv init - --no-rehash)"
 hasfile ~/.exenv/bin/exenv   && eval "$(~/.exenv/bin/exenv init - --no-rehash)"
