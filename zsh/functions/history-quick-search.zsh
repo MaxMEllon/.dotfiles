@@ -8,7 +8,7 @@ history-quick-search()
   fi
   BUFFER=$(\history -n 1 | \
     eval $tac | \
-    fzf --reverse --query "$LBUFFER")
+    fzy --query "$LBUFFER")
   CURSOR=$#BUFFER
   zle clear-screen 
 }

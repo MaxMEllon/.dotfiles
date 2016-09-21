@@ -3,6 +3,7 @@ source ~/.zplug/init.zsh
 zplug 'hchbaw/auto-fu.zsh', \
     at:next, \
     use:auto-fu, \
+    if:"is_osx", \
     hook-build:'
       {
         A=$ZPLUG_HOME/repos/hchbaw/auto-fu.zsh
@@ -27,6 +28,16 @@ zplug 'rupa/z', \
     use:z.sh
 
 zplug 'supercrabtree/k'
+
+zplug 'jhawthorn/fzy', \
+    as:command, \
+    rename-to:fzy, \
+    hook-build:"
+    {
+        make
+        sudo make install
+    } &>/dev/null
+    "
 
 zplug 'junegunn/fzf-bin', \
     as:command, \
@@ -83,7 +94,7 @@ if zplug check zsh-users/zsh-syntax-highlighting; then
 fi
 
 if zplug check b4b4r07/enhancd; then
-  export ENHANCD_FILTER="fzf-tmux:fzf"
+  export ENHANCD_FILTER="fzy:fzf-tmux:fzf"
 fi
 
 if zplug check supercrabtree/k; then

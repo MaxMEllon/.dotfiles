@@ -1,0 +1,4 @@
+#!/bin/bash
+
+ghq list -p | xargs -P 10 -n 1- bash -c 'cd $0; git gc;'
+
