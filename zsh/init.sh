@@ -19,6 +19,13 @@ else
   skip "${url} ~/.zplug"
 fi
 
+for s in $1/zsh/rc/*.zsh; do
+  zsh -fc "zcompile $s"
+done
+
+for s in $1/zsh/functions/*.zsh; do
+  zsh -fc "zcompile $s"
+done
 
 ln -fs $1/zsh/.zshrc ~/
 ln -fs $1/zsh/.zshenv ~/

@@ -13,8 +13,6 @@ printf $logo
 autoload -U compinit
 compinit
 
-myplug lib/conveni.sh
-
 myplug zsh/rc/zplug.zsh
 myplug zsh/rc/opt.zsh
 myplug zsh/rc/style.zsh
