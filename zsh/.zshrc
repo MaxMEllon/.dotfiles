@@ -1,3 +1,17 @@
+####
+# This comment for `gf` of vim
+#
+# ~/.dotfiles/zsh/rc/init.zsh
+#   ~/.dotfiles/zsh/rc/zplug.zsh
+#   ~/.dotfiles/zsh/rc/opt.zsh
+#   ~/.dotfiles/zsh/rc/alias.zsh
+#   ~/.dotfiles/zsh/rc/prompt.zsh
+#   ~/.dotfiles/zsh/rc/history.zsh
+#   ~/.dotfiles/zsh/functions/*.zsh
+#   ~/.dotfiles/zsh/rc/misc.zsh
+#   ~/.dotfiles/zsh/rc/bind.zsh
+#
+
 myplug zsh/rc/init.zsh
 
 hasfile ~/.rbenv/bin/rbenv   && eval "$(~/.rbenv/bin/rbenv init - --no-rehash)"
@@ -11,7 +25,12 @@ if hasenv $DOT_ZSHRC_DEBUG; then
   fi
 fi
 
-if [ -z $TMUX ] && has tmux && is_osx; then
-  tmux -2
+if has tmux; then
+  if [ -z $TMUX ] && hasprocess tmux; then
+    session=$(tmux list-sessions | awk -F ':' 'NR==1 {print $1}')
+    tmux attach -t $session
+  elif [ -z $TMUX ]; then
+    is_osx && tmux -2
+  fi
 fi
 

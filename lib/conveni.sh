@@ -15,6 +15,14 @@ exist_expath() {
   [ -d $1 ] && expath $1
 }
 
+hasprocess() {
+  if is_osx; then
+    ps -fU$USER | grep $1 | grep -v grep > /dev/null 2>&1 && return $true || return $false
+  else
+    ps aux | grep $1 | grep -v grep > /dev/null 2>&1 && return $true || return $false
+  fi
+}
+
 hasfile() {
   [[ -s $1 ]] && return $true || return $false
 }

@@ -24,8 +24,9 @@ zplug 'mrowa44/emojify', \
     as:command, \
     lazy:true
 
-zplug 'rupa/z', \
-    use:z.sh
+zplug 'knu/z', \
+    use:z.sh, \
+    nice:10
 
 zplug 'supercrabtree/k'
 

@@ -100,9 +100,7 @@ alias svim='select_vim_type'
 alias vt='vim_type'
 
 if [[ `os_type` == 'osx' ]]; then
-  export MY_VIM_TYPE='neogui'
-  alias vim="$NEO_VIM_QT"
-  alias v="$NEO_VIM_QT"
+  select_vim_type neo
 else
   export MY_VIM_TYPE='cui'
   alias vim='/usr/local/bin/vim'

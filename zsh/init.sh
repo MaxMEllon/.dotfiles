@@ -19,21 +19,16 @@ else
   skip "git clone ${url} ~/.zplug"
 fi
 
-for s in $DOTPATH/zsh/rc/*.zsh; do
-  com="zsh -fc \"zcompile $s\""
-  run "$com"
-  eval $com &> /dev/null && ok "$com" || error "$com"
-done
+ls $DOTPATH/zsh/rc/*.zsh | xargs -P 10 -n 1- \
+  zsh -fc 'zcompile $0 | printf "\e[32m ok\t: zcompile $0  \e[0m\n"'
+ls $DOTPATH/zsh/functions/*.zsh | xargs -P 10 -n 1- \
+  zsh -fc 'zcompile $0 | printf "\e[32m ok\t: zcompile $0  \e[0m\n"'
 
-for s in $DOTPATH/zsh/functions/*.zsh; do
-  com="zsh -fc \"zcompile $s\""
-  run "$com"
-  eval $com &> /dev/null && ok "$com" || error "$com"
-done
+ln -fs $DOTPATH/zsh/.zshrc ~/ &
+ln -fs $DOTPATH/zsh/.zshenv ~/ &
+ln -fs $DOTPATH/zsh/.zprofile ~/ &
 
-ln -fs $DOTPATH/zsh/.zshrc ~/
-ln -fs $DOTPATH/zsh/.zshenv ~/
-ln -fs $DOTPATH/zsh/.zprofile ~/
+wait
 
 # if ! zplug check --verbose; then
 #   zplug install

@@ -4,7 +4,8 @@ psf()
     local res=$(ps -fU$USER | fzf | awk '{print $2}')
     print $res
   else
-    ps aux | fzf
+    local res=$(ps aux | fzf | awk '{print $2}')
+    print $res
   fi
 }
 
