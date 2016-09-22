@@ -1,3 +1,5 @@
+has fzf-tmux || return 1
+
 history-quick-search()
 {
   local tac
@@ -8,7 +10,7 @@ history-quick-search()
   fi
   BUFFER=$(\history -n 1 | \
     eval $tac | \
-    fzy --query "$LBUFFER")
+    fzf-tmux --query "$LBUFFER")
   CURSOR=$#BUFFER
   zle clear-screen 
 }

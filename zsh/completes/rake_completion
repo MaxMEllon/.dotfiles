@@ -1,0 +1,36 @@
+# _rake () {
+#   compadd db:migrate db:migrate:reset db:seed assets:precompile swagger:docs \
+#     spec about app:template app:update assets:clean assets:clobber \
+#     assets:environment assets:precompile cache_digests:dependencies \
+#     cache_digests:nested_dependencies db:create db:drop db:environment:set \
+#     db:fixtures:load db:migrate db:migrate:status db:rollback db:schema:cache:clear \
+#     db:schema:cache:dump db:schema:dump db:schema:load db:seed db:setup \
+#     db:structure:dump db:structure:load db:version dev:cache \
+#     forgery:create_dictionary initializers log:clear middleware notes notes:custom \
+#     react_on_rails:assets:clobber react_on_rails:assets:compile_environment \
+#     react_on_rails:assets:delete_broken_symlinks \
+#     react_on_rails:assets:symlink_non_digested_assets \
+#     react_on_rails:assets:webpack restart routes secret spec spec:controllers \
+#     spec:helpers spec:models stats swagger:docs time:zones tmp:clear tmp:create
+# }
+
+_rake_does_task_list_need_generating () {
+  if [ ! -f .rake_tasks ]; then return 0;
+  else
+    accurate=$(stat -f%m .rake_tasks)
+    changed=$(stat -f%m Rakefile)
+    return $(expr $accurate '>=' $changed)
+  fi
+}
+
+_rake () {
+  if [ -f Rakefile ]; then
+    if _rake_does_task_list_need_generating; then
+      echo "\nGenerating .rake_tasks..." > /dev/stderr
+      rake --silent --tasks | cut -d " " -f 2 > .rake_tasks
+    fi
+    compadd `cat .rake_tasks`
+  fi
+}
+
+compdef _rake rake

@@ -12,3 +12,4 @@ workbench.xmi
 .env
 public/assets/
 .tern-port
+.rake_tasks

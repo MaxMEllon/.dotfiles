@@ -24,8 +24,14 @@ select_vim_type() {
     return
   fi
   if [[ $1 == 'cui' ]]; then
-    alias vim='/usr/local/bin/vim'
-    alias v='/usr/local/bin/vim'
+    if has /usr/local/bin/vim; then
+      alias vim='/usr/local/bin/vim'
+      alias v='/usr/local/bin/vim'
+    else
+      unalias vim
+      unalias vi
+      unalias v
+    fi
     export MY_VIM_TYPE='cui'
     vim_type
     return
