@@ -26,10 +26,10 @@ if hasenv $DOT_ZSHRC_DEBUG; then
 fi
 
 if has tmux; then
-  if [ -z $TMUX ] && hasprocess tmux; then
+  if ! hasenv $TMUX && hasprocess tmux; then
     session=$(tmux list-sessions | awk -F ':' 'NR==1 {print $1}')
     tmux attach -t $session
-  elif [ -z $TMUX ]; then
+  elif ! hasenv $TMUX; then
     is_osx && tmux -2
   fi
 fi
