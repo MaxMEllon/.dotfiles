@@ -5,6 +5,7 @@ case $(uname) in
       alias la="ls -hAF --color=auto"
     else
       alias la="ls -hAFG"
+      alias ps="ps -fU${USER}"
     fi
     ;;
   SunOS)
