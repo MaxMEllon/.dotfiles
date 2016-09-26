@@ -17,8 +17,6 @@ remove_duplicated_path()
   export PATH=$_path
 }
 
-remove_duplicated_path
-
 myplug zsh/completes/rake_completion
 myplug zsh/completes/npm_completion
 

@@ -15,9 +15,9 @@
 myplug zsh/rc/init.zsh
 
 hasfile ~/.rbenv/bin/rbenv   && eval "$(~/.rbenv/bin/rbenv init - --no-rehash)"
-hasfile ~/.exenv/bin/exenv   && eval "$(~/.exenv/bin/exenv init - --no-rehash)"
-hasfile ~/.nodenv/bin/nodenv && eval "$(~/.nodenv/bin/nodenv init -)"
-hasfile ~/.erlenv/bin/erlenv && eval "$(~/.erlenv/bin/erlenv init -)"
+expath ~/.exenv/bin && eval "$(exenv init - --no-rehash)"
+expath ~/.nodenv/bin && eval "$(nodenv init -)"
+expath ~/.erlenv/bin && eval "$(erlenv init -)"
 
 if hasenv $DOT_ZSHRC_DEBUG; then
   if (which zprof > /dev/null) ;then
@@ -33,4 +33,6 @@ if has tmux; then
     is_osx && tmux -2
   fi
 fi
+
+remove_duplicated_path
 
