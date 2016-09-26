@@ -14,7 +14,7 @@
 
 myplug zsh/rc/init.zsh
 
-hasfile ~/.rbenv/bin/rbenv   && eval "$(~/.rbenv/bin/rbenv init - --no-rehash)"
+expath ~/.rbenv/bin && eval "$(rbenv init - --no-rehash)"
 expath ~/.exenv/bin && eval "$(exenv init - --no-rehash)"
 expath ~/.nodenv/bin && eval "$(nodenv init -)"
 expath ~/.erlenv/bin && eval "$(erlenv init -)"
@@ -33,6 +33,11 @@ if has tmux; then
     is_osx && tmux -2
   fi
 fi
+
+rmpath ~/.rbenv/bin
+rmpath ~/.exenv/bin
+rmpath ~/.nodenv/bin
+rmpath ~/.erlenv/bin
 
 remove_duplicated_path
 

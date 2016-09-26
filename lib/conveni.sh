@@ -40,6 +40,10 @@ lower() {
   printf "$1\n" | tr '[A-Z]' '[a-z]'
 }
 
+rmpath() {
+  export PATH=$(echo -n $PATH | awk -v RS=: -v ORS=: '$0 != "'$1'"' | sed 's/:$//')
+}
+
 os_type() {
   if [[ "$(uname)" == 'Darwin' ]]; then
     lower 'Osx'
