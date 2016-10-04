@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # basecolor
 basecolor='#[fg=colour50,bold]#[fg=colour235,bold] '
@@ -73,12 +73,14 @@ fi
 
 # ip --------------------------------------------------------------------------
 which ifconfig > /dev/null
-if [ $? -ne 0 ]; then
   ip=''
-fi
 
-if (( $COLUMNS > 70 )); then
-  ip=`ifconfig | grep inet[^6] | grep -v 127.0.0.1 |  awk 'NR==1 {print $2;}'`
+if [ $? -ne 0 ]; then
+  if (( $COLUMNS > 70 )); then
+    ip=`ifconfig | grep inet[^6] | grep -v 127.0.0.1 |  awk 'NR==1 {print $2;}'`
+  else
+    ip=''
+  fi
 else
   ip=''
 fi
