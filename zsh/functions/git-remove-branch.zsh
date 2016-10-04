@@ -30,4 +30,4 @@ git-remove-branch()
   done
 }
 
-alias grb='git-remote-branch'
+alias grb='git-remove-branch'

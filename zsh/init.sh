@@ -20,9 +20,9 @@ else
 fi
 
 ls $DOTPATH/zsh/rc/*.zsh | xargs -P 10 -n 1- \
-  zsh -fc 'zcompile $0 | printf "\e[32m ok\t: zcompile $0  \e[0m\n"'
+  zsh -fc 'zcompile $0 && printf "\e[32m ok\t: zcompile $0  \e[0m\n"'
 ls $DOTPATH/zsh/functions/*.zsh | xargs -P 10 -n 1- \
-  zsh -fc 'zcompile $0 | printf "\e[32m ok\t: zcompile $0  \e[0m\n"'
+  zsh -fc 'zcompile $0 &&printf "\e[32m ok\t: zcompile $0  \e[0m\n"'
 
 ln -fs $DOTPATH/zsh/.zshrc ~/ &
 ln -fs $DOTPATH/zsh/.zshenv ~/ &
