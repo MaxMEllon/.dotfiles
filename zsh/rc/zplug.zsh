@@ -104,10 +104,8 @@ if zplug check supercrabtree/k; then
 fi
 
 if zplug check hchbaw/auto-fu.zsh; then
-  if has auto-fu-install; then
-    auto-fu-install
-  fi
   if has auto-fu-init; then
+    auto-fu-install
     function zle-line-init() { auto-fu-init }
     zle -N zle-line-init
     zstyle ':auto-fu:var' postdisplay $''
