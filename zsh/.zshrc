@@ -19,6 +19,8 @@ expath ~/.exenv/bin && eval "$(exenv init - --no-rehash)"
 expath ~/.nodenv/bin && eval "$(nodenv init -)"
 expath ~/.erlenv/bin && eval "$(erlenv init -)"
 
+expath ~/.yarn/bin
+
 if hasenv $DOT_ZSHRC_DEBUG; then
   if (which zprof > /dev/null) ;then
     zprof | less

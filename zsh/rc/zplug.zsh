@@ -46,6 +46,8 @@ zplug 'junegunn/fzf-bin', \
     rename-to:fzf, \
     use:"*darwin*amd64*"
 
+zplug 'maxmellon/yarn_completion'
+
 zplug 'b4b4r07/enhancd', \
     use:init.sh
 

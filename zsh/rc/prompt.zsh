@@ -69,6 +69,7 @@ colors=(
 )
 
 has ip && export IP=`ip | awk -F ' ' 'NR==1 {print $2}'`
+# export IP="---.---.---.---"
 
 c_ip=$colors[$((`echo "$IP" | sum | cut -f1 -d' '`%${#colors}))+1]$IP
 c_user=$colors[$((`expr $(echo $USER | sum | awk -F ' ' '{print $1}') + \

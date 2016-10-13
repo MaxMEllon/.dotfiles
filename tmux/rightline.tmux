@@ -22,11 +22,7 @@ fi
 # battery ---------------------------------------------------------------------
 which battery > /dev/null
 if [ $? -eq 0 ]; then
-  if (( $COLUMNS > 70 )); then
-    battery='Pow.#(battery)'
-  else
-    battery='...'
-  fi
+  battery='Pow.#(battery)'
 else
   battery=''
 fi
@@ -50,11 +46,7 @@ fi
 # ruby-version ----------------------------------------------------------------
 which ruby > /dev/null
 if [ $? -eq 0 ]; then
-  if (( $COLUMNS > 70 )); then
-    ruby=`ruby -v | awk -F ' ' '{print $2}'`
-  else
-    ruby='...'
-  fi
+  ruby=`ruby -v | awk -F ' ' '{print $2}'`
 else
   ruby=''
 fi
@@ -62,11 +54,7 @@ fi
 # node-version ----------------------------------------------------------------
 which node > /dev/null
 if [ $? -eq 0 ]; then
-  if (( $COLUMNS > 70 )); then
-    node='#(node -v)'
-  else
-    node='...'
-  fi
+  node='#(node -v)'
 else
   node=''
 fi
@@ -76,11 +64,7 @@ which ifconfig > /dev/null
   ip=''
 
 if [ $? -ne 0 ]; then
-  if (( $COLUMNS > 70 )); then
-    ip=`ifconfig | grep inet[^6] | grep -v 127.0.0.1 |  awk 'NR==1 {print $2;}'`
-  else
-    ip=''
-  fi
+  ip=`ifconfig | grep inet[^6] | grep -v 127.0.0.1 |  awk 'NR==1 {print $2;}'`
 else
   ip=''
 fi
