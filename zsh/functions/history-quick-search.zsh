@@ -10,7 +10,7 @@ history-quick-search()
   fi
   BUFFER=$(\history -n 1 | \
     eval $tac | \
-    fzf-tmux --query "$LBUFFER")
+    fzf-tmux --no-sort --query "$LBUFFER")
   CURSOR=$#BUFFER
   zle clear-screen 
 }

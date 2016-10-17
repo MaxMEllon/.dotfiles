@@ -6,6 +6,7 @@ git-remove-branch()
   while out=$(
     git branch | sed -e 's/\*//g' -e 's/\ //g' \
                | sed -e 's/master//g' -e 's/develop//g' \
+               | sort \
                | fzf --ansi --multi --no-sort --reverse --query="$q" \
                      --print-query --expect=ctrl-d); do
     q=$(head -1 <<< "$out")

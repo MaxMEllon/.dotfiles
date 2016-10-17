@@ -36,10 +36,5 @@ if has tmux; then
   fi
 fi
 
-rmpath ~/.rbenv/bin
-rmpath ~/.exenv/bin
-rmpath ~/.nodenv/bin
-rmpath ~/.erlenv/bin
-
 remove_duplicated_path
 
