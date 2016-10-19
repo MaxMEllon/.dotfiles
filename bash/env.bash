@@ -18,4 +18,4 @@ export FZF_DEFAULT_COMMAND='
        find . -path "*/\.*" -prune -o -type f -print -o -type l -print |
          sed s/^..//) 2> /dev/null'
 
-[ -s $HOME/.env ] && source $HOME/.env
+[ -s $HOME/.env ] && source $HOME/.env || touch $HOME/.env
