@@ -61,8 +61,6 @@ fi
 
 # ip --------------------------------------------------------------------------
 which ifconfig > /dev/null
-  ip=''
-
 if [ $? -ne 0 ]; then
   ip=`ifconfig | grep inet[^6] | grep -v 127.0.0.1 |  awk 'NR==1 {print $2;}'`
 else
@@ -71,9 +69,10 @@ fi
 
 # weather ---------------------------------------------------------------------
 which weather_emojify > /dev/null
-weather=`weather_emojify`
 if [ $? -ne 0 ]; then
   weather=''
+else
+  weather=`weather_emojify`
 fi
 
 which tmux > /dev/null
