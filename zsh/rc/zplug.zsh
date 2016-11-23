@@ -1,15 +1,15 @@
 source ~/.zplug/init.zsh
 
-zplug 'hchbaw/auto-fu.zsh', \
-    at:next, \
-    use:auto-fu, \
-    if:"is_osx", \
-    hook-build:'
-      {
-        A=$ZPLUG_HOME/repos/hchbaw/auto-fu.zsh
-        zsh -c "source $A/auto-fu.zsh; auto-fu-zcompile $A/auto-fu.zsh $A"
-      } &>/dev/null
-    '
+# zplug 'hchbaw/auto-fu.zsh', \
+#     at:next, \
+#     use:auto-fu, \
+#     if:"is_osx", \
+#     hook-build:'
+#       {
+#         A=$ZPLUG_HOME/repos/hchbaw/auto-fu.zsh
+#         zsh -c "source $A/auto-fu.zsh; auto-fu-zcompile $A/auto-fu.zsh $A"
+#       } &>/dev/null
+#     '
 
 zplug 'zplug/zplug'
 
@@ -57,6 +57,8 @@ zplug 'zsh-users/zsh-completions'
 
 zplug 'zsh-users/zsh-syntax-highlighting', \
     nice:19
+
+zplug 'paulirish/git-open', as:command
 
 zplug load
 

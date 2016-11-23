@@ -18,6 +18,7 @@ expath ~/.rbenv/bin && eval "$(rbenv init - --no-rehash)"
 expath ~/.exenv/bin && eval "$(exenv init - --no-rehash)"
 expath ~/.nodenv/bin && eval "$(nodenv init -)"
 expath ~/.erlenv/bin && eval "$(erlenv init -)"
+expath ~/.pyenv/bin && eval "$(pyenv init -)"
 
 expath ~/.yarn/bin
 

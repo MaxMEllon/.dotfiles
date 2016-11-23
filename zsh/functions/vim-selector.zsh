@@ -99,9 +99,7 @@ alias tvim='toggle_vim_type'
 alias svim='select_vim_type'
 alias vt='vim_type'
 
-if [[ `os_type` == 'osx' ]]; then
-  select_vim_type neo
-else
+if type /usr/local/bin/vim; then
   export MY_VIM_TYPE='cui'
   alias vim='/usr/local/bin/vim'
   alias v='/usr/local/bin/vim'

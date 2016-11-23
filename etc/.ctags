@@ -9,7 +9,7 @@
 --exclude=bower_components
 --exclude=node_modules
 
---languages=-javascript,sql
+--languages=-javascript
 
 --langdef=clojure
 --langmap=clojure:.clj
@@ -36,7 +36,6 @@
 --regex-coffee=/^[ \t]*@(([A-Za-z][A-Za-z0-9_.]*)+):[^->\n]*$/\1/f,static field/
 --regex-coffee=/^[ \t]*(([A-Za-z][A-Za-z0-9_.]*)+):[^->\n]*$/\1/f,field/
 --regex-coffee=/((constructor|initialize):[ \t]*\()@(([A-Za-z][A-Za-z0-9_.]*)+)([ \t]*=[ \t]*[^,)]+)?/\3/f,field/
-
 
 --regex-ruby=/.*alias(_method)?[[:space:]]+:([[:alnum:]_=!?]+),?[[:space:]]+:([[:alnum:]_=!]+)/\2/f,function/
 --regex-ruby=/(^|[:;])[ \t]*([A-Z][[:alnum:]_]+) *=/\2/c,class,constant/
@@ -124,9 +123,6 @@
 
 
 --languages=-javascript
---langdef=js
---langmap=js:.js
---langmap=js:+.jsx
 
 //
 // Constants

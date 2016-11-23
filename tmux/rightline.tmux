@@ -20,9 +20,9 @@ else
 fi
 
 # battery ---------------------------------------------------------------------
-which battery > /dev/null
+which mybattery > /dev/null
 if [ $? -eq 0 ]; then
-  battery='Pow.#(battery)'
+  battery='Pow.#(mybattery)'
 else
   battery=''
 fi
@@ -77,7 +77,7 @@ fi
 
 which tmux > /dev/null
 if [ $? -eq 0 ]; then
-  tmux set-option -g status-right "$basecolor #[fg=colour244] $ip $s1 $battery $s2 $weather $s3 $wifi  $s4 $node $s5 $ruby "
+  tmux set-option -g status-right "$basecolor #[fg=colour244] $ip $s1 $battery $s2 $weather $s4 $node $s5 $ruby "
 fi
 
 # vim:ft=sh

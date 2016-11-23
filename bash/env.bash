@@ -1,6 +1,6 @@
 # See: http://qiita.com/ma2saka/items/f975fff5af6d48255e0a
 export PAGER=less
-export MANPAGER="vim -c MANPAGER -"
+export MANPAGER=less
 export EDITOR=/usr/local/bin/vim
 export GISTY_DIR=${HOME}/gisty
 export GOPATH=${HOME}/local/go
