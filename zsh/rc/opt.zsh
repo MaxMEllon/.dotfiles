@@ -22,3 +22,4 @@ setopt noautoremoveslash    # 最後のスラッシュを自動的に削除し�
 setopt notify               # バックグラウンドジョブの状態変化を即時報告
 setopt share_history
 setopt combining_chars      # 補完時，全角特殊文字をきちんと表示
+setopt complete_aliases     # alias もガッツリ保管

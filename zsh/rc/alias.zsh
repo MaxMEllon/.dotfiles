@@ -12,3 +12,10 @@ alias -g V='| vim -R -'
 alias -g H=' --help'
 alias -g pcd='cd !:*'
 alias -g GL='`git ls-files | FZF`'
+
+if has circleci-cli; then
+  alias ci='circleci-cli'
+  if has _circleci-cli; then
+    compdef _circleci-cli ci
+  fi
+fi

@@ -13,6 +13,7 @@
 #
 
 myplug zsh/rc/init.zsh
+source ~/.env
 
 expath ~/.rbenv/bin && eval "$(rbenv init - --no-rehash)"
 expath ~/.exenv/bin && eval "$(exenv init - --no-rehash)"
@@ -29,7 +30,7 @@ if hasenv $DOT_ZSHRC_DEBUG; then
 fi
 
 if has tmux; then
-  if ! hasenv $TMUX && hasprocess tmux; then
+  if hasenv $TMUX && hasprocess tmux; then
     session=$(tmux list-sessions | awk -F ':' 'NR==1 {print $1}')
     tmux attach -t $session
   elif ! hasenv $TMUX; then
