@@ -11,8 +11,6 @@ source ~/.zplug/init.zsh
 #       } &>/dev/null
 #     '
 
-zplug 'zplug/zplug'
-
 zplug 'b4b4r07/zspec', \
     as:command, \
     use:bin, \
@@ -26,7 +24,7 @@ zplug 'mrowa44/emojify', \
 
 zplug 'knu/z', \
     use:z.sh, \
-    nice:10
+    defer:1
 
 zplug 'supercrabtree/k'
 
@@ -57,7 +55,7 @@ zplug 'zsh-users/zsh-autosuggestions'
 zplug 'zsh-users/zsh-completions'
 
 zplug 'zsh-users/zsh-syntax-highlighting', \
-    nice:19
+    defer:3
 
 zplug 'paulirish/git-open', as:command
 

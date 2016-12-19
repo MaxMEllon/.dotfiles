@@ -1,0 +1,4 @@
+curlvim() {
+ curl $@ | vim -
+}
+
