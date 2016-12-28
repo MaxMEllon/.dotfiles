@@ -31,7 +31,7 @@ fi
 
 if has \tmux; then
   if hasprocess tmux; then
-    if !hasenv $TMUX; then
+    if ! hasenv $TMUX; then
       session=$(\tmux list-sessions | awk -F ':' 'NR==1 {print $1}')
       \tmux attach -t $session
     fi

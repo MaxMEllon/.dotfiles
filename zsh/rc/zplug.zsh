@@ -18,6 +18,11 @@ zplug 'b4b4r07/zspec', \
 
 zplug 'b4b4r07/emoji-cli'
 
+zplug 'b4b4r07/copy', \
+    as:command, \
+    use:'(*).sh', \
+    rename-to:'pecopy'
+
 zplug 'mrowa44/emojify', \
     as:command, \
     lazy:true
@@ -43,6 +48,9 @@ zplug 'junegunn/fzf-bin', \
     from:gh-r, \
     rename-to:fzf, \
     use:"*darwin*amd64*"
+
+zplug 'b4b4r07/git-conflict', \
+    as:command \
 
 zplug 'maxmellon/yarn_completion'
 zplug 'maxmellon/circleci-cli_completion'

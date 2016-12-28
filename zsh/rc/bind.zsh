@@ -18,7 +18,9 @@ binding()
   if has auto-fu-init; then
     bindkey-advice-before $1 $2
   else
-    bindkey $1 $2
+    if has $2; then
+      bindkey $1 $2
+    fi
   fi
 }
 
