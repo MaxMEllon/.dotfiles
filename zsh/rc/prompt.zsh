@@ -77,9 +77,18 @@ c_user=$colors[$((`expr $(echo $USER | sum | awk -F ' ' '{print $1}') + \
 c_host=$colors[$((`echo "$HOST" | sum | cut -f1 -d' '`%${#colors}))+1]$HOST
 role='%(!.#.$)'
 
+autoload -Uz vcs_info
+setopt prompt_subst
+zstyle ':vcs_info:git:*' check-for-changes true
+zstyle ':vcs_info:git:*' stagedstr "%F{yellow}!"
+zstyle ':vcs_info:git:*' unstagedstr "%F{red}+"
+zstyle ':vcs_info:*' formats "%F{green}%c%u[%b]%f"
+zstyle ':vcs_info:*' actionformats '[%b|%a]'
+precmd() { vcs_info }
+
 prompt_bar_left_user='$c_user'
 prompt_bar_left_host='$c_host'
-prompt_bar_left_branch='`current_branch`'
+prompt_bar_left_branch='${vcs_info_msg_0_}'
 prompt_bar_left_status="%{%B%(?.%K{blue}%F{white}.%K{red}%F{white})%} %? %{%f%b%}"
 prompt_bar_left_date='<%{%B%}%D{%H:%M}%{%b%}>'
 # prompt_bar_left_path="%{%B%F{red}%}%d%{%f%k%b%}"
@@ -114,29 +123,3 @@ update_prompt()
   esac
 }
 precmd_functions=($precmd_functions update_prompt)
-
-current_branch()
-{
-  if [[ "$PWD" = ${DOTFILES}'/\.git(/.*)?$' ]]; then
-    echo "%{%B${fg[black]}%}no git%{${reset_color}%}%b"
-    return
-  fi
-  name=$(basename "`git symbolic-ref HEAD 2> /dev/null`")
-  if [[ -z $name ]]; then
-    echo "%{%B${fg[gray]}%} branch %{${reset_color}%}%b"
-    return
-  fi
-  st=`git status 2> /dev/null`
-  if [[ -n `echo "$st" | grep "^nothing to"` ]]; then
-    color=${bg[blue]}${fg[green]}
-  elif [[ -n `echo "$st" | grep "^nothing added"` ]]; then
-    color=${bg[red]}${fg[blue]}
-  elif [[ -n `echo "$st" | grep "^# Untracked"` ]]; then
-    color=${bg[red]}${fg_bold[white]}
-  else
-    color=${bg[red]}${fg_bold[white]}
-  fi
-  # %{...%} は囲まれた文字列がエスケープシーケンスであることを明示する
-  # これをしないと右プロンプトの位置がずれる
-  echo "%{$color%}%{%B%} $name %{%b%}%{$reset_color%}"
-}
