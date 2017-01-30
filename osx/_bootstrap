@@ -1,0 +1,15 @@
+#!/bin/bash
+
+defaults write -g NSAutomaticSpellingCorrectionEnabled -bool false
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+defaults write com.apple.dock autohide-delay -float 0
+defaults write com.apple.dock no-glass -bool true
+defaults write com.apple.dock expose-animation-duration -float 0.1
+defaults write -g AppleShowAllExtensions -bool true
+defaults write com.apple.finder FXDefaultSearchScope -string 'SCcf'
+defaults write com.apple.finder AppleShowAllFiles -bool true
+defaults write -g NSAutomaticSpellingCorrectionEnabled -bool false
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+defaults write com.apple.universalaccess mouseDriverCursorSize -int 4
+
+for app in Alfred Divvy Finder Dock SystemUIServer; do killall $app >/dev/null 2>&1; done

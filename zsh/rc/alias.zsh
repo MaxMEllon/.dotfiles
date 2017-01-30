@@ -13,6 +13,8 @@ alias -g H=' --help'
 alias -g pcd='cd !:*'
 alias -g GL='`git ls-files | FZF`'
 
+alias diff="git diff --no-index --"
+
 if has circleci-cli; then
   alias ci='circleci-cli'
   if has _circleci-cli; then
