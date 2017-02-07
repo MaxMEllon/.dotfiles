@@ -1,4 +1,4 @@
-has fzf-tmux || return 1
+has peco || return 1
 
 history-quick-search()
 {
@@ -10,7 +10,7 @@ history-quick-search()
   fi
   BUFFER=$(\history -n 1 | \
     eval $tac | \
-    fzf-tmux --no-sort --query "$LBUFFER")
+    peco --query "$LBUFFER")
   CURSOR=$#BUFFER
   zle clear-screen 
 }

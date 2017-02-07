@@ -23,3 +23,4 @@ setopt notify               # バックグラウンドジョブの状態変化�
 setopt share_history
 setopt combining_chars      # 補完時，全角特殊文字をきちんと表示
 setopt complete_aliases     # alias もガッツリ保管
+# setopt flowcontrol

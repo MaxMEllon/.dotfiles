@@ -16,7 +16,9 @@ zplug 'b4b4r07/zspec', \
     use:bin, \
     lazy:true
 
-zplug 'b4b4r07/emoji-cli'
+zplug 'b4b4r07/emoji-cli', \
+    on:"junegunn/fzf-bin", \
+    if:'(( $+commands[jq] ))'
 
 zplug 'b4b4r07/copy', \
     as:command, \
@@ -55,12 +57,15 @@ zplug 'b4b4r07/git-conflict', \
 zplug 'maxmellon/yarn_completion'
 zplug 'maxmellon/circleci-cli_completion'
 
-zplug 'b4b4r07/enhancd', \
-    use:init.sh
+# zplug 'b4b4r07/enhancd', \
+#     use:init.sh
 
 zplug 'zsh-users/zsh-autosuggestions'
 
 zplug 'zsh-users/zsh-completions'
+
+# zplug "zsh-users/zsh-history-substring-search", \
+#     defer:3
 
 zplug 'zsh-users/zsh-syntax-highlighting', \
     defer:3

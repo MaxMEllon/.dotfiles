@@ -18,6 +18,7 @@ myplug zsh/rc/opt.zsh
 myplug zsh/rc/style.zsh
 # myplug zsh/rc/prompt.mac.zsh
 myplug zsh/rc/prompt.zsh
+myplug zsh/rc/hook.zsh
 myplug zsh/rc/history.zsh
 myplug zsh/rc/misc.zsh
 
@@ -27,4 +28,3 @@ done
 
 myplug zsh/rc/bind.zsh
 myplug zsh/rc/alias.zsh
-

@@ -11,7 +11,7 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*:default' menu select=1
 
 autoload -Uz select-word-style
-select-word-style default
+select-word-style normal
 zstyle ':zle:*' word-chars ' /=;@:{}[]()<>,|.:'
 zstyle ':zle:*' word-style unspecified
 export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>:'
