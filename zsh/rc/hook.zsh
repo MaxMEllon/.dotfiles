@@ -1,10 +1,10 @@
 autoload -U add-zsh-hook 2>/dev/null || return
 
-__timetrack_threshold=2
+__timetrack_threshold=10
 
 export __timetrack_threshold
 export __timetrack_ignore_progs=(
-  vim zsh tmux exec source
+  vim zsh tmux exec source git ssh
 )
 
 function __my_preexec_start_timetrack() {
@@ -35,7 +35,7 @@ function __my_preexec_end_timetrack() {
     command="<UNKNOWN>"
   fi
 
-  message='display notification "'"${command} done : ${exec_time}sec"'" with title "zsh"'
+  message='display notification "'"${command} done : ${exec_time}sec"'" with title "zsh" sound name "Pop"'
 
 
   if [ "$exec_time" -ge "$__timetrack_threshold" ]; then
