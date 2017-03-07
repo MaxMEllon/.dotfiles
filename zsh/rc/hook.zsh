@@ -35,11 +35,13 @@ function __my_preexec_end_timetrack() {
     command="<UNKNOWN>"
   fi
 
-  message='display notification "'"${command} done : ${exec_time}sec"'" with title "zsh" sound name "Pop"'
-
-
   if [ "$exec_time" -ge "$__timetrack_threshold" ]; then
-    osascript -e $message
+    if has terminal-notifier; then
+      terminal-notifier -message "${command} done : ${exec_time}sec" -sound "Pop" -timeout 2
+    else
+      message='display notification "'"${command} done : ${exec_time}sec"'" with title "zsh" sound name "Pop"'
+      osascript -e $message
+    fi
   fi
 
   unset __timetrack_start
