@@ -11,12 +11,19 @@ tree-vim() {
 
   local SELECTED_FILE
   if [ -r "$ignorefile_path/.gitignore" ]; then
-    local ignores="$(cat $ignorefile_path/.gitignore | tr '\n' '|' | sed '$s/.$//')"
+    local raw_ignores="$(cat $ignorefile_path/.gitignore)"
+    local ignores=$(echo $raw_ignores \
+        | grep -v "#" | grep -v '^\s*$' \
+        | sed -e "s#^\/##g" \
+        | tr '\n' '|'
+      )
+    echo $ignores
     SELECTED_FILE=$(tree --charset=ascii -f -I $ignores -L 2 \
                     | fzf-tmux --no-sort -l 30 \
                     | sed -e s/\|//g | sed -e s/-//g \
                     | sed -e s/\`//g | xargs echo)
   else
+    echo $ignores
     SELECTED_FILE=$(tree --charset=ascii -f -L 2 \
                     | fzf-tmux --no-sort -l 30 \
                     | sed -e s/\|//g | sed -e s/-//g \

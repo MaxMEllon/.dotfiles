@@ -16,8 +16,11 @@ compinit
 myplug zsh/rc/zplug.zsh
 myplug zsh/rc/opt.zsh
 myplug zsh/rc/style.zsh
-# myplug zsh/rc/prompt.mac.zsh
-myplug zsh/rc/prompt.zsh
+if is_osx; then
+  myplug zsh/rc/prompt.mac.zsh
+else
+  myplug zsh/rc/prompt.zsh
+fi
 myplug zsh/rc/hook.zsh
 myplug zsh/rc/history.zsh
 myplug zsh/rc/misc.zsh

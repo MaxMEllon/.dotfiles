@@ -10,6 +10,9 @@ zstyle ':completion:*:processes' command 'ps x -o pid, s, args'
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*:default' menu select=1
 
+zstyle ':completion:*:cd:*' tag-order local-directories path-directories
+zstyle ':completion:*:cd:*' ignore-parents parent pwd
+
 autoload -Uz select-word-style
 select-word-style normal
 zstyle ':zle:*' word-chars ' /=;@:{}[]()<>,|.:'
