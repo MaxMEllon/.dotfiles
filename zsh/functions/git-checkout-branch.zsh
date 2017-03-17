@@ -1,4 +1,7 @@
-has fzf-tmux || return 0
+has fzf-tmux || {
+  alias gco='git chekout'
+  return 0
+}
 
 git-checkout-branch()
 {

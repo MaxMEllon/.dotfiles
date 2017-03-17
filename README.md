@@ -11,3 +11,9 @@
 1. clone this repository
 2. $ bash init.sh`
 
+## Sample `~/.env`
+
+```
+ANY_ENV_LIST=(pyenv rbenv nodenv crenv)
+export ANY_ENV_LIST
+```

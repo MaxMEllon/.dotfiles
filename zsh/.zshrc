@@ -15,11 +15,9 @@
 myplug zsh/rc/init.zsh
 source ~/.env
 
-expath ~/.rbenv/bin && eval "$(rbenv init - --no-rehash)"
-expath ~/.exenv/bin && eval "$(exenv init - --no-rehash)"
-expath ~/.nodenv/bin && eval "$(nodenv init -)"
-expath ~/.erlenv/bin && eval "$(erlenv init -)"
-expath ~/.pyenv/bin && eval "$(pyenv init -)"
+for env in $ANY_ENV_LIST; do
+  expath "~/.$env/bin" && eval "$($env init -)" && echo "[env]\t$env\tis loaded"
+done
 
 expath ~/.yarn/bin
 

@@ -13,21 +13,21 @@ printf $logo
 autoload -U compinit
 compinit
 
+[[ is_osx ]] && PROMPT_SOURCE='zsh/rc/prompt.mac.zsh' \
+             || PROMPT_SOURCE='zsh/rc/prompt.zsh'
+
 myplug zsh/rc/zplug.zsh
 myplug zsh/rc/opt.zsh
 myplug zsh/rc/style.zsh
-if is_osx; then
-  myplug zsh/rc/prompt.mac.zsh
-else
-  myplug zsh/rc/prompt.zsh
-fi
+myplug $PROMPT_SOURCE
 myplug zsh/rc/hook.zsh
 myplug zsh/rc/history.zsh
 myplug zsh/rc/misc.zsh
+myplug zsh/rc/alias.zsh
 
 for file in $DOTPATH/zsh/functions/*.zsh; do
   source $file
 done
 
 myplug zsh/rc/bind.zsh
-myplug zsh/rc/alias.zsh
+

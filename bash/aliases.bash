@@ -31,11 +31,6 @@ alias fgrep='fgrep --color=auto'              # show differences in colour
 # grep
 alias lg='ls -a | grep'
 
-# git
-alias gco='git checkout'
-alias gcob='git checkout -b'
-alias gb='git branch'
-
 # cd ..
 alias ..='cd ..'
 alias ...='cd ../..'

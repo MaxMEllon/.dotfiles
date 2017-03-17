@@ -32,4 +32,3 @@ binding "^]" ghq-quick-move
 binding "^r" history-quick-search
 binding "^s" emoji::cli
 binding "^z" myfg
-

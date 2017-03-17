@@ -17,15 +17,13 @@ tree-vim() {
         | sed -e "s#^\/##g" \
         | tr '\n' '|'
       )
-    echo $ignores
-    SELECTED_FILE=$(tree --charset=ascii -f -I $ignores -L 2 \
-                    | fzf-tmux --no-sort -l 30 \
+    SELECTED_FILE=$(tree --charset=ascii -f -I $ignores -L 4 \
+                    | fzf-tmux --no-sort -l 40 \
                     | sed -e s/\|//g | sed -e s/-//g \
                     | sed -e s/\`//g | xargs echo)
   else
-    echo $ignores
     SELECTED_FILE=$(tree --charset=ascii -f -L 2 \
-                    | fzf-tmux --no-sort -l 30 \
+                    | fzf-tmux --no-sort -l 40 \
                     | sed -e s/\|//g | sed -e s/-//g \
                     | sed -e s/\`//g | xargs echo)
   fi
