@@ -25,9 +25,9 @@ zplug 'b4b4r07/copy', \
     use:'(*).sh', \
     rename-to:'pecopy'
 
-zplug 'mrowa44/emojify', \
-    as:command, \
-    lazy:true
+# zplug 'mrowa44/emojify', \
+#     as:command, \
+#     lazy:true
 
 zplug 'knu/z', \
     use:z.sh, \
@@ -128,4 +128,3 @@ if zplug check hchbaw/auto-fu.zsh; then
     zstyle ':auto-fu:var' postdisplay $''
   fi
 fi
-

@@ -30,4 +30,3 @@ for file in $DOTPATH/zsh/functions/*.zsh; do
 done
 
 myplug zsh/rc/bind.zsh
-

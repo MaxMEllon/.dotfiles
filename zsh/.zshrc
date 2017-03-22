@@ -16,7 +16,7 @@ myplug zsh/rc/init.zsh
 source ~/.env
 
 for env in $ANY_ENV_LIST; do
-  expath "~/.$env/bin" && eval "$($env init -)" && echo "[env]\t$env\tis loaded"
+  expath "$HOME/.$env/bin" && eval "$($env init -)" && echo "[env]\t$env\tis loaded"
 done
 
 expath ~/.yarn/bin
