@@ -13,7 +13,8 @@
 #
 
 myplug zsh/rc/init.zsh
-source ~/.env
+
+[ -f ~/.env ] && source ~/.env
 
 for env in $ANY_ENV_LIST; do
   expath "$HOME/.$env/bin" && eval "$($env init -)" && echo "[env]\t$env\tis loaded"
@@ -27,6 +28,8 @@ if hasenv $DOT_ZSHRC_DEBUG; then
   fi
 fi
 
+[ -f ~/.local.alias ] && source ~/.local.alias
+
 if has \tmux; then
   if hasprocess tmux; then
     if ! hasenv $TMUX; then
@@ -37,6 +40,3 @@ if has \tmux; then
     is_osx && tmux -2
   fi
 fi
-
-remove_duplicated_path
-

@@ -25,13 +25,17 @@ zplug 'b4b4r07/copy', \
     use:'(*).sh', \
     rename-to:'pecopy'
 
+zplug 'maxmellon/slack-user-status-trigger', \
+    use:'(*.sh)', \
+    rename-to:'$1'
+
 # zplug 'mrowa44/emojify', \
 #     as:command, \
 #     lazy:true
 
-zplug 'knu/z', \
+zplug 'maxmellon/z', \
     use:z.sh, \
-    defer:1
+    defer:3
 
 zplug 'supercrabtree/k'
 
@@ -41,7 +45,6 @@ zplug 'jhawthorn/fzy', \
     hook-build:"
     {
         make
-        sudo make install
     } &>/dev/null
     "
 
@@ -52,9 +55,10 @@ zplug 'junegunn/fzf-bin', \
     use:"*darwin*amd64*"
 
 zplug 'b4b4r07/git-conflict', \
-    as:command \
+    as:command
 
 zplug 'maxmellon/yarn_completion'
+
 zplug 'maxmellon/circleci-cli_completion'
 
 # zplug 'b4b4r07/enhancd', \
@@ -113,6 +117,10 @@ fi
 
 if zplug check b4b4r07/enhancd; then
   export ENHANCD_FILTER="fzy:fzf-tmux:fzf"
+fi
+if zplug check maxmellon/z; then
+  [ ! -d $HOME/.zdata ] && mkdir ~/.zdata
+  export _Z_DATA=$HOME/.zdata/.z
 fi
 
 if zplug check supercrabtree/k; then
