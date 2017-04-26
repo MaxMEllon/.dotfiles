@@ -24,5 +24,3 @@ if [[ -z $TMUX ]]; then
   # exist_expath ${HOME}/.erlenv/bin
   # exist_expath ${HOME}/.nodenv/bin
 fi
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
