@@ -16,7 +16,7 @@ function __my_preexec_start_timetrack() {
 function __my_preexec_end_timetrack() {
   local exec_time
   local command=$__timetrack_command
-  local prog=$(echo $command|awk '{print $1}')
+  local prog=$(echo $command | awk '{print $1}')
   local notify_method
   local message
 
@@ -36,12 +36,8 @@ function __my_preexec_end_timetrack() {
   fi
 
   if [ "$exec_time" -ge "$__timetrack_threshold" ]; then
-    if has terminal-notifier; then
-      (terminal-notifier -message "${command} done : ${exec_time}sec" -sound "Pop" -timeout 2 &>/dev/null 2>&1 &)
-    else
-      message='display notification "'"${command} done : ${exec_time}sec"'" with title "zsh" sound name "Pop"'
-      (osascript -e $message &)
-    fi
+    (~/Applications/Notificator.app/Contents/Resources/Scripts/notificator --title 'コマンドの実行が完了しました' --subtitle '😋' --message "${command}sec" --sound 'Frog' &)
+
   fi
 
   unset __timetrack_start
