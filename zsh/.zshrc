@@ -12,6 +12,9 @@
 #   ~/.dotfiles/zsh/rc/bind.zsh
 #
 
+umask 022
+limit coredumpsize 0
+
 myplug zsh/rc/init.zsh
 
 [ -f ~/.env ] && source ~/.env

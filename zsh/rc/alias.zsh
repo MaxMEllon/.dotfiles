@@ -12,6 +12,9 @@ alias -g V='| vim -R -'
 alias -g H=' --help'
 alias -g pcd='cd !:*'
 alias -g GL='`git ls-files | FZF`'
+alias -g N=" >/dev/null 2>&1"
+alias -g N1=" >/dev/null"
+alias -g N2=" 2>/dev/null"
 
 alias diff="git diff --no-index --"
 

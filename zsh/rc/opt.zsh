@@ -24,3 +24,8 @@ setopt share_history
 setopt combining_chars      # 補完時，全角特殊文字をきちんと表示
 setopt complete_aliases     # alias もガッツリ保管
 # setopt flowcontrol
+#
+setopt nocorrect            # y, n を聞かない
+setopt print_eight_bit      # 日本語文字サポート
+setopt always_last_prompt
+

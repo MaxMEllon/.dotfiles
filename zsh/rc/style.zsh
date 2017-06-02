@@ -1,24 +1,52 @@
-zstyle ':completion:*' menu select
-zstyle ':completion:*' format '%B%d%b'
+# See: https://github.com/b4b4r07/dotfiles/blob/49e22698e8973ba9fc43f465ba6e527f603ff153/.zsh/70_misc.zsh
+#
+# Copyright (c) 2014 "BABAROT" b4b4r07
+#
+# Licensed under the MIT license.
+#
+# Unless attributed otherwise, everything is under the MIT licence.
+# Some stuff is not from me, and without attribution,
+# and I no longer remember where I got it from. I apologize for that.
+
+# Important
+zstyle ':completion:*:default' menu select=2
+
+# Completing Groping
+zstyle ':completion:*:options' description 'yes'
+zstyle ':completion:*:descriptions' format '%F{yellow}Completing %B%d%b%f'
 zstyle ':completion:*' group-name ''
+
+# Completing misc
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
-zstyle ':completion:*' keep-prefix
-zstyle ':completion:*' ignore-parents parent pwd ..
-zstyle ':completion:*:sudo:*' command-path \
-      /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
-zstyle ':completion:*:processes' command 'ps x -o pid, s, args'
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion:*:default' menu select=1
+zstyle ':completion:*' verbose yes
+zstyle ':completion:*' completer _expand _complete _match _prefix _approximate _list _history
+zstyle ':completion:*:*files' ignored-patterns '*?.o' '*?~' '*\#'
+zstyle ':completion:*' use-cache true
+zstyle ':completion:*:*:-subscript-:*' tag-order indexes parameters
 
-zstyle ':completion:*:cd:*' tag-order local-directories path-directories
+# Directory
 zstyle ':completion:*:cd:*' ignore-parents parent pwd
-
-autoload -Uz select-word-style
-select-word-style normal
-zstyle ':zle:*' word-chars ' /=;@:{}[]()<>,|.:'
-zstyle ':zle:*' word-style unspecified
-export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>:'
-
-export LSCOLORS="Gxfxcxdxbxegedabagacab"
-export LS_COLORS='no=00:fi=00:di=01;34:ln=00;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=41;33;01:ex=00;32:ow=0;41:*.cmd=00;32:*.exe=01;32:*.com=01;32:*.bat=01;32:*.btm=01;32:*.dll=01;32:*.tar=00;31:*.tbz=00;31:*.tgz=00;31:*.rpm=00;31:*.deb=00;31:*.arj=00;31:*.taz=00;31:*.lzh=00;31:*.lzma=00;31:*.zip=00;31:*.zoo=00;31:*.z=00;31:*.Z=00;31:*.gz=00;31:*.bz2=00;31:*.tb2=00;31:*.tz2=00;31:*.tbz2=00;31:*.avi=01;35:*.bmp=01;35:*.fli=01;35:*.gif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mng=01;35:*.mov=01;35:*.mpg=01;35:*.pcx=01;35:*.pbm=01;35:*.pgm=01;35:*.png=01;35:*.ppm=01;35:*.tga=01;35:*.tif=01;35:*.xbm=01;35:*.xpm=01;35:*.dl=01;35:*.gl=01;35:*.wmv=01;35:*.aiff=00;32:*.au=00;32:*.mid=00;32:*.mp3=00;32:*.ogg=00;32:*.voc=00;32:*.wav=00;32:*.patch=00;34:*.o=00;32:*.so=01;35:*.ko=01;31:*.la=00;33'
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+
+# default: --
+zstyle ':completion:*' list-separator '-->'
+zstyle ':completion:*:manuals' separate-sections true
+
+# Menu select
+zmodload -i zsh/complist
+bindkey -M menuselect '^h' vi-backward-char
+bindkey -M menuselect '^j' vi-down-line-or-history
+bindkey -M menuselect '^k' vi-up-line-or-history
+bindkey -M menuselect '^l' vi-forward-char
+
+autoload -Uz cdr
+autoload -Uz history-search-end
+autoload -Uz modify-current-argument
+autoload -Uz smart-insert-last-word
+autoload -Uz terminfo
+autoload -Uz vcs_info
+autoload -Uz zcalc
+autoload -Uz zmv
+autoload -Uz run-help-git
+autoload -Uz run-help-svk
+autoload -Uz run-help-svn
