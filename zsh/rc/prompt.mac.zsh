@@ -36,7 +36,7 @@ get-user-host() {
 }
 
 get-pwd() {
-  echo -n "$(get-arrow $bg_color $2)%F{$1}%K{$2}$dir_character %2~ "
+  echo -n "$(get-arrow $bg_color $2)%F{$1}%K{$2}$dir_character %2~ %k$(get-arrow $powerless_color_git)%f%k"
   store-colors $1 $2
 }
 

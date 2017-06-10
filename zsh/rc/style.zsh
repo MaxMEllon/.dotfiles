@@ -19,18 +19,26 @@ zstyle ':completion:*' group-name ''
 # Completing misc
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*' verbose yes
-zstyle ':completion:*' completer _expand _complete _match _prefix _approximate _list _history
+zstyle ':completion:*' completer _expand _complete _match _prefix _approximate _list
 zstyle ':completion:*:*files' ignored-patterns '*?.o' '*?~' '*\#'
 zstyle ':completion:*' use-cache true
 zstyle ':completion:*:*:-subscript-:*' tag-order indexes parameters
 
 # Directory
 zstyle ':completion:*:cd:*' ignore-parents parent pwd
+
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
 # default: --
 zstyle ':completion:*' list-separator '-->'
 zstyle ':completion:*:manuals' separate-sections true
+
+# zle
+autoload -Uz select-word-style
+select-word-style default
+zstyle ':zle:*' word-chars ' /=;@:{}[]()<>,|.'
+zstyle ':zle:*' word-style unspecified
+export WORDCHARS="*?_-.[]~=&;!#$%^(){}<>"
 
 # Menu select
 zmodload -i zsh/complist
@@ -40,7 +48,6 @@ bindkey -M menuselect '^k' vi-up-line-or-history
 bindkey -M menuselect '^l' vi-forward-char
 
 autoload -Uz cdr
-autoload -Uz history-search-end
 autoload -Uz modify-current-argument
 autoload -Uz smart-insert-last-word
 autoload -Uz terminfo

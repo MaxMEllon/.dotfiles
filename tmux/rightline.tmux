@@ -60,12 +60,7 @@ else
 fi
 
 # ip --------------------------------------------------------------------------
-which ifconfig > /dev/null
-if [ $? -ne 0 ]; then
-  ip=`ifconfig | grep inet[^6] | grep -v 127.0.0.1 |  awk 'NR==1 {print $2;}'`
-else
-  ip=''
-fi
+ip="#(~/local/bin/ip | awk '{print $2}')"
 
 # weather ---------------------------------------------------------------------
 which weather_emojify > /dev/null
@@ -77,7 +72,7 @@ fi
 
 which tmux > /dev/null
 if [ $? -eq 0 ]; then
-  tmux set-option -g status-right "$basecolor #[fg=colour244] $ip $s1 $battery $s2 $weather $s4 $node $s5 $wifi "
+  tmux set-option -g status-right "$basecolor $s1 $battery $s2 $s4 $node $s5 $wifi "
 fi
 
 # vim:ft=sh

@@ -13,6 +13,6 @@ sessionName='[#S]'
 hostName='#H'
 windowName='#W'
 
-tmux set-option -g status-left "$header $sessionName $s2 <C-t> $s3 $windowName $footer "
+tmux set-option -g status-left "$header $sessionName $s2 #(~/local/bin/ip) $s3 $windowName $footer "
 
 # vim:ft=sh

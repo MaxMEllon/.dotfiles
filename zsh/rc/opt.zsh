@@ -28,4 +28,3 @@ setopt complete_aliases     # alias もガッツリ保管
 setopt nocorrect            # y, n を聞かない
 setopt print_eight_bit      # 日本語文字サポート
 setopt always_last_prompt
-
