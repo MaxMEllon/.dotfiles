@@ -5,13 +5,13 @@ select_vim_type() {
     print "
     Error: Wrong number of arguments. Expected 1, got $#
 
-      Usage:
-        $ select_vim_type gui
-        $ select_vim_type cui
+    Usage:
+    $ select_vim_type gui
+    $ select_vim_type cui
 
-      Alias:
-        $ svim gui
-        $ svim cui
+    Alias:
+    $ svim gui
+    $ svim cui
     "
     return 1
   fi
@@ -66,11 +66,11 @@ toggle_vim_type () {
     print "
     Error: Wrong number of arguments. Expected 0, got $#
 
-      Usage:
-        $ toggle_vim_type
+    Usage:
+    $ toggle_vim_type
 
-      Alias:
-        $ tvim
+    Alias:
+    $ tvim
     "
     return 1
   fi
@@ -112,4 +112,4 @@ elif hasenv $MY_VIM_TYPE; then
 else
   unalias vim
   unalias v
-fi 
+fi

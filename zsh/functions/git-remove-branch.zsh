@@ -5,10 +5,10 @@ git-remove-branch()
   local branchs q k results
   while out=$(
     git branch | sed -e 's/\*//g' -e 's/\ //g' \
-               | sed -e 's/master//g' -e 's/develop//g' -e '/^$/d' \
-               | sort \
-               | fzf --ansi --multi --no-sort --reverse --query="$q" \
-                     --print-query --expect=ctrl-d); do
+      | sed -e 's/master//g' -e 's/develop//g' -e '/^$/d' \
+      | sort \
+      | fzf --ansi --multi --no-sort --reverse --query="$q" \
+      --print-query --expect=ctrl-d); do
     q=$(head -1 <<< "$out")
     k=$(head -2 <<< "$out" | tail -1)
     branchs=$(sed '1,2d' <<< "$out" | awk '{print $1}')

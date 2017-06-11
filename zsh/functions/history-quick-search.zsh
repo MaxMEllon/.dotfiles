@@ -12,7 +12,7 @@ history-quick-search()
     eval $tac | \
     peco --query "$LBUFFER")
   CURSOR=$#BUFFER
-  zle clear-screen 
+  zle clear-screen
 }
 
 zle -N history-quick-search
