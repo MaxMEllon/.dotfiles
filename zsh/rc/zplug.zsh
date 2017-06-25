@@ -29,6 +29,12 @@ zplug 'maxmellon/slack-user-status-trigger', \
     use:'(*.sh)', \
     rename-to:'$1'
 
+zplug 'b4b4r07/history', \
+    as:command, \
+    from:gh-r, \
+    rename-to:history, \
+    use:"*darwin*amd64*"
+
 # zplug 'mrowa44/emojify', \
 #     as:command, \
 #     lazy:true
@@ -126,6 +132,14 @@ fi
 if zplug check supercrabtree/k; then
   alias ll='k --no-vcs'
   alias lla='k -a --no-vcs'
+fi
+
+if zplug check b4b4r07/history; then
+  alias hs='command history'
+  ZSH_HISTORY_KEYBIND_GET="^r"
+  ZSH_HISTORY_FILTER_OPTIONS="--filter-branch --filter-dir"
+  ZSH_HISTORY_KEYBIND_ARROW_UP="^p"
+  ZSH_HISTORY_KEYBIND_ARROW_DOWN="^n"
 fi
 
 if zplug check hchbaw/auto-fu.zsh; then
