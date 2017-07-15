@@ -1,4 +1,6 @@
-NEO_VIM_QT='/Users/maxmellon/work/ghq/github.com/equalsraf/neovim-qt/build/bin/nvim-qt'
+if has nvim-qt; then
+  NEO_VIM_QT=`which nvim-qt`
+fi
 
 select_vim_type() {
   if [ $# -ne 1 ]; then
@@ -46,12 +48,14 @@ select_vim_type() {
     vim_type
     return
   fi
-  if [[ $1 == 'neogui' ]]; then
-    alias vim="$NEO_VIM_QT"
-    alias v="$NEO_VIM_QT"
-    export MY_VIM_TYPE='neo'
-    vim_type
-    return
+  if hasenv $NEO_VIM_QT; then
+    if [[ $1 == 'neogui' ]]; then
+      alias vim="$NEO_VIM_QT"
+      alias v="$NEO_VIM_QT"
+      export MY_VIM_TYPE='neo'
+      vim_type
+      return
+    fi
   fi
 }
 
@@ -101,8 +105,11 @@ vim_type () {
 alias tvim='toggle_vim_type'
 alias svim='select_vim_type'
 alias vt='vim_type'
-
-if type /usr/local/bin/vim; then
+if has nvim; then
+  export MY_VIM_TYPE='neo'
+  alias vim='nvim'
+  alias v='nvim'
+elif type /usr/local/bin/vim; then
   export MY_VIM_TYPE='cui'
   alias vim='/usr/local/bin/vim'
   alias v='/usr/local/bin/vim'

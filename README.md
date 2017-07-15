@@ -14,6 +14,9 @@
 ## Sample `~/.env`
 
 ```
+export GHQ_ROOT="${HOME}/work/ghq"
+export CLANG_LIB="/Library/Developer/CommandLineTools/usr/lib/libclang.dylib"
+export CLANG_INCLUDE="/Library/Developer/CommandLineTools/usr/lib/clang"
 ANY_ENV_LIST=(pyenv rbenv nodenv crenv)
 export ANY_ENV_LIST
 ```
