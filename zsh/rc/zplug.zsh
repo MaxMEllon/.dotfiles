@@ -54,13 +54,13 @@ zplug 'jhawthorn/fzy', \
     } &>/dev/null
     "
 
-if is_osx;
+if is_osx; then
   zplug 'junegunn/fzf-bin', \
       as:command, \
       from:gh-r, \
       rename-to:fzf, \
       use:"*darwin*amd64*"
-elif
+elif is_linux; then
   zplug 'junegunn/fzf-bin', \
       as:command, \
       from:gh-r, \
