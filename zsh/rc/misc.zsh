@@ -19,6 +19,3 @@ remove_duplicated_path()
 
 myplug zsh/completes/rake_completion
 myplug zsh/completes/npm_completion
-
-ulimit -v 786432
-ulimit -n 2048

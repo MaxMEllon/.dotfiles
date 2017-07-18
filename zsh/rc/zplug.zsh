@@ -54,11 +54,19 @@ zplug 'jhawthorn/fzy', \
     } &>/dev/null
     "
 
-zplug 'junegunn/fzf-bin', \
-    as:command, \
-    from:gh-r, \
-    rename-to:fzf, \
-    use:"*darwin*amd64*"
+if is_osx;
+  zplug 'junegunn/fzf-bin', \
+      as:command, \
+      from:gh-r, \
+      rename-to:fzf, \
+      use:"*darwin*amd64*"
+elif
+  zplug 'junegunn/fzf-bin', \
+      as:command, \
+      from:gh-r, \
+      rename-to:fzf, \
+      use:"*linux*amd64*"
+fi
 
 zplug 'b4b4r07/git-conflict', \
     as:command
