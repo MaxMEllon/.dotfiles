@@ -2,7 +2,7 @@
 
 set -eu
 
-: ${DOTPATH?=$1}
+DOTPATH=~/.dotfiles
 
 source $DOTPATH/lib/conveni.sh
 
@@ -19,10 +19,14 @@ else
   skip "git clone ${url} ~/.zplug"
 fi
 
-ls $DOTPATH/zsh/rc/*.zsh | xargs -P 10 -n 1- \
-  zsh -fc 'zcompile $0 && printf "\e[32m ok\t: zcompile $0  \e[0m\n"'
-ls $DOTPATH/zsh/functions/*.zsh | xargs -P 10 -n 1- \
-  zsh -fc 'zcompile $0 &&printf "\e[32m ok\t: zcompile $0  \e[0m\n"'
+
+for f in $DOTPATH/zsh/rc/*.zsh; do
+  zcompile $f && printf "\e[32m ok\t: zcompile $1  \e[0m\n" 
+done
+
+for f in $DOTPATH/zsh/functions/*.zsh; do
+  zcompile $f && printf "\e[32m ok\t: zcompile $1  \e[0m\n" 
+done
 
 ln -fs $DOTPATH/zsh/.zshrc ~/ &
 ln -fs $DOTPATH/zsh/.zshenv ~/ &
