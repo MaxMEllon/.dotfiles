@@ -14,9 +14,9 @@ fi
 CURRENT_PATH=$(pwd)
 
 case $# in
-  1 )
+  2 )
     cd ~/.dotfiles
-    yarn add --dev $1
+    yarn $1 --dev $2
     cd $CURRENT_PATH
     ;;
   * )
