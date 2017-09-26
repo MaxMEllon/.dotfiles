@@ -19,6 +19,8 @@
 	amend = "!f() { GIT_EDITOR=: git commit --amend; }; f;"
 [push]
 	default = current
+[pull]
+	default = current
 [core]
 	editor = /usr/local/bin/vim
 	excludesfile = ~/.dotfiles/git/.gitignore

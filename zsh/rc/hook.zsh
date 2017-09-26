@@ -3,9 +3,7 @@ autoload -U add-zsh-hook 2>/dev/null || return
 __timetrack_threshold=10
 
 export __timetrack_threshold
-export __timetrack_ignore_progs=(
-  vim zsh tmux exec source git ssh
-)
+export __timetrack_ignore_progs=(vim zsh tmux exec source git ssh)
 
 function __my_preexec_start_timetrack() {
   local command=$1
@@ -36,7 +34,7 @@ function __my_preexec_end_timetrack() {
   fi
 
   if [ "$exec_time" -ge "$__timetrack_threshold" ]; then
-    (~/Applications/Notificator.app/Contents/Resources/Scripts/notificator --title 'コマンドの実行が完了しました' --subtitle '😋' --message "${command}sec" --sound 'Frog' &)
+    (simplayer /System/Library/Sounds/Submarine.aiff &)
 
   fi
 

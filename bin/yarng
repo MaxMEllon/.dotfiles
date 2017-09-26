@@ -1,0 +1,36 @@
+#!/bin/bash
+
+which node &> /dev/null
+if [ $? -ne 0 ]; then
+  printf "Please install node\n"
+  exit 1
+fi
+
+which yarn &> /dev/null
+if [ $? -ne 0 ]; then
+  npm i -g yarn
+fi
+
+CURRENT_PATH=$(pwd)
+
+case $# in
+  2 )
+    cd ~/.dotfiles
+    yarn $1 --dev $2
+    cd $CURRENT_PATH
+    ;;
+  * )
+    printf "
+    Error: Wrong number of arguments. Expected 2, got $#
+
+      About:
+        Node modules installer to ~/.dotfile base global.
+
+      Usage:
+        $ yarng add eslint
+        $ yarng upgrade webpack
+
+    \n"
+    ;;
+esac
+

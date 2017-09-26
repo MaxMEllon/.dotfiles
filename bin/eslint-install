@@ -1,0 +1,16 @@
+#!/bin/bash
+
+if [[ ! -f package.json ]]; then
+  yarn init
+fi
+
+yarn add eslint eslint \
+       eslint-config-prettier \
+       eslint-plugin-react \
+       eslint-plugin-prettier \
+       prettier \
+       babel-eslint &
+
+wget https://raw.githubusercontent.com/MaxMEllon/.dotfiles/master/eslint/.eslintrc.yml &
+
+wait

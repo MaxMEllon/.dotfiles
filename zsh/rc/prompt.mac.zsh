@@ -22,6 +22,20 @@ dir_character=''
 user_character=''
 newline=''
 
+get-os-emoji() {
+  case $(uname) in
+    'Darwin' )
+      printf "\e[38;5;51m\uf179 "
+      ;;
+    'Linux' )
+      printf "\uf17c "
+      ;;
+    * )
+      printf "\u17f "
+      ;;
+  esac
+}
+
 store-colors() {
   fg_color=$1 && bg_color=$2
 }
