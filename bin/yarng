@@ -21,14 +21,14 @@ case $# in
     ;;
   * )
     printf "
-    Error: Wrong number of arguments. Expected 1, got $#
+    Error: Wrong number of arguments. Expected 2, got $#
 
       About:
         Node modules installer to ~/.dotfile base global.
 
       Usage:
-        $ dnp eslint
-        $ dnp webpack
+        $ yarng add eslint
+        $ yarng upgrade webpack
 
     \n"
     ;;
