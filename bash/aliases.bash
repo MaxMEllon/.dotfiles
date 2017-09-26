@@ -17,7 +17,10 @@ case $(uname) in
     fi
     ;;
   *)
+    alias ls="ls -hF --color=auto"
     alias la="ls -hAF --color=auto"
+    alias ll="ls -hlF --color=auto"
+    alias lla="ls -hAlF --color=auto"
     ;;
 esac
 

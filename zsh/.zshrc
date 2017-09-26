@@ -33,13 +33,17 @@ fi
 
 [ -f ~/.local.alias ] && source ~/.local.alias
 
-if has \tmux; then
-  if hasprocess tmux; then
-    if ! hasenv $TMUX; then
-      session=$(\tmux list-sessions | awk -F ':' 'NR==1 {print $1}')
-      \tmux attach -t $session
-    fi
-  else
-    is_osx && tmux -2
-  fi
-fi
+expath ${DOTPATH}/node_modules/.bin
+
+# if has \tmux; then
+#   if hasprocess tmux; then
+#     if ! hasenv $TMUX; then
+#       session=$(\tmux list-sessions | awk -F ':' 'NR==1 {print $1}')
+#       \tmux attach -t $session
+#     fi
+#   else
+#     is_osx && tmux -2
+#   fi
+# fi
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

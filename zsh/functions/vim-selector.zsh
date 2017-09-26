@@ -105,11 +105,12 @@ vim_type () {
 alias tvim='toggle_vim_type'
 alias svim='select_vim_type'
 alias vt='vim_type'
-if has nvim; then
-  export MY_VIM_TYPE='neo'
-  alias vim='nvim'
-  alias v='nvim'
-elif type /usr/local/bin/vim; then
+# if has nvim; then
+#   export MY_VIM_TYPE='neo'
+#   alias vim='nvim'
+#   alias v='nvim'
+# elif type /usr/local/bin/vim; then
+if type /usr/local/bin/vim; then
   export MY_VIM_TYPE='cui'
   alias vim='/usr/local/bin/vim'
   alias v='/usr/local/bin/vim'

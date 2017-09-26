@@ -3,8 +3,9 @@
 [alias]
 	st=status
 	sh=show
-	cm=commit
-	br=branch
+	c=commit
+	b=branch
+	p="!f() { git pull origin `git rev-parse --abbrev-ref HEAD`; }; f;"
 	db="!f() { git branch -D `git branch | peco`; }; f;"
 	lg=log --graph --all --color --pretty='%x09%h %cn%x09%s %Cred%d'
 	alias=!git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
@@ -17,6 +18,8 @@
 	ck = "!f() { git checkout `git branch | peco`; }; f;"
 	amend = "!f() { GIT_EDITOR=: git commit --amend; }; f;"
 [push]
+	default = current
+[pull]
 	default = current
 [core]
 	editor = /usr/local/bin/vim
