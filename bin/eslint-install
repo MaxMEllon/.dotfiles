@@ -9,5 +9,8 @@ yarn add eslint eslint \
        eslint-plugin-react \
        eslint-plugin-prettier \
        prettier \
-       babel-eslint
+       babel-eslint &
 
+wget https://raw.githubusercontent.com/MaxMEllon/.dotfiles/master/eslint/.eslintrc.yml &
+
+wait
