@@ -1,6 +1,6 @@
 has fzf-tmux || \
   {
-    alias gco='git chekout'
+    alias gco='git checkout'
     return 0
   }
 
