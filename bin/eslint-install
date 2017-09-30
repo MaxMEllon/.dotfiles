@@ -4,7 +4,7 @@ if [[ ! -f package.json ]]; then
   yarn init
 fi
 
-yarn add eslint eslint \
+yarn add --dev eslint \
        eslint-config-prettier \
        eslint-plugin-react \
        eslint-plugin-prettier \
@@ -12,5 +12,6 @@ yarn add eslint eslint \
        babel-eslint &
 
 wget https://raw.githubusercontent.com/MaxMEllon/.dotfiles/master/eslint/.eslintrc.yml &
+wget https://raw.githubusercontent.com/MaxMEllon/.dotfiles/master/prettier/.prettierrc.yml &
 
 wait
