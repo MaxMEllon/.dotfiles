@@ -27,11 +27,11 @@ select_vim_type() {
   fi
   if [[ $1 == 'cui' ]]; then
     if has /usr/local/bin/vim; then
-      alias vim='/usr/local/bin/vim'
-      alias v='/usr/local/bin/vim'
+      # alias vim='/usr/local/bin/vim'
+      # alias v='/usr/local/bin/vim'
     elif hasenv $MY_VIM_TYPE; then
-      alias vim='/usr/local/bin/vim'
-      alias v='/usr/local/bin/vim'
+      # alias vim='/usr/local/bin/vim'
+      # alias v='/usr/local/bin/vim'
     else
       unalias vim
       unalias vi
@@ -85,7 +85,7 @@ toggle_vim_type () {
     return
   fi
   if [[ $MY_VIM_TYPE == 'cui' ]]; then
-    alias vim='/usr/local/bin/vim'
+    # alias vim='/usr/local/bin/vim'
     vim_type
     export MY_VIM_TYPE='neo'
     return
@@ -112,11 +112,11 @@ alias vt='vim_type'
 # elif type /usr/local/bin/vim; then
 if type /usr/local/bin/vim; then
   export MY_VIM_TYPE='cui'
-  alias vim='/usr/local/bin/vim'
-  alias v='/usr/local/bin/vim'
+  # alias vim='/usr/local/bin/vim'
+  # alias v='/usr/local/bin/vim'
 elif hasenv $MY_VIM_TYPE; then
-  alias vim='/usr/local/bin/vim'
-  alias v='/usr/local/bin/vim'
+  # alias vim='/usr/local/bin/vim'
+  # alias v='/usr/local/bin/vim'
 else
   unalias vim
   unalias v

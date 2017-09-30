@@ -22,7 +22,7 @@
 [pull]
 	default = current
 [core]
-	editor = /usr/local/bin/vim
+	editor = vim
 	excludesfile = ~/.dotfiles/git/.gitignore
 	ignorecase = false
 [user]
