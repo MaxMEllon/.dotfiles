@@ -1,20 +1,25 @@
 parser: babel-eslint
-env: es6
+env:
+  es6: true
+  node: true
 extends:
-  - prettier
-  - prettier/standard
+- prettier
+- prettier/standard
 plugins:
-  - prettier
+- prettier
+- react
 rules:
   prettier/prettier: error
   no-unused-vars:
     - error
-    - caughtErrorsIgnorePattern: "^_"
+    - argsIgnorePattern: "^_"
+      caughtErrorsIgnorePattern: "^_"
+      varsIgnorePattern: "^h$"
   no-console:
+  - error
+  - allow:
+    - warn
     - error
-    - allow:
-      - warn
-      - error
   no-undef: error
   no-const-assign: error
   no-class-assign: error
