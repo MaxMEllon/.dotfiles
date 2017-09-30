@@ -29,6 +29,7 @@ case $# in
       Usage:
         $ yarng add eslint
         $ yarng upgrade webpack
+        $ yarng remove webpack
 
     \n"
     ;;

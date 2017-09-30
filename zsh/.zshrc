@@ -33,8 +33,6 @@ fi
 
 [ -f ~/.local.alias ] && source ~/.local.alias
 
-expath ${DOTPATH}/node_modules/.bin
-
 # if has \tmux; then
 #   if hasprocess tmux; then
 #     if ! hasenv $TMUX; then
