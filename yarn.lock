@@ -2445,3 +2445,7 @@ yargs@~3.5.4:
     decamelize "^1.0.0"
     window-size "0.1.0"
     wordwrap "0.0.2"
+
+yarn@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/yarn/-/yarn-1.1.0.tgz#f2da9340490236b6c56de305b1c21a8a19c433c3"
