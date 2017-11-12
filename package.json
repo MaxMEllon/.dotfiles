@@ -1,8 +1,11 @@
 {
   "devDependencies": {
+    "acorn": "^5.2.1",
     "babel": "^6.23.0",
     "babel-cli": "^6.26.0",
     "babel-eslint": "^8.0.0",
+    "electron": "^1.7.9",
+    "electron-open-url": "^1.6.0",
     "emojify": "^1.0.0",
     "eslint": "^4.7.2",
     "eslint-config-standard": "^10.2.1",
@@ -13,6 +16,7 @@
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-react": "^7.4.0",
     "eslint-plugin-standard": "^3.0.1",
+    "eslint_d": "^5.1.0",
     "ita": "^1.0.0",
     "yarn": "^1.1.0"
   }

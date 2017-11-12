@@ -31,6 +31,8 @@ if hasenv $DOT_ZSHRC_DEBUG; then
   fi
 fi
 
+# rmpath "${HOME}/.nodenv/shims"
+
 [ -f ~/.local.alias ] && source ~/.local.alias
 
 # if has \tmux; then

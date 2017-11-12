@@ -20,20 +20,20 @@ zplug 'b4b4r07/emoji-cli', \
     on:"junegunn/fzf-bin", \
     if:'(( $+commands[jq] ))'
 
-zplug 'b4b4r07/copy', \
-    as:command, \
-    use:'(*).sh', \
-    rename-to:'pecopy'
+# zplug 'b4b4r07/copy', \
+#     as:command, \
+#     use:'(*).sh', \
+#     rename-to:'pecopy'
 
-zplug 'maxmellon/slack-user-status-trigger', \
-    use:'(*.sh)', \
-    rename-to:'$1'
+# zplug 'maxmellon/slack-user-status-trigger', \
+#     use:'(*.sh)', \
+#     rename-to:'$1'
 
-zplug 'b4b4r07/history', \
-    as:command, \
-    from:gh-r, \
-    rename-to:history, \
-    use:"*darwin*amd64*"
+# zplug 'b4b4r07/history', \
+#     as:command, \
+#     from:gh-r, \
+#     rename-to:history, \
+#     use:"*darwin*amd64*"
 
 # zplug 'mrowa44/emojify', \
 #     as:command, \
@@ -43,16 +43,16 @@ zplug 'maxmellon/z', \
     use:z.sh, \
     defer:3
 
-zplug 'supercrabtree/k'
+# zplug 'supercrabtree/k'
 
-zplug 'jhawthorn/fzy', \
-    as:command, \
-    rename-to:fzy, \
-    hook-build:"
-    {
-        make
-    } &>/dev/null
-    "
+# zplug 'jhawthorn/fzy', \
+#     as:command, \
+#     rename-to:fzy, \
+#     hook-build:"
+#     {
+#         make
+#     } &>/dev/null
+#     "
 
 # if is_osx; then
 #   zplug 'junegunn/fzf-bin', \
@@ -68,12 +68,12 @@ zplug 'jhawthorn/fzy', \
 #       use:"*linux*amd64*"
 # fi
 
-zplug 'b4b4r07/git-conflict', \
-    as:command
+# zplug 'b4b4r07/git-conflict', \
+#     as:command
 
 zplug 'maxmellon/yarn_completion'
 
-zplug 'maxmellon/circleci-cli_completion'
+# zplug 'maxmellon/circleci-cli_completion'
 
 # zplug 'b4b4r07/enhancd', \
 #     use:init.sh
@@ -88,7 +88,7 @@ zplug 'zsh-users/zsh-completions'
 zplug 'zsh-users/zsh-syntax-highlighting', \
     defer:3
 
-zplug 'paulirish/git-open', as:command
+# zplug 'paulirish/git-open', as:command
 
 zplug load
 

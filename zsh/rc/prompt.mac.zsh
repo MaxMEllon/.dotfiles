@@ -23,17 +23,19 @@ user_character=''
 newline=''
 
 get-os-emoji() {
+  echo -n "%{%F{7}%K{136}%} "
   case $(uname) in
     'Darwin' )
-      printf "\e[38;5;51m\uf179 "
+      printf "\ue711"
       ;;
     'Linux' )
-      printf "\uf17c "
+      printf "\ue712"
       ;;
     * )
-      printf "\u17f "
+      printf "\ue716"
       ;;
   esac
+  echo -n "  "
 }
 
 store-colors() {
@@ -76,6 +78,7 @@ get-prompt() {
 }
 
 powerless-prompt() {
+  get-os-emoji
   get-pwd $powerless_color_text $powerless_color_pwd
   get-git-info $powerless_color_text $powerless_color_git
   get-prompt
