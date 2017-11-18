@@ -137,10 +137,10 @@ if zplug check maxmellon/z; then
   export _Z_DATA=$HOME/.zdata/.z
 fi
 
-if zplug check supercrabtree/k; then
-  alias ll='k --no-vcs'
-  alias lla='k -a --no-vcs'
-fi
+# if zplug check supercrabtree/k; then
+#   alias ll='k --no-vcs'
+#   alias lla='k -a --no-vcs'
+# fi
 
 if zplug check b4b4r07/history; then
   alias hs='command history'

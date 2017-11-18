@@ -34,6 +34,7 @@ fi
 # rmpath "${HOME}/.nodenv/shims"
 
 [ -f ~/.local.alias ] && source ~/.local.alias
+[ -f ~/.cargo/env ] && source ~/.cargo/env
 
 # if has \tmux; then
 #   if hasprocess tmux; then
