@@ -19,6 +19,7 @@
     "eslint-plugin-standard": "^3.0.1",
     "eslint_d": "^5.1.0",
     "ita": "^1.0.0",
+    "svg-term-cli": "^2.0.3",
     "typescript": "^2.6.1",
     "yarn": "^1.1.0"
   }
