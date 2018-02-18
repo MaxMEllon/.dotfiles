@@ -10,6 +10,8 @@
 	lg=log --graph --all --color --pretty='%x09%h %cn%x09%s %Cred%d'
 	alias=!git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
 	ls="!f() { git ls-files | peco; }; f;"
+	current-branch = symbolic-ref --short HEAD
+	merged-branches = for-each-ref refs/heads/ --format='%(refname:short)' --merged
 	rb=fetch --prune
 	# See: https://github.com/iguto/dotfiles/blob/master/.gitconfig#L12-L14
 	lock = "update-index --skip-worktree"

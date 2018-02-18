@@ -11,7 +11,7 @@ logo='
 printf $logo
 
 autoload -U compinit
-compinit
+compinit -C
 
 [[ is_osx ]] && PROMPT_SOURCE='zsh/rc/prompt.mac.zsh' \
              || PROMPT_SOURCE='zsh/rc/prompt.zsh'

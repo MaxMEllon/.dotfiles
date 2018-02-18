@@ -15,8 +15,6 @@
 umask 022
 limit coredumpsize 0
 
-myplug zsh/rc/init.zsh
-
 [ -f ~/.env ] && source ~/.env
 
 for env in $ANY_ENV_LIST; do
@@ -24,6 +22,8 @@ for env in $ANY_ENV_LIST; do
 done
 
 expath ~/.yarn/bin
+
+myplug zsh/rc/init.zsh
 
 if hasenv $DOT_ZSHRC_DEBUG; then
   if (which zprof > /dev/null) ;then

@@ -19,13 +19,15 @@ else
   skip "git clone ${url} ~/.zplug"
 fi
 
+autoload -U zcompile
 
 for f in $DOTPATH/zsh/rc/*.zsh; do
-  zcompile $f && printf "\e[32m ok\t: zcompile $1  \e[0m\n" 
+  zcompile $f && printf "\e[32m ok\t: zcompile $1  \e[0m\n" &
 done
 
 for f in $DOTPATH/zsh/functions/*.zsh; do
-  zcompile $f && printf "\e[32m ok\t: zcompile $1  \e[0m\n" 
+  echo $f
+  zcompile $f && printf "\e[32m ok\t: zcompile $1  \e[0m\n" &
 done
 
 ln -fs $DOTPATH/zsh/.zshrc ~/ &
