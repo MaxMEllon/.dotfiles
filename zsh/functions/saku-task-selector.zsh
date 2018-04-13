@@ -1,7 +1,7 @@
 saku-task-selector()
 {
   [[ ! -f saku.md ]] && return || true
-  local result=$(cat saku.md | grep -E '^#' | cut 3- | fzy)
+  local result=$(cat saku.md | grep -E '^#' | cut -c 3- | fzy)
   if [ -n "$result" ]; then
     eval "saku $result"
   else
@@ -9,4 +9,4 @@ saku-task-selector()
   fi
 }
 
-alias saki="saku-tasuk-selector"
+alias saki="saku-task-selector"

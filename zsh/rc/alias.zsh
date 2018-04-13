@@ -4,7 +4,7 @@ myplug bash/aliases.bash
 
 alias -g E='exec'
 alias -g I='install'
-alias -g JSON='| python -m json.tool > __TMP_JSON_FILE__.json'
+alias -g JSON='| python -m json.tool'
 alias -g G='| grep -v grep | grep'
 alias -g L='| less'
 alias -g C='| color'
