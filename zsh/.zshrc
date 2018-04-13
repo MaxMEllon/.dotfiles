@@ -22,6 +22,11 @@ for env in $ANY_ENV_LIST; do
 done
 
 expath ~/.yarn/bin
+expath ${DOTPATH}/node_modules/.bin
+expath ${HOME}/local/go/bin
+expath ${HOME}/.zplug/bin
+expath ${HOME}/.local/bin
+expath ${HOME}/local/bin
 
 myplug zsh/rc/init.zsh
 
