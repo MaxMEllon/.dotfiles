@@ -1,6 +1,6 @@
 #!/bin/sh
 
-sepchar='⮀'
+sepchar=''
 
 # header="#[fg=colour8,bold]#[bg=colour117]"
 header="#[fg=colour225]#[bg=colour30]"
