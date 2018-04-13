@@ -20,7 +20,7 @@ myplug zsh/rc/zplug.zsh
 myplug zsh/rc/opt.zsh
 myplug zsh/rc/style.zsh
 myplug $PROMPT_SOURCE
-myplug zsh/rc/hook.zsh
+# myplug zsh/rc/hook.zsh
 myplug zsh/rc/history.zsh
 myplug zsh/rc/misc.zsh
 myplug zsh/rc/alias.zsh

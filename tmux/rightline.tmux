@@ -4,7 +4,7 @@
 basecolor='#[fg=colour50,bold]#[fg=colour235,bold] '
 
 # separator ------------------------------------------------------------------
-sepchar='⮂ '
+sepchar=''
 s1="#[fg=colour117]${sepchar}#[fg=colour0]#[bg=colour117]"
 s2="#[fg=colour30]${sepchar}#[fg=colour225]#[bg=colour30]"
 s3="#[fg=colour26]${sepchar}#[fg=colour255]#[bg=colour26]"

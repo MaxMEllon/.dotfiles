@@ -1,5 +1,7 @@
 {
   "devDependencies": {
+    "@maxmellon/fx5": "^1.1.1",
+    "@recruit-tech/javascripting": "^2.6.2",
     "acorn": "^5.2.1",
     "babel": "^6.23.0",
     "babel-cli": "^6.26.0",
@@ -18,10 +20,13 @@
     "eslint-plugin-react": "^7.4.0",
     "eslint-plugin-standard": "^3.0.1",
     "eslint_d": "^5.1.0",
+    "fx": "^1.1.0",
     "ita": "^1.0.0",
     "saku": "^0.11.0",
+    "shiba": "^1.2.0",
+    "slack-cli": "^1.0.18",
     "svg-term-cli": "^2.0.3",
-    "typescript": "^2.6.1",
+    "typescript": "^2.8.1",
     "yarn": "^1.1.0"
   }
 }
