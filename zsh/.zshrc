@@ -17,15 +17,18 @@ limit coredumpsize 0
 
 [ -f ~/.env ] && source ~/.env
 
+expath /usr/local/bin
+
 for env in $ANY_ENV_LIST; do
   expath "$HOME/.$env/bin" && eval "$($env init -)" && echo "[env]\t$env\tis loaded"
+  expath "$HOME/.$env/shims"
 done
 
 expath ~/.yarn/bin
 expath ${DOTPATH}/node_modules/.bin
 expath ${HOME}/local/go/bin
 expath ${HOME}/.zplug/bin
-expath ${HOME}/.local/bin
+# expath ${HOME}/.local/bin
 expath ${HOME}/local/bin
 
 myplug zsh/rc/init.zsh
@@ -39,7 +42,7 @@ fi
 # rmpath "${HOME}/.nodenv/shims"
 
 [ -f ~/.local.alias ] && source ~/.local.alias
-[ -f ~/.cargo/env ] && source ~/.cargo/env
+# [ -f ~/.cargo/env ] && source ~/.cargo/env
 
 # if has \tmux; then
 #   if hasprocess tmux; then

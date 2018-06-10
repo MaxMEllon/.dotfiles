@@ -12,5 +12,3 @@ myplug lib/conveni.sh
 hasenv $DOT_ZSHRC_DEBUG && modload zsh/zprof && zprof
 
 source $DOTPATH/bash/env.bash
-
-expath /usr/local/bin
