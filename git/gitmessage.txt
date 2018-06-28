@@ -1,4 +1,12 @@
 
+# See: http://falsandtru.hatenablog.com/entry/git-commit-message
+# - feat (new feature for the user, not a new feature for build script)
+# - fix (bug fix for the user, not a fix to a build script)
+# - docs (changes to the documentation)
+# - style (formatting, missing semi colons, etc; no production code change)
+# - refactor (refactoring production code, eg. renaming a variable)
+# - test (adding missing tests, refactoring tests; no production code change)
+# - chore (updating grunt tasks etc; no production code change)
 
 # See: https://raw.githubusercontent.com/59798/emoji-commit-and-releases/master/README.md
 # | emoji                 | 説明(類似する[angular-commit-type])
@@ -28,28 +36,28 @@
 
 # **うち、patchに該当するもの**
 # :globe_with_meridians: :lipstick:
-# 
+#
 # **うち、minorに該当するもの**
 # :globe_with_meridians: :lipstick: :heavy_plus_sign: :sparkles: :heavy_minus_sign: :zap:
-# 
+#
 # **該当しない（いわゆる`chore`）**
 # :globe_with_meridians: :lipstick: :wrench: :package: :copyright: :construction:
-# 
+#
 # [angular-commit-type]: https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md#type
 
 # The MIT License (MIT)
 # Copyright © 2016 59naga
-# 
+#
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the “Software”),
 # to deal in the Software without restriction, including without limitation
 # the rights to use, copy, modify, merge, publish, distribute, sublicense,
 # and/or sell copies of the Software, and to permit persons to whom the Software
 # is furnished to do so, subject to the following conditions:
-# 
+#
 # The above copyright notice and this permission notice shall be included
 # in all copies or substantial portions of the Software.
-# 
+#
 # THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND,
 # EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
 # MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
