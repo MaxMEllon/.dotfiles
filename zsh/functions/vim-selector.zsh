@@ -1,23 +1,23 @@
 # if has nvim-qt; then
 #   NEO_VIM_QT=`which nvim-qt`
 # fi
-# 
+#
 # select_vim_type() {
 #   if [ $# -ne 1 ]; then
 #     print "
 #     Error: Wrong number of arguments. Expected 1, got $#
-# 
+#
 #     Usage:
 #     $ select_vim_type gui
 #     $ select_vim_type cui
-# 
+#
 #     Alias:
 #     $ svim gui
 #     $ svim cui
 #     "
 #     return 1
 #   fi
-# 
+#
 #   if [[ $1 == 'gui' ]]; then
 #     alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@" -g'
 #     alias v='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@" -g'
@@ -58,21 +58,21 @@
 #     fi
 #   fi
 # }
-# 
+#
 # _select_vim_complete () {
 #   compadd gui cui neo neogui
 # }
 # compdef _select_vim_complete select_vim_type
 # compdef _select_vim_complete svim
-# 
+#
 # toggle_vim_type () {
 #   if [ $# -ne 0 ]; then
 #     print "
 #     Error: Wrong number of arguments. Expected 0, got $#
-# 
+#
 #     Usage:
 #     $ toggle_vim_type
-# 
+#
 #     Alias:
 #     $ tvim
 #     "
@@ -97,11 +97,11 @@
 #     return
 #   fi
 # }
-# 
+#
 # vim_type () {
 #   print "CURRENT_VIM_TYPE : ${MY_VIM_TYPE}\n"
 # }
-# 
+#
 # alias tvim='toggle_vim_type'
 # alias svim='select_vim_type'
 # alias vt='vim_type'

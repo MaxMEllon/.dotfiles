@@ -2,6 +2,7 @@
 
 myplug bash/aliases.bash
 
+alias ll='ls -l'
 alias -g E='exec'
 alias -g I='install'
 alias -g JSON='| python -m json.tool'
@@ -16,6 +17,7 @@ alias -g N=" >/dev/null 2>&1"
 alias -g N1=" >/dev/null"
 alias -g N2=" 2>/dev/null"
 
+# alias diff='diff -u'
 alias diff="git diff --no-index --"
 
 if has circleci-cli; then

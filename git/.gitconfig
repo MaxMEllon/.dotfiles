@@ -38,3 +38,5 @@
 	templatedir = ~/.dotfiles/git/scripts
 [commit]
 	template = ~/.dotfiles/git/gitmessage.txt
+[http]
+	sslVerify = false
