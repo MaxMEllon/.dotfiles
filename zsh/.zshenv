@@ -9,6 +9,6 @@ myplug()
 
 myplug lib/conveni.sh
 
-hasenv $DOT_ZSHRC_DEBUG && modload zsh/zprof && zprof
+hasenv $DOT_ZSHRC_DEBUG && zmodload zsh/zprof && zprof
 
 source $DOTPATH/bash/env.bash
