@@ -16,9 +16,9 @@ zplug 'b4b4r07/zspec', \
     use:bin, \
     lazy:true
 
-zplug 'b4b4r07/emoji-cli', \
-    on:"junegunn/fzf-bin", \
-    if:'(( $+commands[jq] ))'
+# zplug 'b4b4r07/emoji-cli', \
+#     on:"junegunn/fzf-bin", \
+#     if:'(( $+commands[jq] ))'
 
 # zplug 'b4b4r07/copy', \
 #     as:command, \
@@ -71,7 +71,7 @@ zplug 'maxmellon/z', \
 # zplug 'b4b4r07/git-conflict', \
 #     as:command
 
-zplug 'maxmellon/yarn_completion'
+# zplug 'maxmellon/yarn_completion'
 
 # zplug 'maxmellon/circleci-cli_completion'
 

@@ -23,19 +23,19 @@ user_character=''
 newline=''
 
 get-os-emoji() {
-  echo -n "%{%F{7}%K{136}%} "
+  echo -n "%{%F{16}%K{85}%} "
   case $(uname) in
     'Darwin' )
-      printf "\ue711"
+      printf "MAC"
       ;;
     'Linux' )
-      printf "\ue712"
+      printf "LINUX"
       ;;
     * )
-      printf "\ue716"
+      printf "ETC"
       ;;
   esac
-  echo -n "  "
+  echo -n " "
 }
 
 store-colors() {
@@ -77,7 +77,12 @@ get-prompt() {
   echo -n "$newline" && ([[ "$(print -P "%#")" == "#" ]] && echo -n "%{%F{$powerless_color_code_wrong}%}$prompt_char%{%f%} " || echo -n " $prompt_char ")
 }
 
+get-last-status() {
+  echo -n "%F{0}%K{%(?.004.005)} $? "
+}
+
 powerless-prompt() {
+  get-last-status
   get-os-emoji
   get-pwd $powerless_color_text $powerless_color_pwd
   get-git-info $powerless_color_text $powerless_color_git
@@ -101,7 +106,7 @@ precmd-powerless() {
 }
 
 # Attach the hook functions.
-precmd_functions+=(precmd-powerless)
+# precmd_functions+=(precmd-powerless)
 
 # Set the prompts.
 PROMPT='$(powerless-prompt)'
