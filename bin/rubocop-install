@@ -1,3 +1,0 @@
-#!/bin/bash
-
-wget https://raw.githubusercontent.com/MaxMEllon/.dotfiles/master/rubocop/.rubocop.yml
