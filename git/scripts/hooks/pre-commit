@@ -1,27 +1,2 @@
 #!/bin/bash
 
-which eslint_d > /dev/null 2>&1
-[[ $? == 1 ]] && npm install -g eslint_d
-
-cd `git rev-parse --show-toplevel`
-
-project_root=$(pwd)
-
-files=$(git diff --cached --name-only --diff-filter=ACM)
-
-result=$(echo "$files" | grep -e ".js$" | xargs -P20 -n1 eslint_d --fix --format compact \
-  | awk -F ',' '{print $1 ":" $2 ":" $3}' | awk -F ':' '{print $2  $3 " " $1 $4 }' \
-  | awk '{print $2 ":" $4 "" $5 ":" $6}' | sed s@${project_root}@\.@ \
-  | sed s/\:\:$//g | sed s/problems//g | sed s/problem//g | grep -v -e '^\s*#' -e '^\s*$')
-
-results=$(echo $result | tr '\n' ' ')
-
-flag=0
-for r in $results;
-do
-  [[ $r =~ "Error" ]] && printf "\e[31m ✗ $r \e[0m\n"
-  [[ $r =~ "Warning" ]] && printf "\e[33m ⚠ $r \e[0m\n"
-  [[ $r =~ "Error" ]] && : flag=1
-done
-
-exit $flag
