@@ -11,12 +11,12 @@ if ! has "zsh"; then
   exit 1
 fi
 
-url="https://github.com/zplug/zplug"
-if ! [ -d ~/.zplug ]; then
-  run "git clone ${url} ~/.zplug"
-  `git clone ${url} ~/.zplug` &> /dev/null && ok "\tgit clone $url" || error "\tgit clone $url"
+if ! [ -d ~/.zinit ]; then
+  run "install zinit"
+  mkdir ~/.zinit
+  git clone https://github.com/zdharma/zinit.git ~/.zinit/bin
 else
-  skip "git clone ${url} ~/.zplug"
+  skip "install zinit"
 fi
 
 autoload -U zcompile
