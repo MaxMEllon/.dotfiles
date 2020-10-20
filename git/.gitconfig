@@ -40,3 +40,5 @@
 	template = ~/.dotfiles/git/gitmessage.txt
 [http]
 	sslVerify = false
+[rerere]
+	enabled = true
