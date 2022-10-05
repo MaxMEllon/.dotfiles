@@ -17,11 +17,6 @@ limit coredumpsize 0
 
 expath /usr/local/bin
 
-for env in $ANY_ENV_LIST; do
-  expath "$HOME/.$env/bin" && eval "$($env init -)" && echo "[env]\t$env\tis loaded"
-  expath "$HOME/.$env/shims"
-done
-
 expath ~/.yarn/bin
 expath ${DOTPATH}/node_modules/.bin
 expath ${HOME}/local/go/bin
@@ -31,6 +26,11 @@ expath ${HOME}/local/bin
 expath /opt/homebrew/bin
 
 [ -f ~/.env ] && source ~/.env
+
+for env in $ANY_ENV_LIST; do
+  expath "$HOME/.$env/bin" && eval "$($env init -)" && echo "[env]\t$env\tis loaded"
+  expath "$HOME/.$env/shims"
+done
 
 myplug zsh/rc/init.zsh
 
