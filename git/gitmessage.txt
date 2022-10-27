@@ -1,13 +1,14 @@
 
 
-# See: http://falsandtru.hatenablog.com/entry/git-commit-message
-# - feat (new feature for the user, not a new feature for build script)
-# - fix (bug fix for the user, not a fix to a build script)
-# - docs (changes to the documentation)
-# - style (formatting, missing semi colons, etc; no production code change)
-# - refactor (refactoring production code, eg. renaming a variable)
-# - test (adding missing tests, refactoring tests; no production code change)
-# - chore (updating grunt tasks etc; no production code change)
+# See: https://www.conventionalcommits.org/ja/v1.0.0/#%e4%bb%95%e6%a7%98
+# - ci: Changes to our CI configuration files and scripts (example scopes: Travis, Circle, BrowserStack, SauceLabs)
+# - docs: Documentation only changes
+# - feat: A new feature
+# - fix: A bug fix
+# - perf: A code change that improves performance
+# - refactor: A code change that neither fixes a bug nor adds a feature
+# - style: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
+# - test: Adding missing tests or correcting existing tests
 
 # See: https://raw.githubusercontent.com/59798/emoji-commit-and-releases/master/README.md
 # | emoji                 | 説明(類似する[angular-commit-type])
