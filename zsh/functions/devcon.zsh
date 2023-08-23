@@ -1,3 +1,17 @@
+__devcon::has_command()
+{
+  type $1 &>/dev/null
+  (( $? == 0 )) && true || false
+}
+
+__devcon::when_has_not_command()
+{
+  cat <<-WARN
+Required install "devcontainer" command
+  $ npm install -g @devcontainers/cli
+WARN
+}
+
 __devcon::kill()
 {
   docker kill $(docker ps | grep devcontainer | awk '{print $1}')
@@ -36,7 +50,6 @@ Command:
   stop                 Kill process of dev container
   help                 Show help
 
-
 Example:
   $ devcon exec env    # show environment in container
   $ devcon all-reload
@@ -49,8 +62,14 @@ HELP
 
 devcon()
 {
+  if ! __devcon::has_command devcontainer; then
+    __devcon::when_has_not_command
+    return 1
+  fi
+
   case "$1" in
     all-reload)
+      if $2
       __devcon::kill
       __devcon::prune
       __devcon::stop
