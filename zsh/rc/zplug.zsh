@@ -88,6 +88,9 @@ zinit light zsh-users/zsh-completions
 
 zinit light zdharma/fast-syntax-highlighting
 
+# zinit ice depth=1
+# zinit light jeffreytse/zsh-vi-mode
+
 # zplug 'paulirish/git-open', as:command
 
 [ ! -d $HOME/.zdata ] && mkdir ~/.zdata
