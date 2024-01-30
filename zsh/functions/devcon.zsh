@@ -87,7 +87,7 @@ devcon()
       ;;
 
     stop)
-      __devcon:stop
+      __devcon::stop
       ;;
 
     help)
