@@ -90,4 +90,6 @@
     "watch": false,
     "onSave": "test-file"
 },
+"git.openRepositoryInParentFolders": "never",
+"workbench.startupEditor": "readme",
 }
