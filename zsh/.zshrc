@@ -82,3 +82,7 @@ zinit light-mode for \
   zdharma-continuum/zinit-annex-patch-dl \
   zdharma-continuum/zinit-annex-rust
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+
+if has code && (( VSCODE_INJECTION == 1 )); then
+  alias vim="code -r"
+fi
