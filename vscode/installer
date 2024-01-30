@@ -1,0 +1,12 @@
+#!/bin/bash
+code --install-extension dbaeumer.vscode-eslint
+code --install-extension EditorConfig.EditorConfig
+code --install-extension GitHub.copilot
+code --install-extension GitHub.copilot-chat
+code --install-extension golang.go
+code --install-extension ms-azuretools.vscode-docker
+code --install-extension MS-CEINTL.vscode-language-pack-ja
+code --install-extension ms-vscode-remote.remote-containers
+code --install-extension ms-vsliveshare.vsliveshare
+code --install-extension Orta.vscode-jest
+code --install-extension vscodevim.vim

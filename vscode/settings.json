@@ -1,0 +1,93 @@
+{
+  "workbench.colorTheme": "Default High Contrast",
+  "workbench.sideBar.location": "right" ,
+  "explorer.confirmDelete": false,
+  "breadcrumbs.enabled": false,
+  "editor.folding": false,
+  "editor.lineNumbers": "off" ,
+  "editor.minimap.enabled": false,
+  "terminal.integrated.defaultLocation": "editor",
+  "terminal.integrated.showLinkHover":false, 
+  "editor.unicodeHighlight.nonBasicASCII": false,
+  "files.eol": "\n",
+  "workbench.panel.opensMaximized": "never",
+  "vim.insertModeKeyBindingsNonRecursive": [
+    {
+      "before": [
+        "j",
+        "j"
+      ],
+      "after": [
+        "<Esc>"
+      ]
+    },
+  ],
+  "vim.visualstar": true,
+  "vim.easymotion": true,
+  "vim.hlsearch": true,
+  "vim.highlightedyank.enable": true,
+  "vim.statusBarColorControl": true,
+  "vim.statusBarColors.normal": ["#8FBCBB", "#434C5E"],
+  "vim.statusBarColors.insert": "#BF616A",
+  "vim.statusBarColors.visual": "#B48EAD",
+  "vim.statusBarColors.visualline": "#B48EAD",
+  "vim.statusBarColors.visualblock": "#A3BE8C",
+  "vim.statusBarColors.replace": "#D08770",
+  "vim.statusBarColors.commandlineinprogress": "#007ACC",
+  "vim.statusBarColors.searchinprogressmode": "#007ACC",
+  "vim.statusBarColors.easymotionmode": "#007ACC",
+  "vim.statusBarColors.easymotioninputmode": "#007ACC",
+  "vim.statusBarColors.surroundinputmode": "#007ACC",
+  "vim.insertModeKeyBindings": [],
+  "vim.normalModeKeyBindings": [
+    {
+      "before": [
+        "s"
+      ],
+      "after": [
+        "<leader>",
+        "<leader>",
+        "2",
+        "s",
+        "<char>",
+        "<char>"
+      ]
+    },
+    {
+      "before": [
+        ",",
+        "c"
+      ],
+      "after": [
+        "g",
+        "c"
+      ]
+    }
+  ],
+  "editor.tabSize": 2,
+  "terminal.integrated.tabStopWidth": 2,
+  "vim.visualModeKeyBindings": [
+    {
+      "before": [
+        ",",
+        "c"
+      ],
+      "after": [
+        "g",
+        "c"
+      ]
+    }
+  ],
+  "workbench.colorCustomizations": {
+    "statusBar.background": "#8FBCBB",
+    "statusBar.noFolderBackground": "#8FBCBB",
+    "statusBar.debuggingBackground": "#8FBCBB",
+    "statusBar.foreground": "#434C5E",
+    "statusBar.debuggingForeground": "#434C5E"
+  },
+  "security.workspace.trust.untrustedFiles": "open",
+  "jest.autoRun": {
+    "watch": false,
+    "onSave": "test-file"
+},
+}
