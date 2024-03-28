@@ -3,5 +3,13 @@
   {
     "key": "cmd+'",
     "command": "workbench.action.createTerminalEditor"
+  },
+  {
+    "key": "cmd+p",
+    "command": "workbench.action.showAllEditors"
+  },
+  {
+    "key": "cmd+space",
+    "command": "workbench.action.quickOpen"
   }
 ]
