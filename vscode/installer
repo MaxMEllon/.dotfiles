@@ -8,6 +8,7 @@ code --install-extension github.copilot
 code --install-extension github.copilot-chat
 code --install-extension golang.go
 code --install-extension gruntfuggly.auto-snippet
+code --install-extension jebbs.plantuml
 code --install-extension ms-azuretools.vscode-docker
 code --install-extension ms-ceintl.vscode-language-pack-ja
 code --install-extension ms-vscode-remote.remote-containers
