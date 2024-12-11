@@ -1,26 +1,46 @@
 {
-  "workbench.colorTheme": "Default High Contrast",
-  "workbench.sideBar.location": "right" ,
+  "github.copilot.editor.enableAutoCompletions": true,
+  "workbench.sideBar.location": "right",
   "explorer.confirmDelete": false,
   "breadcrumbs.enabled": false,
+  "editor.rulers": [
+    {
+      "column": 80,
+      "color": "#333333"
+    },
+    {
+      "column": 120,
+      "color": "#333333"
+    }
+  ],
   "editor.folding": false,
-  "editor.lineNumbers": "off" ,
+  "editor.lineNumbers": "on",
+  "workbench.editor.wrapTabs": true,
+  "workbench.editor.showTabs": "none",
   "editor.minimap.enabled": false,
   "terminal.integrated.defaultLocation": "editor",
-  "terminal.integrated.showLinkHover":false, 
-  "editor.unicodeHighlight.nonBasicASCII": false,
-  "files.eol": "\n",
+  "workbench.panel.defaultLocation": "bottom",
   "workbench.panel.opensMaximized": "never",
+  "terminal.integrated.confirmOnKill": "never",
+  "terminal.integrated.showLinkHover": false,
+  "terminal.integrated.scrollback": 100000,
+  "editor.unicodeHighlight.nonBasicASCII": false,
+  "files.trimTrailingWhitespace": true,
+  "files.trimFinalNewlines": true,
+  "files.eol": "\n",
+  "files.exclude": {
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/.hg": true,
+    "**/.svn": true,
+    "**/.git": true
+  },
+  "editor.guides.bracketPairs": true,
   "vim.insertModeKeyBindingsNonRecursive": [
     {
-      "before": [
-        "j",
-        "j"
-      ],
-      "after": [
-        "<Esc>"
-      ]
-    },
+      "before": ["j", "j"],
+      "after": ["<Esc>"]
+    }
   ],
   "vim.visualstar": true,
   "vim.easymotion": true,
@@ -41,43 +61,24 @@
   "vim.insertModeKeyBindings": [],
   "vim.normalModeKeyBindings": [
     {
-      "before": [
-        "s"
-      ],
-      "after": [
-        "<leader>",
-        "<leader>",
-        "2",
-        "s",
-        "<char>",
-        "<char>"
-      ]
+      "before": ["s", "s"],
+      "after": ["<leader>", "<leader>", "2", "s", "<char>", "<char>"]
     },
     {
-      "before": [
-        ",",
-        "c"
-      ],
-      "after": [
-        "g",
-        "c"
-      ]
+      "before": [",", "c"],
+      "after": ["g", "c"]
     }
   ],
   "editor.tabSize": 2,
   "terminal.integrated.tabStopWidth": 2,
   "vim.visualModeKeyBindings": [
     {
-      "before": [
-        ",",
-        "c"
-      ],
-      "after": [
-        "g",
-        "c"
-      ]
+      "before": [",", "c"],
+      "after": ["g", "c"]
     }
   ],
+  "workbench.editor.enablePreview": false,
+  "workbench.editor.enablePreviewFromQuickOpen": false,
   "workbench.colorCustomizations": {
     "statusBar.background": "#8FBCBB",
     "statusBar.noFolderBackground": "#8FBCBB",
@@ -86,10 +87,40 @@
     "statusBar.debuggingForeground": "#434C5E"
   },
   "security.workspace.trust.untrustedFiles": "open",
-  "jest.autoRun": {
-    "watch": false,
-    "onSave": "test-file"
-},
-"git.openRepositoryInParentFolders": "never",
-"workbench.startupEditor": "readme",
+  "jest.runMode": "on-demand",
+  "git.openRepositoryInParentFolders": "never",
+  "workbench.startupEditor": "readme",
+  "workbench.editor.tabSizing": "shrink",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "workbench.colorTheme": "Default High Contrast",
+  "git.ignoreMissingGitWarning": true,
+  "terminal.integrated.defaultProfile.windows": "Ubuntu (WSL)",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "explorer.confirmDragAndDrop": false,
+  "editor.fontFamily": "'Bizin Gothic Discord', Menlo, Monaco, 'Courier New', monospace",
+  "window.zoomLevel": 2,
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.codeActionsOnSave": {
+    "[javascript]": {
+      "editor.formatOnSave": true,
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascriptreact]": {
+      "editor.formatOnSave": true,
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+      "editor.formatOnSave": true,
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescriptreact]": {
+      "editor.formatOnSave": true,
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }

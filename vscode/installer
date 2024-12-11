@@ -2,13 +2,18 @@
 defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
 defaults write com.microsoft.VSCodeInsiders ApplePressAndHoldEnabled -bool false
 code --install-extension dbaeumer.vscode-eslint
-code --install-extension EditorConfig.EditorConfig
-code --install-extension GitHub.copilot
-code --install-extension GitHub.copilot-chat
+code --install-extension editorconfig.editorconfig
+code --install-extension esbenp.prettier-vscode
+code --install-extension github.copilot
+code --install-extension github.copilot-chat
 code --install-extension golang.go
+code --install-extension gruntfuggly.auto-snippet
 code --install-extension ms-azuretools.vscode-docker
-code --install-extension MS-CEINTL.vscode-language-pack-ja
+code --install-extension ms-ceintl.vscode-language-pack-ja
 code --install-extension ms-vscode-remote.remote-containers
 code --install-extension ms-vsliveshare.vsliveshare
-code --install-extension Orta.vscode-jest
+code --install-extension orta.vscode-jest
+code --install-extension streetsidesoftware.code-spell-checker
+code --install-extension styled-components.vscode-styled-components
 code --install-extension vscodevim.vim
+code --install-extension vunguyentuan.vscode-css-variables

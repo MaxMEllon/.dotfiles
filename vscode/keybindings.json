@@ -11,5 +11,10 @@
   {
     "key": "cmd+space",
     "command": "workbench.action.quickOpen"
+  },
+  {
+    "key": "cmd+w",
+    "command": "-workbench.action.closeWindow",
+    "when": "!editorIsOpen && !multipleEditorGroups"
   }
 ]
